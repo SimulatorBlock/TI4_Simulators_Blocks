@@ -7,8 +7,16 @@ public class CreateBlock : MonoBehaviour
     [Space(5)]
     [Tooltip("The GameObject used to view where the block will be placed")]
     [SerializeField] private GameObject placeHolder;
+    [Tooltip("The Default GameObject placeHolder")]
+    [SerializeField] private GameObject defaultPlaceHolder;
+    [Tooltip("The Wheel GameObject placeHolder")]
+    [SerializeField] private GameObject wheelPlaceHolder;
     [Tooltip("The GameObject ('Block') that will be instantiated")]
     [SerializeField] private GameObject block;
+    [Tooltip("The GameObject ('Block') default")]
+    [SerializeField] private GameObject defaultBlock;
+    [Tooltip("The GameObject ('Block') wheel")]
+    [SerializeField] private GameObject wheelBlock;
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
 
@@ -17,6 +25,8 @@ public class CreateBlock : MonoBehaviour
     [Space(5)]
     [Tooltip("Bool posteriorly used for checks if found a block and posed placeHolder, when i release the EditMode the placeHolder must back to the Vector3.thousand pos")]
     [SerializeField] private bool isColliding = false;
+    [Tooltip("Bool for checks if you are putting a wheel")]
+    [SerializeField] private bool isWheel = false;
     // [SerializeField] private bool isEditing = false;
     // [SerializeField] private bool canDestroy = false;
     // [SerializeField] private bool canCreate = false;
@@ -73,6 +83,7 @@ public class CreateBlock : MonoBehaviour
             {
                 (foundBlock, foundBlockDir) = IndentifyFoundBlock();
                 SetPlaceHolderPos(foundBlock, foundBlockDir);
+                ControllBlocks();
                 GenerateBlock(foundBlock, foundBlockDir);
             }
             else if (GameManager.instance.IsDetroying())
@@ -132,7 +143,7 @@ public class CreateBlock : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && isColliding)
             {
                 /* var myBlock =  */
-                Instantiate(block, placeHolder.transform.position, Quaternion.identity);
+                Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
                 // myBlock.transform.parent = vehicle.transform;
                 obj.GetComponent<ConfigureJoint>().GetNonColliderDirs().Remove(dir);
             }
@@ -155,6 +166,29 @@ public class CreateBlock : MonoBehaviour
         }
     }
     /// <summary>
+    ///     Controls wich block will be instantiated
+    /// </summary>
+    private void ControllBlocks()
+    {
+        if (GetIsWheel())
+        {
+            ChangeBlock(wheelBlock);
+            SetPlaceHolderGameObject(wheelPlaceHolder);
+        }
+        else
+        {
+            ChangeBlock(defaultBlock);
+            SetPlaceHolderGameObject(defaultPlaceHolder);
+        }
+    }
+    /// <summary>
+    ///     Change block to instantiate
+    /// </summary>
+    private void ChangeBlock(GameObject instantiateObject)
+    {
+        block = instantiateObject;
+    }
+    /// <summary>
     ///     Sets place holder position, this function verifies wich block was encontred and wich direction by block point of view the place holder is in
     /// </summary>
     /// <param name="obj">
@@ -175,31 +209,55 @@ public class CreateBlock : MonoBehaviour
                     case 0://forward
                         objPos.z += distanceOffset;
                         DefinePlaceHolderPos(objPos);
+                        if (GetIsWheel())
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                        }
                         isColliding = true;
                         break;
                     case 1://back
                         objPos.z += -distanceOffset;
                         DefinePlaceHolderPos(objPos);
+                        if (GetIsWheel())
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
+                        }
                         isColliding = true;
                         break;
                     case 2://left
                         objPos.x += -distanceOffset;
                         DefinePlaceHolderPos(objPos);
+                        if (GetIsWheel())
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
+                        }
                         isColliding = true;
                         break;
                     case 3://right
                         objPos.x += distanceOffset;
                         DefinePlaceHolderPos(objPos);
+                        if (GetIsWheel())
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                        }
                         isColliding = true;
                         break;
                     case 4://up
                         objPos.y += distanceOffset;
                         DefinePlaceHolderPos(objPos);
+                        if (GetIsWheel())
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                        }
                         isColliding = true;
                         break;
                     case 5://down
                         objPos.y += -distanceOffset;
                         DefinePlaceHolderPos(objPos);
+                        if (GetIsWheel())
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
+                        }
                         isColliding = true;
                         break;
                     default:
@@ -356,6 +414,13 @@ public class CreateBlock : MonoBehaviour
         placeHolder.transform.position = pos;
     }
     /// <summary>
+    ///     Private function that used for define place holder GameObject
+    /// </summary>
+    private void SetPlaceHolderGameObject(GameObject obj)
+    {
+        placeHolder = obj;
+    }
+    /// <summary>
     ///     Private function that gets and return the placeHolder current position.
     /// </summary>
     /// <returns>
@@ -374,5 +439,15 @@ public class CreateBlock : MonoBehaviour
         {
             DefinePlaceHolderPos(thousand);
         }
+    }
+    /// <summary>
+    ///     Private function that gets and return the if is adding wheel.
+    /// </summary>
+    /// <returns>
+    ///     Booleans if is putting wheel or not
+    /// </returns>
+    private bool GetIsWheel()
+    {
+        return isWheel;
     }
 }
