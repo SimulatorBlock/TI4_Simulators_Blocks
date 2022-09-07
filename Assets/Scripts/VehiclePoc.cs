@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -7,28 +5,57 @@ public class VehiclePoc : MonoBehaviour
 {
     private Rigidbody rb;
     private bool isImpulse;
-    private readonly Vector3 defaultVelocity = Vector3.forward;
+    [SerializeField] private int mass;
+    [SerializeField] private int torque;
+
+    [SerializeField] private Block[] blocks;
+    [SerializeField] private Engine[] engines;
+    [SerializeField] private WheelCollider[] wheels;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.drag = 0f;
-        rb.velocity = defaultVelocity;
+
+        mass = 0;
+        foreach (var block in blocks) mass += block.Mass;
+        rb.mass = mass;
+
+        torque = 0;
+        foreach (var engine in engines) torque += engine.Torque;
+
+        foreach (var wheel in wheels)
+        {
+            wheel.mass = 1;
+            wheel.brakeTorque = torque * 3;
+            wheel.motorTorque = 0f;
+
+            float suspension = rb.mass * 8;
+            wheel.suspensionSpring = new JointSpring
+            {
+                spring = suspension * 10,
+                damper = suspension
+            };
+        }
     }
 
     private void Update()
     {
-        var velocity = rb.velocity;
-        rb.velocity = new Vector3(velocity.x , velocity.y, 2.0f);
-
         isImpulse = Input.GetKey(KeyCode.Space);
     }
 
     private void FixedUpdate()
     {
+        float impulse = 0.25f * rb.mass;
         if (isImpulse)
         {
-            rb.AddForce(Vector3.up * 0.25f, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * impulse, ForceMode.Impulse);
+        }
+
+        foreach (var wheel in wheels)
+        {
+            wheel.brakeTorque = 0f;
+            wheel.motorTorque = torque;
         }
     }
 
@@ -54,6 +81,5 @@ public class VehiclePoc : MonoBehaviour
 
         Debug.Log("SEQUINHO");
         rb.drag = 0f;
-        rb.velocity = defaultVelocity;
     }
 }
