@@ -26,11 +26,11 @@ public class VehiclePoc : MonoBehaviour
 
         foreach (var wheel in wheels)
         {
-            wheel.mass = 1;
+            wheel.mass = 20;
             wheel.brakeTorque = torque * 3;
             wheel.motorTorque = 0f;
 
-            float suspension = rb.mass * 8;
+            float suspension = rb.mass * 6;
             wheel.suspensionSpring = new JointSpring
             {
                 spring = suspension * 10,
