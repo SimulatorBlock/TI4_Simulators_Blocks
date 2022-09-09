@@ -13,4 +13,12 @@ public static class Constants
         Level_04,
         Level_05,
     }
+
+    public enum Vehicles
+    {
+        Vehicle_01,
+        Vehicle_02,
+        Vehicle_03,
+        Vehicle_04,
+    }
 }

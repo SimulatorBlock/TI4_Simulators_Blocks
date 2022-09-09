@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyVehicleMovement : MonoBehaviour
@@ -24,7 +22,6 @@ public class EnemyVehicleMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         Vector3 force = direction * 20f + Vector3.up * 20f;
         collision.rigidbody.velocity = force;
     }
