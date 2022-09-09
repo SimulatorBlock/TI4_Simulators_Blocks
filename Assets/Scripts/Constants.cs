@@ -1,5 +1,10 @@
 public static class Constants
 {
+    public enum Scenes
+    {
+        LevelSelector
+    }
+
     public enum Levels
     {
         Level_01,
