@@ -14,6 +14,7 @@ public static class Constants
         Level_05,
         Level_06,
         Level_07,
+        Level_08,
     }
 
     public enum Vehicles
