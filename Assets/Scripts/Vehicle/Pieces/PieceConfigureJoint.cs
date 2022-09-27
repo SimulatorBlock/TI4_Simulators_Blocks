@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConfigureJoint : MonoBehaviour
+public class PieceConfigureJoint : MonoBehaviour
 {
+    [Header("Only rayDistance, breakForce and\nbreakTorque must be sets by hand.")]
     [Space(30)]
-    [Header("Only rayDistance, breakForce and breakTorque must be sets by hand.")]
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
 
@@ -25,13 +25,6 @@ public class ConfigureJoint : MonoBehaviour
     [Tooltip("Torque to break the block ps.. In the main block it doesn't matter")]
     [SerializeField] private float breakTorque = float.PositiveInfinity;
 
-    [Header("Materials")]
-    [Space(10)]
-    [Tooltip("The Destroy Material, Gets on start by the GameManager.cs")]
-    [SerializeField] private Material destroyMaterial;
-    [Tooltip("The Default Material, Gets on start by the block")]
-    [SerializeField] private Material defaultMaterial;
-
     private Rigidbody myRigidBody;
     private readonly RaycastHit[] _hit = new RaycastHit[6];
     private readonly Vector3[] _directions = {
@@ -45,16 +38,13 @@ public class ConfigureJoint : MonoBehaviour
 
     void Start()
     {
-        mainBlock = GameManager.instance.GetMainBlock();
+        mainBlock = GameManager.instance.GetMainBlock;
         myRigidBody = this.gameObject.GetComponent<Rigidbody>();
-        defaultMaterial = GetComponentInChildren<Renderer>().material;
-        destroyMaterial = GameManager.instance.GetDestroyMaterial();
         Configure();
     }
     void Update()
     {
         TestDraw();
-        ResetMaterial();
     }
 
     /// <summary>
@@ -162,66 +152,6 @@ public class ConfigureJoint : MonoBehaviour
         // }
     }
     /// <summary>
-    ///     This function resets the block to the default material, 
-    /// </summary>
-    /// <remarks>
-    ///     <para>
-    ///         Observation
-    ///     </para>
-    ///     <para>
-    ///         The diference of this and the SetToDefaultMaterial is that this function will be called on the update function and this function was made for we can reset material by exiting the EditMode or the DestroyMode without remove mouse over the block that we suposed want to delete.
-    ///     </para>
-    /// </remarks>
-
-    public void ResetMaterial()
-    {
-        if ((!GameManager.instance.IsDetroying() || !GameManager.instance.IsEditing()) && (GetCurrentMaterial() != defaultMaterial))
-        {
-            SetToDefaultMaterial();
-        }
-    }
-    /// <summary>
-    ///     This function set the block to the destroy material.
-    /// </summary>
-    private void SetToDestroyMaterial()
-    {
-        this.gameObject.GetComponentInChildren<Renderer>().material = destroyMaterial;
-    }
-    /// <summary>
-    ///     This function set the block to the default material.
-    /// </summary>
-    private void SetToDefaultMaterial()
-    {
-        this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
-    }
-    /// <summary>
-    ///     This function gets the current material used by block.
-    /// </summary>
-    private Material GetCurrentMaterial()
-    {
-        return this.gameObject.GetComponentInChildren<Renderer>().material;
-    }
-    /// <summary>
-    ///     This is native function that check if the mouse exited over the block, i used this function to reset the block to the default material.
-    /// </summary>
-    private void OnMouseExit()
-    {
-        if (GameManager.instance.IsDetroying() && (this.gameObject != mainBlock))
-        {
-            SetToDefaultMaterial();
-        }
-    }
-    /// <summary>
-    ///     This is native function that check if the mouse is over the block, i used this function to set the block to the destroy material.
-    /// </summary>
-    private void OnMouseEnter()
-    {
-        if (GameManager.instance.IsDetroying() && (this.gameObject != mainBlock))
-        {
-            SetToDestroyMaterial();
-        }
-    }
-    /// <summary>
     ///     This is native function that check if the mouse is clicked over the block, i used this function to set the selected block to camera lock over he.
     /// </summary>
     private void OnMouseDown()
@@ -244,7 +174,7 @@ public class ConfigureJoint : MonoBehaviour
         {
             if (block != null)
             {
-                block.GetComponent<ConfigureJoint>().IdentityBlocks();
+                block.GetComponent<PieceConfigureJoint>().IdentityBlocks();
             }
         }
     }

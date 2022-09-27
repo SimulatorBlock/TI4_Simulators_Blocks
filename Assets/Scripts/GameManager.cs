@@ -5,59 +5,79 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public enum BlockType{Block, Wheel}
+    [SerializeField] private BlockType currentBlockType;
     [SerializeField]private GameObject selectedBlock;
     [SerializeField]private GameObject mainBlock;
     [SerializeField]private Material destroyMaterial;
 
+    #region Controlls
     [Header("Booleans")]
     [SerializeField] private bool isEditing = false;
     [SerializeField] private bool canDestroy = false;
     [SerializeField] private bool canCreate = false;
+    #endregion
 
     void Awake(){
         instance = this;
     }
     void Start(){
-        SetSelectedBlock(GetMainBlock());
+        SetSelectedBlock(GetMainBlock);
     }
 
-    public void SetSelectedBlock(GameObject block){
-        selectedBlock = block;
+    #region CurrentBlockType
+    public BlockType GetCurrentBlockType => currentBlockType;
+    public void SetCurrentBlockType(BlockType type){
+        currentBlockType = type;
     }
+    #endregion
+
+    #region SelectedBlock
     public GameObject GetSelectedBlock(){
         if (selectedBlock == null)
         {
-            SetSelectedBlock(GetMainBlock());
+            SetSelectedBlock(GetMainBlock);
         }
         return selectedBlock;
     }
-    public GameObject GetMainBlock(){
-        return mainBlock;
+    public void SetSelectedBlock(GameObject block){
+        selectedBlock = block;
     }
-    public Material GetDestroyMaterial(){
-        return destroyMaterial;
-    }
-    public bool IsEditing(){
-        return isEditing;
-    }
-    public bool IsDetroying(){
-        return canDestroy;
-    }
-    public bool IsCreating(){
-        return canCreate;
-    }
+    #endregion
+
+    #region MainBlock
+    public GameObject GetMainBlock => mainBlock;
+    #endregion
+
+    #region DestroyMaterial
+    public Material GetDestroyMaterial => destroyMaterial;
+    #endregion
+
+    #region Controlls
     
-    public void SetEditMode(bool set)
+    #region IsEditing
+    public bool GetIsEditing => isEditing;
+    public void SetIsEditing(bool set)
     {
         isEditing = set;
     }
-    public void SetCanCreate(bool set)
-    {
-        canCreate = set;
-    }
+    #endregion
+
+    #region CanDestroy
+    public bool GetCanDetroy => canDestroy;
     public void SetCanDestroy(bool set)
     {
         canDestroy = set;
     }
+    #endregion
+
+    #region CanCreate
+    public bool GetCanCreate => canCreate;
+    public void SetCanCreate(bool set)
+    {
+        canCreate = set;
+    }
+    #endregion
+
+    #endregion
 }

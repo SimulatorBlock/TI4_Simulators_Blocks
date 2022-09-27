@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class CreateBlock : MonoBehaviour
+public class PlayerInputCreation : MonoBehaviour
 {
     [Header("Game Objects")]
     [Space(5)]
@@ -20,21 +20,17 @@ public class CreateBlock : MonoBehaviour
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
 
-    // [SerializeField] private GameObject vehicle;
     [Header("Booleans")]
     [Space(5)]
     [Tooltip("Bool posteriorly used for checks if found a block and posed placeHolder, when i release the EditMode the placeHolder must back to the Vector3.thousand pos")]
     [SerializeField] private bool isColliding = false;
     [Tooltip("Bool for checks if you are putting a wheel")]
     [SerializeField] private bool isWheel = false;
-    // [SerializeField] private bool isEditing = false;
-    // [SerializeField] private bool canDestroy = false;
-    // [SerializeField] private bool canCreate = false;
 
     [Header("Adjusts")]
     [Space(5)]
     [Tooltip("Distance to position the block will be created")]
-    [SerializeField] private float distanceOffset = 1.5f;
+    [SerializeField] private float distanceOffset = 1.0f;
     [Tooltip("Distance to position mouse when i found block and check in what direction it is, i made this because gets over the face of the block and i can't get the direction correctly, so i put i little bit back to check correctly")]
     [SerializeField] private float offset = 0.05f;
     [Tooltip("Distance of ray to check block")]
@@ -63,30 +59,30 @@ public class CreateBlock : MonoBehaviour
     };
     private void Start()
     {
-        mainBlock = GameManager.instance.GetMainBlock();
+        mainBlock = GameManager.instance.GetMainBlock;
     }
 
     private void Update()
     {
-        ChangeMode();
+        //ChangeMode();
         Arububabu();
     }
     /// <summary>
     ///     Function that makes everything happen
     /// </summary>
     private void Arububabu(){
-        if (GameManager.instance.IsEditing())// Checks if is in EditMode
+        if (GameManager.instance.GetIsEditing)// Checks if is in EditMode
         {
             DefinePosition();
             TestDraw();
-            if (GameManager.instance.IsCreating())
+            if (GameManager.instance.GetCanCreate)
             {
                 (foundBlock, foundBlockDir) = IndentifyFoundBlock();
                 SetPlaceHolderPos(foundBlock, foundBlockDir);
                 ControllBlocks();
                 GenerateBlock(foundBlock, foundBlockDir);
             }
-            else if (GameManager.instance.IsDetroying())
+            else if (GameManager.instance.GetCanDetroy)
             {
                 ResetPlaceHolderPos();
                 (foundBlock, foundBlockDir) = IndentifyFoundBlock();
@@ -105,6 +101,7 @@ public class CreateBlock : MonoBehaviour
     /// <summary>
     ///     Controls the current mode. Exemple: Edit Mode, Destroying, Creation.
     /// </summary>
+    /*
     private void ChangeMode()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -127,6 +124,8 @@ public class CreateBlock : MonoBehaviour
             GameManager.instance.SetCanDestroy(false);
         }
     }
+    */
+
     /// <summary>
     ///     Instantiate a new block.
     /// </summary>
@@ -145,7 +144,7 @@ public class CreateBlock : MonoBehaviour
                 /* var myBlock =  */
                 Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
                 // myBlock.transform.parent = vehicle.transform;
-                obj.GetComponent<ConfigureJoint>().GetNonColliderDirs().Remove(dir);
+                obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Remove(dir);
             }
         }
     }
@@ -201,8 +200,8 @@ public class CreateBlock : MonoBehaviour
     {
         if (obj != null)
         {
-            if (obj.GetComponent<ConfigureJoint>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
-            {
+            // if (obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
+            // {
                 Vector3 objPos = obj.transform.position;
                 switch (direction)
                 {
@@ -263,7 +262,7 @@ public class CreateBlock : MonoBehaviour
                     default:
                         break;
                 }
-            }
+            // }
         }
         else
         {
@@ -356,21 +355,6 @@ public class CreateBlock : MonoBehaviour
         {
             Vector3 pos = hit.point;
             hitPoint = hit.point;
-
-            // Vector3 dir = hit.normal;
-            // if (Input.GetKeyDown(KeyCode.Space))
-            // {
-            //     print($"pos x antes: {pos.x}");
-            //     print($"dir x: {dir.x}");
-            // }
-
-            // pos.x = (offset + pos.x) * dir.x;
-
-            // if (Input.GetKeyDown(KeyCode.Space))
-            // {
-            //     print($"pos x depois: {pos.x}");
-            // }
-
 
             if (hit.normal.x < 0)
             {
