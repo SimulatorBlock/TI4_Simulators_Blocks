@@ -41,6 +41,7 @@ public class PieceConfigureJoint : MonoBehaviour
         mainBlock = GameManager.instance.GetMainBlock;
         myRigidBody = this.gameObject.GetComponent<Rigidbody>();
         Configure();
+        InEditMode();
     }
     void Update()
     {
@@ -90,6 +91,18 @@ public class PieceConfigureJoint : MonoBehaviour
                     Rigidbody nearblockRB = _hit[i].collider.gameObject.GetComponent<Rigidbody>();
                     joint.connectedBody = nearblockRB;
                     joint.enablePreprocessing = false;
+                    if (!_hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().GetLinkedBlocks().Contains(this.gameObject))
+                    {
+                        List<GameObject> _linkedBlocks = _hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().GetLinkedBlocks();
+                        _linkedBlocks.Add(this.gameObject);
+                        _hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().SetLinkedBlocks(_linkedBlocks);
+                        FixedJoint _joint = _hit[i].collider.gameObject.AddComponent<FixedJoint>();
+                        _joint.breakForce = breakForce;
+                        _joint.breakTorque = breakTorque;
+                        _joint.connectedBody = myRigidBody;
+                        _joint.enablePreprocessing = false;
+                        // _hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().IdentityBlocks();
+                    }
                     //for the ps adjust: just get hit[i].collider.gameObject and .AddComponent<FixedJoint>() checking if this not already have this joint.
                 }
                 else
@@ -205,6 +218,13 @@ public class PieceConfigureJoint : MonoBehaviour
     public List<GameObject> GetLinkedBlocks()
     {
         return linkedBlocks;
+    }
+    /// <summary>
+    ///     Public function thats used for set the linkedBlocks list.
+    /// </summary>
+    public void SetLinkedBlocks(List<GameObject> _linkedBlocks)
+    {
+        linkedBlocks = _linkedBlocks;
     }
     /// <summary>
     ///     Public function thats used for get the nonCollindingDirs list.

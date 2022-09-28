@@ -13,10 +13,10 @@ public class PlayerInputCreation : MonoBehaviour
     [SerializeField] private GameObject wheelPlaceHolder;
     [Tooltip("The GameObject ('Block') that will be instantiated")]
     [SerializeField] private GameObject block;
-    [Tooltip("The GameObject ('Block') default")]
-    [SerializeField] private GameObject defaultBlock;
-    [Tooltip("The GameObject ('Block') wheel")]
-    [SerializeField] private GameObject wheelBlock;
+    // [Tooltip("The GameObject ('Block') default")]
+    // [SerializeField] private GameObject defaultBlock;
+    // [Tooltip("The GameObject ('Block') wheel")]
+    // [SerializeField] private GameObject wheelBlock;
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
 
@@ -47,6 +47,11 @@ public class PlayerInputCreation : MonoBehaviour
     [Tooltip("The direction that's the block was found, -1 when i dont found any block")]
     [SerializeField] private int foundBlockDir = -1;
 
+    [Header("Data")]
+    [Space(5)]
+    [Tooltip("Data of pieces")]
+    [SerializeField] private PieceData pieceData;
+
 
     private readonly RaycastHit[] _hit = new RaycastHit[6];
     private readonly Vector3[] _directions = {
@@ -70,7 +75,8 @@ public class PlayerInputCreation : MonoBehaviour
     /// <summary>
     ///     Function that makes everything happen
     /// </summary>
-    private void Arububabu(){
+    private void Arububabu()
+    {
         if (GameManager.instance.GetIsEditing)// Checks if is in EditMode
         {
             DefinePosition();
@@ -141,9 +147,12 @@ public class PlayerInputCreation : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && isColliding)
             {
-                /* var myBlock =  */
-                Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
+                var myBlock = Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
                 // myBlock.transform.parent = vehicle.transform;
+                if (GetIsWheel())
+                {
+                    myBlock.transform.parent = obj.transform;
+                }
                 obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Remove(dir);
             }
         }
@@ -171,12 +180,12 @@ public class PlayerInputCreation : MonoBehaviour
     {
         if (GetIsWheel())
         {
-            ChangeBlock(wheelBlock);
+            ChangeBlock(pieceData.GetWheelCollider);
             SetPlaceHolderGameObject(wheelPlaceHolder);
         }
         else
         {
-            ChangeBlock(defaultBlock);
+            ChangeBlock(pieceData.GetDefaultBlock);
             SetPlaceHolderGameObject(defaultPlaceHolder);
         }
     }
@@ -202,66 +211,66 @@ public class PlayerInputCreation : MonoBehaviour
         {
             // if (obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
             // {
-                Vector3 objPos = obj.transform.position;
-                switch (direction)
-                {
-                    case 0://forward
-                        objPos.z += distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (GetIsWheel())
-                        {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
-                        }
-                        isColliding = true;
-                        break;
-                    case 1://back
-                        objPos.z += -distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (GetIsWheel())
-                        {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
-                        }
-                        isColliding = true;
-                        break;
-                    case 2://left
-                        objPos.x += -distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (GetIsWheel())
-                        {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
-                        }
-                        isColliding = true;
-                        break;
-                    case 3://right
-                        objPos.x += distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (GetIsWheel())
-                        {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-                        }
-                        isColliding = true;
-                        break;
-                    case 4://up
-                        objPos.y += distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (GetIsWheel())
-                        {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
-                        }
-                        isColliding = true;
-                        break;
-                    case 5://down
-                        objPos.y += -distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (GetIsWheel())
-                        {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-                        }
-                        isColliding = true;
-                        break;
-                    default:
-                        break;
-                }
+            Vector3 objPos = obj.transform.position;
+            switch (direction)
+            {
+                case 0://forward
+                    objPos.z += distanceOffset;
+                    DefinePlaceHolderPos(objPos);
+                    if (GetIsWheel())
+                    {
+                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                    }
+                    isColliding = true;
+                    break;
+                case 1://back
+                    objPos.z += -distanceOffset;
+                    DefinePlaceHolderPos(objPos);
+                    if (GetIsWheel())
+                    {
+                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
+                    }
+                    isColliding = true;
+                    break;
+                case 2://left
+                    objPos.x += -distanceOffset;
+                    DefinePlaceHolderPos(objPos);
+                    if (GetIsWheel())
+                    {
+                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
+                    }
+                    isColliding = true;
+                    break;
+                case 3://right
+                    objPos.x += distanceOffset;
+                    DefinePlaceHolderPos(objPos);
+                    if (GetIsWheel())
+                    {
+                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                    }
+                    isColliding = true;
+                    break;
+                case 4://up
+                    objPos.y += distanceOffset;
+                    DefinePlaceHolderPos(objPos);
+                    if (GetIsWheel())
+                    {
+                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                    }
+                    isColliding = true;
+                    break;
+                case 5://down
+                    objPos.y += -distanceOffset;
+                    DefinePlaceHolderPos(objPos);
+                    if (GetIsWheel())
+                    {
+                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
+                    }
+                    isColliding = true;
+                    break;
+                default:
+                    break;
+            }
             // }
         }
         else

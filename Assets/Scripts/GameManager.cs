@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BlockType currentBlockType;
     [SerializeField]private GameObject selectedBlock;
     [SerializeField]private GameObject mainBlock;
-    [SerializeField]private Material destroyMaterial;
 
     #region Controlls
     [Header("Booleans")]
@@ -47,10 +46,6 @@ public class GameManager : MonoBehaviour
 
     #region MainBlock
     public GameObject GetMainBlock => mainBlock;
-    #endregion
-
-    #region DestroyMaterial
-    public Material GetDestroyMaterial => destroyMaterial;
     #endregion
 
     #region Controlls

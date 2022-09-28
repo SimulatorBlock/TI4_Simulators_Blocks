@@ -16,10 +16,12 @@ public class PieceMaterial : MonoBehaviour
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
 
+    [SerializeField] private PieceData pieceData;
+
     private void Start() {
         mainBlock = GameManager.instance.GetMainBlock;
         defaultMaterial = GetComponentInChildren<Renderer>().material;
-        destroyMaterial = GameManager.instance.GetDestroyMaterial;
+        destroyMaterial = pieceData.GetDestroyMaterial;
     }
 
     /// <summary>
