@@ -41,7 +41,7 @@ public class PieceConfigureJoint : MonoBehaviour
         mainBlock = GameManager.instance.GetMainBlock;
         myRigidBody = this.gameObject.GetComponent<Rigidbody>();
         Configure();
-        InEditMode();
+        // InEditMode();
     }
     void Update()
     {
