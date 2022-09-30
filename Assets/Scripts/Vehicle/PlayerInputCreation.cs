@@ -70,6 +70,11 @@ public class PlayerInputCreation : MonoBehaviour
     private void Update()
     {
         //ChangeMode();
+        if (Input.GetMouseButtonDown(1))//Cancels create and destroy
+        {
+            GameManager.instance.SetCanCreate(false);
+            GameManager.instance.SetCanDestroy(false);
+        }
         Arububabu();
 
     }
