@@ -11,15 +11,17 @@ public class PieceMaterial : MonoBehaviour
     [Tooltip("The Default Material, Gets on start by the block")]
     [SerializeField] private Material defaultMaterial;
 
-    [Header("Utility")]    
-    [Space(10)]
-    [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
-    [SerializeField] private GameObject mainBlock;
+    // [Header("Utility")]    
+    // [Space(10)]
+    // [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
+    // [SerializeField] private GameObject mainBlock;
 
+    [Header("Data")]    
+    [Space(10)]
     [SerializeField] private PieceData pieceData;
 
     private void Start() {
-        mainBlock = GameManager.instance.GetMainBlock;
+        // mainBlock = GameManager.instance.GetMainBlock;
         defaultMaterial = GetComponentInChildren<Renderer>().material;
         destroyMaterial = pieceData.GetDestroyMaterial;
     }
@@ -72,7 +74,7 @@ public class PieceMaterial : MonoBehaviour
     /// </summary>
     private void OnMouseExit()
     {
-        if (GameManager.instance.GetCanDetroy && (this.gameObject != mainBlock))
+        if (GameManager.instance.GetCanDetroy /* && (this.gameObject != mainBlock) */)
         {
             SetToDefaultMaterial();
         }
@@ -83,7 +85,7 @@ public class PieceMaterial : MonoBehaviour
     /// </summary>
     private void OnMouseEnter()
     {
-        if (GameManager.instance.GetCanDetroy && (this.gameObject != mainBlock))
+        if (GameManager.instance.GetCanDetroy /* && (this.gameObject != mainBlock) */)
         {
             SetToDestroyMaterial();
         }

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BlockType currentBlockType;
     [SerializeField]private GameObject selectedBlock;
     [SerializeField]private GameObject mainBlock;
+    [SerializeField]private GameObject vehicle;
 
     #region Controlls
     [Header("Booleans")]
@@ -46,6 +47,10 @@ public class GameManager : MonoBehaviour
 
     #region MainBlock
     public GameObject GetMainBlock => mainBlock;
+    #endregion
+
+    #region  Vehicle
+    public GameObject GetVehicle => vehicle;
     #endregion
 
     #region Controlls

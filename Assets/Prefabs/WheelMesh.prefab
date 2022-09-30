@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1082597500874523994}
   - component: {fileID: -6040601962601896617}
-  m_Layer: 0
+  - component: {fileID: 8519501580412067808}
+  - component: {fileID: 3821790897498899081}
+  m_Layer: 6
   m_Name: WheelMesh
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +48,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelCollider: {fileID: 0}
+--- !u!65 &8519501580412067808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082597500874523993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3821790897498899081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082597500874523993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d961549f4b300bd4c94a6fa215e09069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
+  pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
 --- !u!1 &1082597500973472263
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,9 +88,9 @@ GameObject:
   - component: {fileID: 1082597500973472259}
   - component: {fileID: 1082597500973472256}
   - component: {fileID: 1082597500973472257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

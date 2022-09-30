@@ -71,6 +71,7 @@ public class PlayerInputCreation : MonoBehaviour
     {
         //ChangeMode();
         Arububabu();
+
     }
     /// <summary>
     ///     Function that makes everything happen
@@ -84,6 +85,12 @@ public class PlayerInputCreation : MonoBehaviour
             if (GameManager.instance.GetCanCreate)
             {
                 (foundBlock, foundBlockDir) = IndentifyFoundBlock();
+                if (foundBlock!=null)
+                    if (foundBlock.tag == "Wheel")
+                    {
+                        foundBlock = null;
+                        foundBlockDir = -1;
+                    }
                 SetPlaceHolderPos(foundBlock, foundBlockDir);
                 ControllBlocks();
                 GenerateBlock(foundBlock, foundBlockDir);
@@ -145,14 +152,10 @@ public class PlayerInputCreation : MonoBehaviour
     {
         if (obj != null)
         {
-            if (Input.GetMouseButtonDown(0) && isColliding)
+            if (Input.GetMouseButtonDown(0) && isColliding && !placeHolder.GetComponent<PiecePlaceHolder>().GetHasPieceOver)
             {
                 var myBlock = Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
-                // myBlock.transform.parent = vehicle.transform;
-                if (GetIsWheel())
-                {
-                    myBlock.transform.parent = obj.transform;
-                }
+                myBlock.transform.parent = GameManager.instance.GetVehicle.transform;
                 obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Remove(dir);
             }
         }
@@ -178,16 +181,32 @@ public class PlayerInputCreation : MonoBehaviour
     /// </summary>
     private void ControllBlocks()
     {
-        if (GetIsWheel())
+        switch (GameManager.instance.GetCurrentBlockType)
         {
-            ChangeBlock(pieceData.GetWheelCollider);
-            SetPlaceHolderGameObject(wheelPlaceHolder);
+            case GameManager.BlockType.Block:
+                ChangeBlock(pieceData.GetDefaultBlock);
+                SetPlaceHolderGameObject(defaultPlaceHolder);
+                break;
+            case GameManager.BlockType.Wheel:
+                ChangeBlock(pieceData.GetWheelCollider);
+                SetPlaceHolderGameObject(wheelPlaceHolder);
+                break;
+            default:
+                ChangeBlock(pieceData.GetDefaultBlock);
+                SetPlaceHolderGameObject(defaultPlaceHolder);
+                break;
         }
-        else
-        {
-            ChangeBlock(pieceData.GetDefaultBlock);
-            SetPlaceHolderGameObject(defaultPlaceHolder);
-        }
+        
+        // if (GetIsWheel())
+        // {
+        //     ChangeBlock(pieceData.GetWheelCollider);
+        //     SetPlaceHolderGameObject(wheelPlaceHolder);
+        // }
+        // else
+        // {
+        //     ChangeBlock(pieceData.GetDefaultBlock);
+        //     SetPlaceHolderGameObject(defaultPlaceHolder);
+        // }
     }
     /// <summary>
     ///     Change block to instantiate
@@ -209,69 +228,71 @@ public class PlayerInputCreation : MonoBehaviour
     {
         if (obj != null)
         {
-            // if (obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
-            // {
-            Vector3 objPos = obj.transform.position;
-            switch (direction)
+            if (obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
             {
-                case 0://forward
-                    objPos.z += distanceOffset;
-                    DefinePlaceHolderPos(objPos);
-                    if (GetIsWheel())
-                    {
-                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
-                    }
-                    isColliding = true;
-                    break;
-                case 1://back
-                    objPos.z += -distanceOffset;
-                    DefinePlaceHolderPos(objPos);
-                    if (GetIsWheel())
-                    {
-                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
-                    }
-                    isColliding = true;
-                    break;
-                case 2://left
-                    objPos.x += -distanceOffset;
-                    DefinePlaceHolderPos(objPos);
-                    if (GetIsWheel())
-                    {
-                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-                    }
-                    isColliding = true;
-                    break;
-                case 3://right
-                    objPos.x += distanceOffset;
-                    DefinePlaceHolderPos(objPos);
-                    if (GetIsWheel())
-                    {
-                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-                    }
-                    isColliding = true;
-                    break;
-                case 4://up
-                    objPos.y += distanceOffset;
-                    DefinePlaceHolderPos(objPos);
-                    if (GetIsWheel())
-                    {
-                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
-                    }
-                    isColliding = true;
-                    break;
-                case 5://down
-                    objPos.y += -distanceOffset;
-                    DefinePlaceHolderPos(objPos);
-                    if (GetIsWheel())
-                    {
-                        placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-                    }
-                    isColliding = true;
-                    break;
-                default:
-                    break;
+                Vector3 objPos = obj.transform.position;
+                switch (direction)
+                {
+                    case 0://forward
+                        objPos.z += distanceOffset;
+                        DefinePlaceHolderPos(objPos);
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                        }
+                        isColliding = true;
+                        break;
+                    case 1://back
+                        objPos.z += -distanceOffset;
+                        DefinePlaceHolderPos(objPos);
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        {
+                            // placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                        }
+                        isColliding = true;
+                        break;
+                    case 2://left
+                        objPos.x += -distanceOffset;
+                        DefinePlaceHolderPos(objPos);
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                        }
+                        isColliding = true;
+                        break;
+                    case 3://right
+                        objPos.x += distanceOffset;
+                        DefinePlaceHolderPos(objPos);
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                        }
+                        isColliding = true;
+                        break;
+                    case 4://up
+                        objPos.y += distanceOffset;
+                        DefinePlaceHolderPos(objPos);
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        {
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                        }
+                        isColliding = true;
+                        break;
+                    case 5://down
+                        objPos.y += -distanceOffset;
+                        DefinePlaceHolderPos(objPos);
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        {
+                            // placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
+                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                        }
+                        isColliding = true;
+                        break;
+                    default:
+                        break;
+                }
             }
-            // }
         }
         else
         {
@@ -442,5 +463,12 @@ public class PlayerInputCreation : MonoBehaviour
     private bool GetIsWheel()
     {
         return isWheel;
+    }
+    /// <summary>
+    ///     Private function that sets the if is adding wheel.
+    /// </summary>
+    private void SetIsWheel(bool value)
+    {
+        isWheel = value;
     }
 }

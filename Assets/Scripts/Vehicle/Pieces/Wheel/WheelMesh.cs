@@ -18,4 +18,7 @@ public class WheelMesh : MonoBehaviour
     public void SetWheelCollider(WheelCollider _wheelCollider){
         wheelCollider = _wheelCollider;
     }
+    private void OnDestroy() {
+        Destroy(wheelCollider.transform.parent.gameObject);
+    }
 }

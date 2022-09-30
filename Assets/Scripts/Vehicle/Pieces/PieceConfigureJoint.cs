@@ -41,11 +41,20 @@ public class PieceConfigureJoint : MonoBehaviour
         mainBlock = GameManager.instance.GetMainBlock;
         myRigidBody = this.gameObject.GetComponent<Rigidbody>();
         Configure();
+        IdentityBlocks();
         // InEditMode();
     }
     void Update()
     {
         TestDraw();
+        if (GameManager.instance.GetIsEditing)
+        {
+            InEditMode();
+        }
+        else
+        {
+            OutOfEditMode();
+        }
     }
 
     /// <summary>
@@ -53,7 +62,7 @@ public class PieceConfigureJoint : MonoBehaviour
     /// </summary>
     private void Configure()
     {
-        if (this.gameObject == mainBlock)
+/*         if (this.gameObject == mainBlock)
         {
             //Here like the indentify blocks function we add to the nonCollidingDirs list all directions that not have a block, i think i can just probaly call InfentifyBlocks here but whatever
             for (int i = 0; i < _directions.Length; i++)
@@ -66,7 +75,8 @@ public class PieceConfigureJoint : MonoBehaviour
                 }
             }
         }
-        else
+        else */
+        if(this.gameObject != mainBlock)
         {
             //Here we add joint to pieces for they connect to the main block
             //We also configure the breakForce and the breakTorque to this "main joint"
@@ -91,7 +101,7 @@ public class PieceConfigureJoint : MonoBehaviour
                     Rigidbody nearblockRB = _hit[i].collider.gameObject.GetComponent<Rigidbody>();
                     joint.connectedBody = nearblockRB;
                     joint.enablePreprocessing = false;
-                    if (!_hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().GetLinkedBlocks().Contains(this.gameObject))
+                    if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().GetLinkedBlocks().Contains(this.gameObject)) && _hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().GetLinkedBlocks().Count > 0)
                     {
                         List<GameObject> _linkedBlocks = _hit[i].collider.gameObject.GetComponent<PieceConfigureJoint>().GetLinkedBlocks();
                         _linkedBlocks.Add(this.gameObject);
@@ -105,64 +115,13 @@ public class PieceConfigureJoint : MonoBehaviour
                     }
                     //for the ps adjust: just get hit[i].collider.gameObject and .AddComponent<FixedJoint>() checking if this not already have this joint.
                 }
-                else
-                {
-                    nonCollidingDirs.Add(i);//Here we add to the nonCollidingDirs list all directions that not have a block linked
-                }
+                //not working for some motive, but i solve the problem call
+                // else
+                // {
+                //     nonCollidingDirs.Add(i);//Here we add to the nonCollidingDirs list all directions that not have a block linked
+                // }
             }
         }
-        // else
-        // {
-        //     //Here we add joint to pieces for they connect to the main block
-        //     //We also configure the breakForce and the breakTorque to this "main joint"
-        //     HingeJoint mainJoint = gameObject.AddComponent<HingeJoint>();
-        //     mainJoint.connectedBody = mainBlock.gameObject.GetComponent<Rigidbody>();
-        //     mainJoint.breakForce = breakForce;
-        //     mainJoint.breakTorque = breakTorque;
-        //     linkedBlocks.Add(mainBlock);
-
-        //     //Here we add joint to pieces, they search blocks around and connect each other
-        //     //ps.. for more "fixed joins" also add join to found block
-        //     for (int i = 0; i < _directions.Length; i++)
-        //     {
-        //         bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
-
-        //         if (colliding && _hit[i].collider.gameObject.tag == "Block" && _hit[i].collider.gameObject != mainBlock)
-        //         {
-        //             linkedBlocks.Add(_hit[i].collider.gameObject);//Here we add to the linkedBlocks list all blocks linked to the block created
-        //             HingeJoint joint = gameObject.AddComponent<HingeJoint>();
-        //             joint.breakForce = breakForce;
-        //             joint.breakTorque = breakTorque;
-        //             Rigidbody nearblockRB = _hit[i].collider.gameObject.GetComponent<Rigidbody>();
-        //             joint.connectedBody = nearblockRB;
-        //             joint.enablePreprocessing = false;
-        //             joint.enableCollision = true;
-        //             joint.massScale = 10f;
-        //             joint.connectedMassScale = 1f;
-
-        //             joint.anchor = _directions[i] / 2;
-        //             joint.axis = _directions[i];
-
-        //             joint.useMotor = true;
-        //             joint.motor = new JointMotor
-        //             {
-        //                 targetVelocity = 100.0f,
-        //                 force = 100.0f
-        //             };
-
-        //             // joint.useLimits = true;
-        //             // joint.limits = new JointLimits
-        //             // {
-        //             //     contactDistance = 0f
-        //             // };
-        //             //for the ps adjust: just get hit[i].collider.gameObject and .AddComponent<FixedJoint>() checking if this not already have this joint.
-        //         }
-        //         else
-        //         {
-        //             nonCollidingDirs.Add(i);//Here we add to the nonCollidingDirs list all directions that not have a block linked
-        //         }
-        //     }
-        // }
     }
     /// <summary>
     ///     This is native function that check if the mouse is clicked over the block, i used this function to set the selected block to camera lock over he.
