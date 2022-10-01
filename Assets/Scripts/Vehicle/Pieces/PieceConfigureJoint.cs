@@ -80,20 +80,22 @@ public class PieceConfigureJoint : MonoBehaviour
     /// </summary>
     private void Configure()
     {
-        /*         if (this.gameObject == mainBlock)
-                {
-                    //Here like the inentify blocks function we add to the nonCollidingDirs list all directions that not have a block, i think i can just probably call IdentifyBlocks here but whatever
-                    for (int i = 0; i < _directions.Length; i++)
-                    {
-                        bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
+        /*      
+        if (this.gameObject == mainBlock)
+        {
+            //Here like the inentify blocks function we add to the nonCollidingDirs list all directions that not have a block, i think i can just probably call IdentifyBlocks here but whatever
+            for (int i = 0; i < _directions.Length; i++)
+            {
+                bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
 
-                        if (!(colliding && _hit[i].collider.gameObject.tag == "Block"))
-                        {
-                            nonCollidingDirs.Add(i);
-                        }
-                    }
+                if (!(colliding && _hit[i].collider.gameObject.tag == "Block"))
+                {
+                    nonCollidingDirs.Add(i);
                 }
-                else */
+            }
+        }
+        else 
+        */
         if (this.gameObject != mainBlock)
         {
             //Here we add joint to pieces for they connect to the main block

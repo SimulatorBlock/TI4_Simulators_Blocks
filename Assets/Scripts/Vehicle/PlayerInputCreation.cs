@@ -90,7 +90,7 @@ public class PlayerInputCreation : MonoBehaviour
             if (GameManager.instance.GetCanCreate)
             {
                 (foundBlock, foundBlockDir) = IdentifyFoundBlock();
-                if (foundBlock!=null)
+                if (foundBlock != null)
                     if (foundBlock.tag == "Wheel")
                     {
                         foundBlock = null;
@@ -223,7 +223,7 @@ public class PlayerInputCreation : MonoBehaviour
                 SetPlaceHolderGameObject(defaultPlaceHolder);
                 break;
         }
-        
+
         // if (GetIsWheel())
         // {
         //     ChangeBlock(pieceData.GetWheelCollider);

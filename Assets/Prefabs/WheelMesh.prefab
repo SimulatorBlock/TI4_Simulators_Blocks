@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6040601962601896617}
   - component: {fileID: 8519501580412067808}
   - component: {fileID: 3821790897498899081}
+  - component: {fileID: 3418060527048366954}
   m_Layer: 6
   m_Name: WheelMesh
   m_TagString: Wheel
@@ -76,6 +77,22 @@ MonoBehaviour:
   destroyMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
+--- !u!54 &3418060527048366954
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082597500874523993}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1082597500973472263
 GameObject:
   m_ObjectHideFlags: 0
