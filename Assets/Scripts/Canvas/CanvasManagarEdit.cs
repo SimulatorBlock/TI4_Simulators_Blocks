@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class CanvasManagarEdit : MonoBehaviour
 {
-    [SerializeField] private Button blockButton, wheelButton, removeButton;
+    [SerializeField] private Button blockButton, engineButton, wheelButton, removeButton;
     void Start()
     {
         blockButton.onClick.AddListener(ClickBlockButton);
+        engineButton.onClick.AddListener(ClickEngineButton);
         wheelButton.onClick.AddListener(ClickWheelButton);
         removeButton.onClick.AddListener(ClickRemoveButton);
     }
@@ -23,6 +24,12 @@ public class CanvasManagarEdit : MonoBehaviour
         GameManager.instance.SetCanCreate(true);
         if (GameManager.instance.GetCurrentBlockType != GameManager.BlockType.Wheel)
             GameManager.instance.SetCurrentBlockType(GameManager.BlockType.Wheel);
+    }
+    private void ClickEngineButton(){
+        GameManager.instance.SetCanDestroy(false);
+        GameManager.instance.SetCanCreate(true);
+        if (GameManager.instance.GetCurrentBlockType != GameManager.BlockType.Engine)
+            GameManager.instance.SetCurrentBlockType(GameManager.BlockType.Engine);
     }
     private void ClickRemoveButton(){
         GameManager.instance.SetCanCreate(false);

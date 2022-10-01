@@ -26,6 +26,10 @@ public class PieceMaterial : MonoBehaviour
         destroyMaterial = pieceData.GetDestroyMaterial;
     }
 
+    private void Update(){
+        ResetMaterial();
+    }
+
     /// <summary>
     ///     This function resets the block to the default material, 
     /// </summary>
@@ -39,7 +43,7 @@ public class PieceMaterial : MonoBehaviour
     /// </remarks>
     public void ResetMaterial()
     {
-        if ((!GameManager.instance.GetCanDetroy || !GameManager.instance.GetIsEditing) && (GetCurrentMaterial() != defaultMaterial))
+        if ((!GameManager.instance.GetCanDestroy || !GameManager.instance.GetIsEditing) && (GetCurrentMaterial() != defaultMaterial))
         {
             SetToDefaultMaterial();
         }
@@ -74,7 +78,7 @@ public class PieceMaterial : MonoBehaviour
     /// </summary>
     private void OnMouseExit()
     {
-        if (GameManager.instance.GetCanDetroy /* && (this.gameObject != mainBlock) */)
+        if (GameManager.instance.GetCanDestroy /* && (this.gameObject != mainBlock) */)
         {
             SetToDefaultMaterial();
         }
@@ -85,7 +89,7 @@ public class PieceMaterial : MonoBehaviour
     /// </summary>
     private void OnMouseEnter()
     {
-        if (GameManager.instance.GetCanDetroy /* && (this.gameObject != mainBlock) */)
+        if (GameManager.instance.GetCanDestroy /* && (this.gameObject != mainBlock) */)
         {
             SetToDestroyMaterial();
         }

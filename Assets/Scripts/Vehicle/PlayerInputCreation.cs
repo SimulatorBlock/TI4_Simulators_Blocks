@@ -89,7 +89,7 @@ public class PlayerInputCreation : MonoBehaviour
             TestDraw();
             if (GameManager.instance.GetCanCreate)
             {
-                (foundBlock, foundBlockDir) = IndentifyFoundBlock();
+                (foundBlock, foundBlockDir) = IdentifyFoundBlock();
                 if (foundBlock!=null)
                     if (foundBlock.tag == "Wheel")
                     {
@@ -100,10 +100,10 @@ public class PlayerInputCreation : MonoBehaviour
                 ControllBlocks();
                 GenerateBlock(foundBlock, foundBlockDir);
             }
-            else if (GameManager.instance.GetCanDetroy)
+            else if (GameManager.instance.GetCanDestroy)
             {
                 ResetPlaceHolderPos();
-                (foundBlock, foundBlockDir) = IndentifyFoundBlock();
+                (foundBlock, foundBlockDir) = IdentifyFoundBlock();
                 DestroyBlock(foundBlock);
             }
             else
@@ -117,7 +117,7 @@ public class PlayerInputCreation : MonoBehaviour
         }
     }
     /// <summary>
-    ///     Controls the current mode. Exemple: Edit Mode, Destroying, Creation.
+    ///     Controls the current mode. Example: Edit Mode, Destroying, Creation.
     /// </summary>
     /*
     private void ChangeMode()
@@ -133,7 +133,7 @@ public class PlayerInputCreation : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            GameManager.instance.SetCanDestroy(!GameManager.instance.IsDetroying());
+            GameManager.instance.SetCanDestroy(!GameManager.instance.IsDestroying());
             GameManager.instance.SetCanCreate(false);
         }
         if (Input.GetMouseButtonDown(1))//Cancels create and destroy
@@ -160,7 +160,25 @@ public class PlayerInputCreation : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && isColliding && !placeHolder.GetComponent<PiecePlaceHolder>().GetHasPieceOver)
             {
                 var myBlock = Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
-                myBlock.transform.parent = GameManager.instance.GetVehicle.transform;
+                switch (GameManager.instance.GetCurrentBlockType)
+                {
+                    case GameManager.BlockType.Block:
+                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
+                        GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
+                        break;
+                    case GameManager.BlockType.Wheel:
+                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(2);
+                        GameManager.instance.AddWheelCollider(myBlock.GetComponentInChildren<WheelCollider>());
+                        break;
+                    case GameManager.BlockType.Engine:
+                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(3);
+                        GameManager.instance.AddEngine(myBlock.GetComponent<Engine>());
+                        break;
+                    default:
+                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
+                        GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
+                        break;
+                }
                 obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Remove(dir);
             }
         }
@@ -195,6 +213,10 @@ public class PlayerInputCreation : MonoBehaviour
             case GameManager.BlockType.Wheel:
                 ChangeBlock(pieceData.GetWheelCollider);
                 SetPlaceHolderGameObject(wheelPlaceHolder);
+                break;
+            case GameManager.BlockType.Engine:
+                ChangeBlock(pieceData.GetEngineBlock);
+                SetPlaceHolderGameObject(defaultPlaceHolder);
                 break;
             default:
                 ChangeBlock(pieceData.GetDefaultBlock);
@@ -319,7 +341,7 @@ public class PlayerInputCreation : MonoBehaviour
     /// <example>
     /// This show how dir works, on the _directions array aways the next position of the array is your opposite, so when i found a position if is pair the next is your opposite if is odd the previous is your opposite
     /// </example>
-    private (GameObject, int) IndentifyFoundBlock()
+    private (GameObject, int) IdentifyFoundBlock()
     {
         GameObject obj = null;
         int dir = -1;

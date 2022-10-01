@@ -1598,6 +1598,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+--- !u!1 &849550364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849550366}
+  - component: {fileID: 849550365}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &849550365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849550364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bb72658d07fee4491d07b1b14188d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBlockType: 0
+  selectedBlock: {fileID: 0}
+  mainBlock: {fileID: 0}
+  vehicle: {fileID: 0}
+  isEditing: 0
+  canDestroy: 0
+  canCreate: 0
+--- !u!4 &849550366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849550364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2780437, y: -0.729391, z: 1.461761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 65
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &863915803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2690,6 +2741,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1589488839884233366, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: vehicles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589488839884233366, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: vehicles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1621432303576248949, guid: 157b9ccade492cd48a6f37922c1352eb, type: 3}
     - target: {fileID: 1589488839884233367, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
       propertyPath: m_Name
       value: VehicleChager

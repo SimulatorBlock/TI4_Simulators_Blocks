@@ -5,17 +5,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public enum BlockType{Block, Wheel}
+    public enum BlockType{Block, Wheel, Engine}
     [SerializeField] private BlockType currentBlockType;
+
+    #region GameObjects
     [SerializeField]private GameObject selectedBlock;
     [SerializeField]private GameObject mainBlock;
     [SerializeField]private GameObject vehicle;
+    #endregion
 
-    #region Controlls
+    #region Controls
     [Header("Booleans")]
     [SerializeField] private bool isEditing = false;
     [SerializeField] private bool canDestroy = false;
     [SerializeField] private bool canCreate = false;
+    #endregion
+
+    #region Lists
+    [SerializeField] private List<Block> blocks;
+    [SerializeField] private List<Engine> engines;
+    [SerializeField] private List<WheelCollider> wheelColliders;
     #endregion
 
     void Awake(){
@@ -53,7 +62,7 @@ public class GameManager : MonoBehaviour
     public GameObject GetVehicle => vehicle;
     #endregion
 
-    #region Controlls
+    #region Controls
     
     #region IsEditing
     public bool GetIsEditing => isEditing;
@@ -64,7 +73,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region CanDestroy
-    public bool GetCanDetroy => canDestroy;
+    public bool GetCanDestroy => canDestroy;
     public void SetCanDestroy(bool set)
     {
         canDestroy = set;
@@ -79,5 +88,20 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #endregion
+
+    #region Lists
+    public List<Block> GetBlocks => blocks;
+    public void AddBlock(Block block){
+        blocks.Add(block);
+    }
+    public List<Engine> GetEngines => engines;
+    public void AddEngine(Engine engine){
+        engines.Add(engine);
+    }
+    public List<WheelCollider> GetWheelColliders => wheelColliders;
+    public void AddWheelCollider(WheelCollider wheelCollider){
+        wheelColliders.Add(wheelCollider);
+    }
     #endregion
 }

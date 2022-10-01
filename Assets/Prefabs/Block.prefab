@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6704736471148390569}
   - component: {fileID: -398713996482829724}
   - component: {fileID: 8587562899913532748}
+  - component: {fileID: -8188275640623751721}
   m_Layer: 6
   m_Name: Block
   m_TagString: Block
@@ -162,7 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
-  mainBlock: {fileID: 0}
   pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
 --- !u!114 &8587562899913532748
 MonoBehaviour:
@@ -180,5 +180,18 @@ MonoBehaviour:
   nonCollidingDirs: 
   linkedBlocks: []
   rayDistance: 0.75
-  breakForce: Infinity
-  breakTorque: Infinity
+  breakForce: 20000
+  breakTorque: 20000
+--- !u!114 &-8188275640623751721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627394405048961557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4e77d696c279543aa6e90058f46374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 100

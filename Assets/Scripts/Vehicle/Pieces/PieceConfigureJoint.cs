@@ -38,7 +38,7 @@ public class PieceConfigureJoint : MonoBehaviour
 
     void Start()
     {
-        mainBlock = GameManager.instance.GetMainBlock;
+        mainBlock = GameObject.Find("BlockMain"); /* GameManager.instance.GetMainBlock; */
         myRigidBody = this.gameObject.GetComponent<Rigidbody>();
         Configure();
         IdentityBlocks();
@@ -55,6 +55,24 @@ public class PieceConfigureJoint : MonoBehaviour
         {
             OutOfEditMode();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (this.gameObject != mainBlock)
+            {
+                try
+                {
+                    foreach (var item in GetComponents<FixedJoint>())
+                    {
+                        item.breakForce = 0.0f;
+                        item.breakTorque = 0.0f;
+                    }
+                }
+                catch (System.Exception)
+                {
+                    
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -62,21 +80,21 @@ public class PieceConfigureJoint : MonoBehaviour
     /// </summary>
     private void Configure()
     {
-/*         if (this.gameObject == mainBlock)
-        {
-            //Here like the indentify blocks function we add to the nonCollidingDirs list all directions that not have a block, i think i can just probaly call InfentifyBlocks here but whatever
-            for (int i = 0; i < _directions.Length; i++)
-            {
-                bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
-
-                if (!(colliding && _hit[i].collider.gameObject.tag == "Block"))
+        /*         if (this.gameObject == mainBlock)
                 {
-                    nonCollidingDirs.Add(i);
+                    //Here like the inentify blocks function we add to the nonCollidingDirs list all directions that not have a block, i think i can just probably call IdentifyBlocks here but whatever
+                    for (int i = 0; i < _directions.Length; i++)
+                    {
+                        bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
+
+                        if (!(colliding && _hit[i].collider.gameObject.tag == "Block"))
+                        {
+                            nonCollidingDirs.Add(i);
+                        }
+                    }
                 }
-            }
-        }
-        else */
-        if(this.gameObject != mainBlock)
+                else */
+        if (this.gameObject != mainBlock)
         {
             //Here we add joint to pieces for they connect to the main block
             //We also configure the breakForce and the breakTorque to this "main joint"
@@ -115,7 +133,7 @@ public class PieceConfigureJoint : MonoBehaviour
                     }
                     //for the ps adjust: just get hit[i].collider.gameObject and .AddComponent<FixedJoint>() checking if this not already have this joint.
                 }
-                //not working for some motive, but i solve the problem call
+                //not working for some motive, but i solve the problem calling identifyBlocks after Configure
                 // else
                 // {
                 //     nonCollidingDirs.Add(i);//Here we add to the nonCollidingDirs list all directions that not have a block linked

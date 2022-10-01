@@ -10,6 +10,8 @@ public class PieceData : ScriptableObject
     [SerializeField] private GameObject wheelBlock;
     [Tooltip("The WheelCollider GameObject of wheel")]
     [SerializeField] private GameObject wheelCollider;
+    [Tooltip("The GameObject of engine")]
+    [SerializeField] private GameObject engineBlock;
 
     [Tooltip("The Material that shows when you mouse over block in DestroyMode")]
     [SerializeField]private Material destroyMaterial;
@@ -17,6 +19,7 @@ public class PieceData : ScriptableObject
     public GameObject GetDefaultBlock => defaultBlock;
     public GameObject GetWheelBlock => wheelBlock;
     public GameObject GetWheelCollider => wheelCollider;
+    public GameObject GetEngineBlock => engineBlock;
     public Material GetDestroyMaterial => destroyMaterial;
 
 
