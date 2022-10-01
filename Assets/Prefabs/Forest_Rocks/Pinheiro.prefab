@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4939408315914073679}
   - component: {fileID: 7823606116080148065}
   - component: {fileID: 4477152793166638081}
+  - component: {fileID: 1013536299576280259}
   m_Layer: 0
   m_Name: Pinheiro
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1013536299576280259
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314130223014899484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -452497962561942790, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
