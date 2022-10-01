@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BlockSystem
+namespace Block
 {
     public class BlockBehavior : MonoBehaviour
     {

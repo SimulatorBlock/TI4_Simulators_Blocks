@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using BlockSystem;
+using Block;
 using UnityEngine;
 
 namespace AutoPilot
@@ -10,7 +10,7 @@ namespace AutoPilot
         private Rigidbody rb;
         [SerializeField] private int mass;
         [SerializeField] private int torque;
-        [SerializeField] private List<BlockBehavior> blockBehavior = new();
+        [SerializeField] private List<BlockBehavior> blocks = new();
 
         private void Start()
         {
@@ -45,6 +45,7 @@ namespace AutoPilot
             rb.drag = 0f;
 
             CalcMass();
+            CalcTorque();
         }
 
         private void GetAllBlockBehavior()
@@ -52,15 +53,26 @@ namespace AutoPilot
             foreach (Transform child in transform)
             {
                 BlockBehavior block = child.GetComponent<BlockBehavior>();
-                if (block) blockBehavior.Add(block);
+                if (block) blocks.Add(block);
             }
         }
 
         private void CalcMass()
         {
             mass = 0;
-            foreach (var block in blockBehavior) mass += block.settings.mass;
+            foreach (var block in blocks) mass += block.settings.mass;
             rb.mass = mass;
+        }
+
+        private void CalcTorque()
+        {
+            torque = 0;
+            foreach (var block in blocks)
+            {
+                if (block.settings is not EngineScrObj) continue;
+                EngineScrObj engine = (EngineScrObj) block.settings;
+                torque += engine.torque;
+            }
         }
     }
 }

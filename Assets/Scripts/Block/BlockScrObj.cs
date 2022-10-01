@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BlockSystem
+namespace Block
 {
     [CreateAssetMenu(fileName = "Block Standard", menuName = "Block Type/Standard", order = 10)]
     public class BlockScrObj : ScriptableObject
