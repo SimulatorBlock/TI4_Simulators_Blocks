@@ -89,7 +89,7 @@ namespace AutoPilot
         private void CalcTorque()
         {
             torqueTotal = engines.Sum(engine => engine.torque);
-            torqueWheel = torqueTotal / wheels.Count;
+            torqueWheel = torqueTotal;
             ConfigWheelCollider();
         }
     }
