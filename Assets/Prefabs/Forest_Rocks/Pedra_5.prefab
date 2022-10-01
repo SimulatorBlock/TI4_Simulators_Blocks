@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5450527056142303523}
   - component: {fileID: 6675431442344068379}
   - component: {fileID: 1904897010357561482}
+  - component: {fileID: -3342182095641830547}
   m_Layer: 0
   m_Name: Pedra_5
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-3342182095641830547
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836193534359973607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7480783615079057250, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
