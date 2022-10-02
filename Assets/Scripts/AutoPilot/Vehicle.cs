@@ -13,7 +13,6 @@ namespace AutoPilot
         [SerializeField] private float torqueWheel;
         [SerializeField] private List<BlockScrObj> blocks = new();
         [SerializeField] private List<EngineScrObj> engines = new();
-        [SerializeField] private List<BlockBehavior> wheelBlocks = new();
         [SerializeField] private List<WheelCollider> wheels = new();
 
         private void Start()
@@ -28,17 +27,6 @@ namespace AutoPilot
             {
                 wheel.brakeTorque = 0f;
                 wheel.motorTorque = torqueWheel;
-            }
-        }
-
-        private void LateUpdate()
-        {
-            foreach (var wheel in wheelBlocks)
-            {
-                // NOTE: Atualiza posição e rotação do modelo das rodas
-                wheel.wheelCollider.GetWorldPose(out var pos, out var rot);
-                wheel.wheelModel.transform.position = pos;
-                wheel.wheelModel.transform.rotation = rot;
             }
         }
 
@@ -84,7 +72,6 @@ namespace AutoPilot
                         blocks.Add(block.settings);
                         break;
                     case BlockBehavior.Types.Wheel:
-                        wheelBlocks.Add(block);
                         wheels.Add(block.wheelCollider);
                         break;
                 }
