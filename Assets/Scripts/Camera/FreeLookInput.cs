@@ -7,6 +7,7 @@ using Cinemachine;
 public class FreeLookInput : MonoBehaviour
 {
     private CinemachineFreeLook freeLookCamera;
+    [SerializeField] private float speed = 2.0f;
 
     private string XAxisName = "Mouse X";
     private string YAxisName = "Mouse Y";
@@ -24,8 +25,8 @@ public class FreeLookInput : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(0))
         {
-            freeLookCamera.m_XAxis.m_InputAxisValue = Input.GetAxis(XAxisName);
-            freeLookCamera.m_YAxis.m_InputAxisValue = Input.GetAxis(YAxisName);
+            freeLookCamera.m_XAxis.m_InputAxisValue = Input.GetAxis(XAxisName) * speed * Time.deltaTime;
+            freeLookCamera.m_YAxis.m_InputAxisValue = Input.GetAxis(YAxisName) * speed * Time.deltaTime;
         }
         else
         {

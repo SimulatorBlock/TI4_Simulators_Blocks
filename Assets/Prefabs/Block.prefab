@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 627394405048961558}
   m_RootOrder: 0
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -92,7 +94,9 @@ GameObject:
   - component: {fileID: 627394405048961558}
   - component: {fileID: 7783167129578457948}
   - component: {fileID: 6704736471148390569}
-  - component: {fileID: 5962238035204769561}
+  - component: {fileID: -398713996482829724}
+  - component: {fileID: 8587562899913532748}
+  - component: {fileID: -8188275640623751721}
   m_Layer: 6
   m_Name: Block
   m_TagString: Block
@@ -110,6 +114,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1098397402075318071}
   m_Father: {fileID: 0}
@@ -144,7 +149,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5962238035204769561
+--- !u!114 &-398713996482829724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,14 +158,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 627394405048961557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3f2a09a00b2d344b7520f307ab7998, type: 3}
+  m_Script: {fileID: 11500000, guid: d961549f4b300bd4c94a6fa215e09069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
+  pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
+--- !u!114 &8587562899913532748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627394405048961557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c1eb25661f07645978373c2278a5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainBlock: {fileID: 0}
   nonCollidingDirs: 
   linkedBlocks: []
   rayDistance: 0.75
-  breakForce: Infinity
-  breakTorque: Infinity
-  destroyMaterial: {fileID: 0}
-  defaultMaterial: {fileID: 0}
+  breakForce: 20000
+  breakTorque: 20000
+--- !u!114 &-8188275640623751721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627394405048961557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4e77d696c279543aa6e90058f46374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 100
