@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Lists
-    [SerializeField] private List<Block> blocks;
-    [SerializeField] private List<Engine> engines;
+    // [SerializeField] private List<Block> blocks;
+    // [SerializeField] private List<Engine> engines;
     [SerializeField] private List<WheelCollider> wheelColliders;
     #endregion
 
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Controls
-    
+
     #region IsEditing
     public bool GetIsEditing => isEditing;
     public void SetIsEditing(bool set)
@@ -91,14 +91,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Lists
-    public List<Block> GetBlocks => blocks;
-    public void AddBlock(Block block){
-        blocks.Add(block);
-    }
-    public List<Engine> GetEngines => engines;
-    public void AddEngine(Engine engine){
-        engines.Add(engine);
-    }
+    // public List<Block> GetBlocks => blocks;
+    // public void AddBlock(Block block){
+    //     blocks.Add(block);
+    // }
+    // public List<Engine> GetEngines => engines;
+    // public void AddEngine(Engine engine){
+    //     engines.Add(engine);
+    // }
     public List<WheelCollider> GetWheelColliders => wheelColliders;
     public void AddWheelCollider(WheelCollider wheelCollider){
         wheelColliders.Add(wheelCollider);

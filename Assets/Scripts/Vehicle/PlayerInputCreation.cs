@@ -164,7 +164,7 @@ public class PlayerInputCreation : MonoBehaviour
                 {
                     case GameManager.BlockType.Block:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
-                        GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
+                        // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
                         break;
                     case GameManager.BlockType.Wheel:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(2);
@@ -172,11 +172,11 @@ public class PlayerInputCreation : MonoBehaviour
                         break;
                     case GameManager.BlockType.Engine:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(3);
-                        GameManager.instance.AddEngine(myBlock.GetComponent<Engine>());
+                        // GameManager.instance.AddEngine(myBlock.GetComponent<Engine>());
                         break;
                     default:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
-                        GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
+                        // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
                         break;
                 }
                 obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Remove(dir);
@@ -408,7 +408,7 @@ public class PlayerInputCreation : MonoBehaviour
         RaycastHit hit;// hit
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);// ray to camera to mouse position on 3D space.
 
-        if (Physics.Raycast(ray, out hit))// 
+        if (Physics.Raycast(ray, out hit))//
         {
             Vector3 pos = hit.point;
             hitPoint = hit.point;
