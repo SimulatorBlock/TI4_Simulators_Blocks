@@ -15,9 +15,9 @@ public class VehicleChanger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) InstantiateVehicle(1);
-        // if (Input.GetKeyDown(KeyCode.Alpha3)) InstantiateVehicle(2);
-        // if (Input.GetKeyDown(KeyCode.D)) InstantiateVehicle(2);
-        // if (Input.GetKeyDown(KeyCode.F)) InstantiateVehicle(3);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) InstantiateVehicle(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) InstantiateVehicle(3);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) InstantiateVehicle(4);
     }
 
     private void InstantiateVehicle(int vehicleId)
