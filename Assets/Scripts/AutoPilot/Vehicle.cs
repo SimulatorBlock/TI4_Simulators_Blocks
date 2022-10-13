@@ -58,11 +58,30 @@ namespace AutoPilot
 
         private void GetAllBlockBehavior()
         {
-            foreach (Transform child in transform)
-            {
-                BlockBehavior block = child.GetComponent<BlockBehavior>();
-                if (!block) continue;
+            // foreach (Transform child in transform)
+            // {
+            //     BlockBehavior block = child.GetComponent<BlockBehavior>();
+            //     if (!block) continue;
 
+            //     switch (block.type)
+            //     {
+            //         case BlockBehavior.Types.Engine:
+            //             engines.Add((EngineScrObj) block.settings);
+            //             break;
+            //         case BlockBehavior.Types.Standard:
+            //             blocks.Add(block.settings);
+            //             break;
+            //         case BlockBehavior.Types.Wheel:
+            //             wheels.Add(block.wheelCollider);
+            //             break;
+            //     }
+            // }
+
+            //mudei para os blocos poderem continuar organizados no editor
+
+            BlockBehavior[] blockBehaviors = GetComponentsInChildren<BlockBehavior>();
+            foreach (var block in blockBehaviors)
+            {
                 switch (block.type)
                 {
                     case BlockBehavior.Types.Engine:

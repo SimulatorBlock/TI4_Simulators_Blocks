@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5191ab3ee3fa4b8439391fb17cce4add, type: 3}
   m_Name: PieceData
   m_EditorClassIdentifier: 
-  defaultBlock: {fileID: 627394405048961557, guid: 9ba6afe53b479624aab667fe2fb5e15d, type: 3}
+  pieces:
+  - {fileID: 2388140078747062631, guid: 11a7e78bd4263e846b3b3fc6357cbaf0, type: 3}
+  - {fileID: 1345376292288403439, guid: bdf0fd0dd69bd0146b7feb1215bbba26, type: 3}
+  - {fileID: 4818257298850395704, guid: 81ee5e97ece48944a9d984584e0fa723, type: 3}
+  - {fileID: 5551457283363024566, guid: b00e0ceb7769c724d939ce2692ef8876, type: 3}
+  - {fileID: 1751836483444291254, guid: b7f1d9832da25fc4aae669be17b40365, type: 3}
+  - {fileID: 5787233873632505734, guid: 7fc770ddbe84b4a4e944b8627b5ad5c4, type: 3}
+  - {fileID: 1082597500874523993, guid: 03893c4570d43374a9aad4f65e528d91, type: 3}
   wheelBlock: {fileID: 1082597500874523993, guid: 5fa370f30eb46434985d6885c43ad8f3, type: 3}
   wheelCollider: {fileID: 1082597500874523993, guid: 03893c4570d43374a9aad4f65e528d91, type: 3}
-  engineBlock: {fileID: 1672109959207619976, guid: d05057148fadbca42861d721e049b14a, type: 3}
   destroyMaterial: {fileID: 2100000, guid: b67601a1c38814042bc02516ed5a41cd, type: 2}

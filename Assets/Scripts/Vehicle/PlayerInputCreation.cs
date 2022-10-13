@@ -13,10 +13,6 @@ public class PlayerInputCreation : MonoBehaviour
     [SerializeField] private GameObject wheelPlaceHolder;
     [Tooltip("The GameObject ('Block') that will be instantiated")]
     [SerializeField] private GameObject block;
-    // [Tooltip("The GameObject ('Block') default")]
-    // [SerializeField] private GameObject defaultBlock;
-    // [Tooltip("The GameObject ('Block') wheel")]
-    // [SerializeField] private GameObject wheelBlock;
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
 
@@ -160,17 +156,18 @@ public class PlayerInputCreation : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && isColliding && !placeHolder.GetComponent<PiecePlaceHolder>().GetHasPieceOver)
             {
                 var myBlock = Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
-                switch (GameManager.instance.GetCurrentBlockType)
+                switch (GameManager.instance.GetCurrentPieceType)
                 {
-                    case GameManager.BlockType.Block:
+                    case Block.BlockBehavior.Types.Standard:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
                         // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
                         break;
-                    case GameManager.BlockType.Wheel:
+                    case Block.BlockBehavior.Types.Wheel:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(2);
+                        myBlock.GetComponentInChildren<WheelColliderConfigure>().currentDirection = dir;
                         GameManager.instance.AddWheelCollider(myBlock.GetComponentInChildren<WheelCollider>());
                         break;
-                    case GameManager.BlockType.Engine:
+                    case Block.BlockBehavior.Types.Engine:
                         myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(3);
                         // GameManager.instance.AddEngine(myBlock.GetComponent<Engine>());
                         break;
@@ -204,22 +201,23 @@ public class PlayerInputCreation : MonoBehaviour
     /// </summary>
     private void ControllBlocks()
     {
-        switch (GameManager.instance.GetCurrentBlockType)
+        ChangeBlock(GameManager.instance.GetPieceToCreate);
+        switch (GameManager.instance.GetCurrentPieceType)
         {
-            case GameManager.BlockType.Block:
-                ChangeBlock(pieceData.GetDefaultBlock);
+            case Block.BlockBehavior.Types.Standard:
+                // ChangeBlock();
                 SetPlaceHolderGameObject(defaultPlaceHolder);
                 break;
-            case GameManager.BlockType.Wheel:
-                ChangeBlock(pieceData.GetWheelCollider);
+            case Block.BlockBehavior.Types.Wheel:
+                // ChangeBlock(pieceData.GetWheelCollider);
                 SetPlaceHolderGameObject(wheelPlaceHolder);
                 break;
-            case GameManager.BlockType.Engine:
-                ChangeBlock(pieceData.GetEngineBlock);
+            case Block.BlockBehavior.Types.Engine:
+                // ChangeBlock(pieceData.GetEngineBlock);
                 SetPlaceHolderGameObject(defaultPlaceHolder);
                 break;
             default:
-                ChangeBlock(pieceData.GetDefaultBlock);
+                // ChangeBlock(pieceData.GetDefaultBlock);
                 SetPlaceHolderGameObject(defaultPlaceHolder);
                 break;
         }
@@ -263,7 +261,7 @@ public class PlayerInputCreation : MonoBehaviour
                     case 0://forward
                         objPos.z += distanceOffset;
                         DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
                         {
                             placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
                         }
@@ -272,7 +270,7 @@ public class PlayerInputCreation : MonoBehaviour
                     case 1://back
                         objPos.z += -distanceOffset;
                         DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
                         {
                             // placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
                             placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
@@ -282,16 +280,17 @@ public class PlayerInputCreation : MonoBehaviour
                     case 2://left
                         objPos.x += -distanceOffset;
                         DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
                         {
                             placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                            // placeHolder.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
                         }
                         isColliding = true;
                         break;
                     case 3://right
                         objPos.x += distanceOffset;
                         DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
                         {
                             placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                         }
@@ -300,7 +299,7 @@ public class PlayerInputCreation : MonoBehaviour
                     case 4://up
                         objPos.y += distanceOffset;
                         DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
                         {
                             placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
                         }
@@ -309,7 +308,7 @@ public class PlayerInputCreation : MonoBehaviour
                     case 5://down
                         objPos.y += -distanceOffset;
                         DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentBlockType == GameManager.BlockType.Wheel)
+                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
                         {
                             // placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
                             placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);

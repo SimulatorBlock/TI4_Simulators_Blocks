@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1082597500874523994}
   - component: {fileID: 5438526697473228466}
+  - component: {fileID: 8800898780625794083}
   - component: {fileID: 386864409999057503}
   m_Layer: 0
   m_Name: WheelColliderPiece
@@ -52,6 +53,23 @@ MonoBehaviour:
   rayDistance: 0.75
   breakForce: 20000
   breakTorque: 20000
+--- !u!114 &8800898780625794083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082597500874523993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50408b3dbab0b724ea5811c5b44d7054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  settings: {fileID: 11400000, guid: 14d9bad206316ab47b87bd2d3d44a27a, type: 2}
+  wheelRevert: 0
+  wheelCollider: {fileID: 2829360840289696881}
+  wheelModel: {fileID: 0}
 --- !u!54 &386864409999057503
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,9 +95,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5941082384343959638}
-  - component: {fileID: 830539952901535627}
-  - component: {fileID: 2639558933993730095}
   - component: {fileID: 2829360840289696881}
+  - component: {fileID: 830539952901535627}
   m_Layer: 0
   m_Name: WheelCollider
   m_TagString: Untagged
@@ -102,34 +119,6 @@ Transform:
   m_Father: {fileID: 1082597500874523994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &830539952901535627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7838792777923964585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfdc4261104394f6bbfeb9a072bcb5da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
---- !u!114 &2639558933993730095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7838792777923964585}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10fdc79048e75704ba516a2ddb0c3bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torque: 1000
-  steerAngle: 35
-  brakeTorque: 2000
 --- !u!146 &2829360840289696881
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -160,3 +149,16 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 2
   m_Enabled: 1
+--- !u!114 &830539952901535627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838792777923964585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdc4261104394f6bbfeb9a072bcb5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}

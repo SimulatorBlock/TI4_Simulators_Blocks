@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Block;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public enum BlockType{Block, Wheel, Engine}
-    [SerializeField] private BlockType currentBlockType;
+    // public enum BlockType{Block, Wheel, Engine}
+    [SerializeField] private BlockBehavior.Types currentPieceType;
 
     #region GameObjects
+    [SerializeField]private GameObject pieceToCreate;
     [SerializeField]private GameObject selectedBlock;
     [SerializeField]private GameObject mainBlock;
     [SerializeField]private GameObject vehicle;
@@ -22,22 +24,48 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Lists
-    // [SerializeField] private List<Block> blocks;
+    // [SerializeField] private List<GameObject> pieces;
     // [SerializeField] private List<Engine> engines;
     [SerializeField] private List<WheelCollider> wheelColliders;
     #endregion
 
+    [SerializeField] private PieceData pieceData;
+
     void Awake(){
-        instance = this;
+        // instance = this;
+        if (instance) Destroy(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     void Start(){
         SetSelectedBlock(GetMainBlock);
     }
 
+
+    // #region CurrentBlockType
+    // public BlockType GetCurrentBlockType => currentBlockType;
+    // public void SetCurrentBlockType(BlockType type){
+    //     currentBlockType = type;
+    // }
+    // #endregion
+
     #region CurrentBlockType
-    public BlockType GetCurrentBlockType => currentBlockType;
-    public void SetCurrentBlockType(BlockType type){
-        currentBlockType = type;
+    public BlockBehavior.Types GetCurrentPieceType => pieceToCreate.GetComponent<BlockBehavior>().type;
+    public void SetCurrentPieceType(BlockBehavior.Types type){
+        currentPieceType = type;
+    }
+    #endregion
+
+    #region GameObjects
+
+    #region PieceToCreate
+    public GameObject GetPieceToCreate => pieceToCreate;
+    public void SetPieceToCreate(string blockName){
+        // selectedBlock = block;
+        pieceToCreate = pieceData.FindPiece(blockName);
     }
     #endregion
 
@@ -60,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     #region  Vehicle
     public GameObject GetVehicle => vehicle;
+    #endregion
+
     #endregion
 
     #region Controls
@@ -91,7 +121,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Lists
-    // public List<Block> GetBlocks => blocks;
+    // public List<GameObject> GetPieces => pieces;
     // public void AddBlock(Block block){
     //     blocks.Add(block);
     // }
