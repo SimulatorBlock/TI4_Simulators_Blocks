@@ -35,6 +35,18 @@ public class CanvasManagarEdit : MonoBehaviour
     [SerializeField] private GameObject engine;
     [SerializeField] private GameObject wheel;
 
+
+    private void Update() {
+        if (Input.GetMouseButtonDown(1))//Cancels create and destroy
+        {
+            GameManager.instance.SetCanCreate(false);
+            GameManager.instance.SetCanDestroy(false);
+            engine.SetActive(false);
+            wheel.SetActive(false);
+            standard.SetActive(false);
+        }
+    }
+
     void Start()
     {
         #region  Standard
