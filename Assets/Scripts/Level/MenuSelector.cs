@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 namespace Level
 {
-    public class Selector : MonoBehaviour
+    public class MenuSelector : MonoBehaviour
     {
         [Header("Level Destination")]
         [SerializeField] private Constants.Levels level;
 
         private MeshRenderer mesh;
-        [SerializeField] private SelectorScrObj materialStatus;
+        [SerializeField] private MenuSelectorScrObj materialStatus;
         [SerializeField] private bool isAvailableLevel;
 
         private void Start()

@@ -5,7 +5,7 @@ namespace Level
 {
     public class Status : MonoBehaviour
     {
-        private readonly List<Constants.Levels> completedLevels = new();
+        private readonly List<Constants.Levels> availableLevels = new();
         public static Status Instance;
 
         private void Awake()
@@ -17,17 +17,17 @@ namespace Level
                 DontDestroyOnLoad(gameObject);
             }
 
-            CompleteLevel(Constants.Levels.Level_01);
+            UnlockLevel(Constants.Levels.Level_01);
         }
 
-        public void CompleteLevel(Constants.Levels level)
+        public void UnlockLevel(Constants.Levels level)
         {
-            completedLevels.Add(level);
+            availableLevels.Add(level);
         }
 
         public bool IsAvailableLevel(Constants.Levels level)
         {
-            return completedLevels.Contains(level);
+            return availableLevels.Contains(level);
         }
     }
 }

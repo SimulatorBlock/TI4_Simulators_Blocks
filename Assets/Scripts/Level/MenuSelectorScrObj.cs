@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Level
 {
     [CreateAssetMenu(fileName = "Level Selector Settings", menuName = "Settings/Level Selector")]
-    public class SelectorScrObj : ScriptableObject
+    public class MenuSelectorScrObj : ScriptableObject
     {
         [Header("Materials")]
         public Material standard;
