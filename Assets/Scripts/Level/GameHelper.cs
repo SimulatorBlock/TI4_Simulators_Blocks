@@ -13,7 +13,7 @@ public class GameHelper : MonoBehaviour
 
     private static void GoToLevelSelector()
     {
-        SceneManager.LoadScene(Constants.Scenes.LevelSelector.ToString());
+        SceneManager.LoadScene(Constants.Menus.Levels.ToString());
     }
 
     private void ReloadCurrentLevel()

@@ -1,8 +1,10 @@
 public static class Constants
 {
-    public enum Scenes
+    public enum Menus
     {
-        LevelSelector
+        Main,
+        Levels,
+        Settings
     }
 
     public enum Levels
