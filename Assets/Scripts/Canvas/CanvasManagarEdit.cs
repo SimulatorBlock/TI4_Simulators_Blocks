@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using AutoPilot;
 
 public class CanvasManagarEdit : MonoBehaviour
 {
@@ -136,10 +137,11 @@ public class CanvasManagarEdit : MonoBehaviour
     }
 
     private void ClickPlayButton(){
-        // GameManager.instance.SetIsEditing(false);
-        // GameManager.instance.SetCanCreate(false);
-        // GameManager.instance.SetCanDestroy(false);
         SceneManager.LoadScene(1);
+        GameManager.instance.SetIsEditing(false);
+        GameManager.instance.SetCanCreate(false);
+        GameManager.instance.SetCanDestroy(false);
+        GameManager.instance.GetVehicle.GetComponent<Vehicle>().Start();
     }
     
 }
