@@ -15,17 +15,6 @@ namespace AutoPilot
         [SerializeField] private List<EngineScrObj> engines = new();
         [SerializeField] private List<WheelCollider> wheels = new();
 
-        private Vehicle instance;
-
-        void Awake(){
-            if (instance) Destroy(gameObject);
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-        }
-
         public void Start()
         {
             GetAllBlockBehavior();
