@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7390491979111179651}
   - component: {fileID: 3749892095034025642}
   - component: {fileID: 217297145311515209}
+  - component: {fileID: 1979356523075377678}
   m_Layer: 0
   m_Name: Ground.Inclinado V2 4X
   m_TagString: Untagged
@@ -40,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8728981330938238726}
-  m_Mesh: {fileID: -1215738194341448625, guid: 7047fff4b51b6514da623ede655f8c56, type: 3}
+  m_Mesh: {fileID: -1215738194341448625, guid: bf9955760ef8a2847a10ad20a17b9ce3, type: 3}
 --- !u!23 &217297145311515209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3539411135656440781, guid: 7047fff4b51b6514da623ede655f8c56, type: 3}
+  - {fileID: 2100000, guid: 67f1e0a1495545742b1efcdc012130e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1979356523075377678
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728981330938238726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1215738194341448625, guid: bf9955760ef8a2847a10ad20a17b9ce3, type: 3}

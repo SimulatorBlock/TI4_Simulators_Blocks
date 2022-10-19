@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3489762588120603407}
   - component: {fileID: 9041361345144997649}
   - component: {fileID: 3717634394082367608}
+  - component: {fileID: 2529176650335832873}
+  - component: {fileID: -1520515077890790610}
   m_Layer: 0
   m_Name: AsfaltoCont.Incli 12x
   m_TagString: Untagged
@@ -40,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6061689059784763445}
-  m_Mesh: {fileID: 627770057569754254, guid: 7047fff4b51b6514da623ede655f8c56, type: 3}
+  m_Mesh: {fileID: 627770057569754254, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
 --- !u!23 &3717634394082367608
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9116712184692555906, guid: 7047fff4b51b6514da623ede655f8c56, type: 3}
+  - {fileID: 2100000, guid: 0a8a5c84e0559624dab76ae188699b34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +85,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2529176650335832873
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061689059784763445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 627770057569754254, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
+--- !u!64 &-1520515077890790610
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061689059784763445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 627770057569754254, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
