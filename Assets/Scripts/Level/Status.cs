@@ -17,7 +17,7 @@ namespace Level
                 DontDestroyOnLoad(gameObject);
             }
 
-            UnlockLevel(Constants.Levels.Level_01);
+            UnlockLevel(Constants.Levels.Forest_01);
         }
 
         public void UnlockLevel(Constants.Levels level)

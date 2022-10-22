@@ -9,22 +9,22 @@ public static class Constants
 
     public enum Levels
     {
-        Level_01,
-        Level_02,
-        Level_03,
-        Level_04,
-        Level_05,
-        Level_06,
-        Level_07,
-        Level_08,
-        Level_09,
-        Level_10,
-        Level_11,
-        Level_12,
-        Level_13,
-        Level_14,
-        Level_15,
-        Level_16,
+        Forest_01,
+        Forest_02,
+        Forest_03,
+        Forest_04,
+        Forest_05,
+        Forest_06,
+        Forest_07,
+        Forest_08,
+        Forest_09,
+        Forest_10,
+        Forest_11,
+        City_01,
+        City_02,
+        City_03,
+        City_04,
+        City_05,
     }
 
     public enum Vehicles
