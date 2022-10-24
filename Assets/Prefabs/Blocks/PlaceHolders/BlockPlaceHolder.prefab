@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3761091396785784849}
+  - component: {fileID: 199707792}
   m_Layer: 0
   m_Name: BlockPlaceHolder
   m_TagString: Untagged
@@ -26,11 +27,30 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1000, y: 1000, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3726919800427529520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199707792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3761091396785784850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef622f574a694845bfc17959daed86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasPieceOver: 0
+  sizeToDetect: {x: 0.5, y: 0.5, z: 0.5}
+  collisionPos: {x: 0, y: 0, z: 0}
+  meshToDraw: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  renderers: []
+  pieceMaterialData: {fileID: 11400000, guid: c30be5b4768b7c04c9f8a01419c734a5, type: 2}
 --- !u!1 &4103761551237455754
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +79,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3761091396785784849}
   m_RootOrder: 0
@@ -82,6 +103,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

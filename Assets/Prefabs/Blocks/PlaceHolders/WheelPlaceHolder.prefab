@@ -1834,7 +1834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8731697732819067978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1000, y: 1000, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1856,7 +1856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPieceOver: 0
-  defaultMaterial: {fileID: 0}
-  collisionMaterial: {fileID: 2100000, guid: ffef25a7995737e4d8fcb07c6b5ee3fb, type: 2}
-  sizeToDetect: {x: 0.5, y: 1.25, z: 1.25}
+  sizeToDetect: {x: 0.4, y: 1.3, z: 1.3}
+  collisionPos: {x: 0, y: 0, z: 0}
   meshToDraw: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  renderers: []
+  pieceMaterialData: {fileID: 11400000, guid: c30be5b4768b7c04c9f8a01419c734a5, type: 2}

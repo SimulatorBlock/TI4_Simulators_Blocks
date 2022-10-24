@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082597500874523994}
-  - component: {fileID: 5438526697473228466}
+  - component: {fileID: 7921515895627376088}
   - component: {fileID: 8800898780625794083}
   - component: {fileID: 386864409999057503}
   m_Layer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5438526697473228466
+--- !u!114 &7921515895627376088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,15 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082597500874523993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c1eb25661f07645978373c2278a5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 06e09fe5dba89ea46bf4bd2c022d6eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainBlock: {fileID: 0}
   nonCollidingDirs: 
   linkedBlocks: []
   rayDistance: 0.75
-  breakForce: 20000
-  breakTorque: 20000
 --- !u!114 &8800898780625794083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7838792777923964585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfdc4261104394f6bbfeb9a072bcb5da, type: 3}
+  m_Script: {fileID: 11500000, guid: d4499fe3caf15e94ead6374da251b093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
+  wheelMesh: {fileID: 0}
+  wheelCollider: {fileID: 0}
+  blockBehavior: {fileID: 0}
   currentDirection: -1

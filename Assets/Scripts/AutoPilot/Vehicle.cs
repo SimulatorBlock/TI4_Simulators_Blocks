@@ -85,7 +85,7 @@ namespace AutoPilot
                 switch (block.type)
                 {
                     case BlockBehavior.Types.Engine:
-                        engines.Add((EngineScrObj) block.settings);
+                        engines.Add((EngineScrObj)block.settings);
                         break;
                     case BlockBehavior.Types.Standard:
                         blocks.Add(block.settings);

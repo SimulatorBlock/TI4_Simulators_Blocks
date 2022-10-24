@@ -7,11 +7,6 @@ public class PlayerInputCreation : MonoBehaviour
     [Space(5)]
     [Tooltip("The GameObject used to view where the block will be placed")]
     [SerializeField] private GameObject placeHolder;
-    [Tooltip("The Default GameObject placeHolder")]
-    [SerializeField] private GameObject defaultPlaceHolder;
-    [Tooltip("The Wheel GameObject placeHolder")]
-    [SerializeField] private GameObject wheelPlaceHolder;
-    [Tooltip("The GameObject ('Block') that will be instantiated")]
     [SerializeField] private GameObject block;
     [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     [SerializeField] private GameObject mainBlock;
@@ -40,13 +35,10 @@ public class PlayerInputCreation : MonoBehaviour
     [SerializeField] private Vector3 thousand = new Vector3(1000.0f, 1000.0f, 1000.0f);
     [Tooltip("The block that i found when i moving mouse in edit mode")]
     [SerializeField] private GameObject foundBlock = null;
+    [Tooltip("The last block that i found when i moving mouse in edit mode")]
+    [SerializeField] private GameObject lastFoundBlock = null;
     [Tooltip("The direction that's the block was found, -1 when i dont found any block")]
     [SerializeField] private int foundBlockDir = -1;
-
-    [Header("Data")]
-    [Space(5)]
-    [Tooltip("Data of pieces")]
-    [SerializeField] private PieceData pieceData;
 
 
     private readonly RaycastHit[] _hit = new RaycastHit[6];
@@ -61,6 +53,8 @@ public class PlayerInputCreation : MonoBehaviour
     private void Start()
     {
         mainBlock = GameManager.instance.GetMainBlock;
+        GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
+        SetPlaceHolderGameObject(GameManager.instance.GetPlaceHolder);
     }
 
     private void Update()
@@ -78,6 +72,10 @@ public class PlayerInputCreation : MonoBehaviour
         {
             DefinePosition();
             TestDraw();
+            if (Input.GetMouseButtonDown(0) && (IdentifyFoundBlock().Item1 != null))
+            {
+                GameManager.instance.SetSelectedBlock(IdentifyFoundBlock().Item1);
+            }
             if (GameManager.instance.GetCanCreate)
             {
                 (foundBlock, foundBlockDir) = IdentifyFoundBlock();
@@ -87,14 +85,27 @@ public class PlayerInputCreation : MonoBehaviour
                         foundBlock = null;
                         foundBlockDir = -1;
                     }
-                SetPlaceHolderPos(foundBlock, foundBlockDir);
                 ControllBlocks();
+                SetPlaceHolderPos(foundBlock, foundBlockDir);
                 GenerateBlock(foundBlock, foundBlockDir);
             }
             else if (GameManager.instance.GetCanDestroy)
             {
                 ResetPlaceHolderPos();
                 (foundBlock, foundBlockDir) = IdentifyFoundBlock();
+
+                if (lastFoundBlock != null)
+                {
+                    PieceMaterial pieceMaterial;
+                    bool hasPieceMaterial = lastFoundBlock.TryGetComponent<PieceMaterial>(out pieceMaterial);
+                    if(hasPieceMaterial && (foundBlock == lastFoundBlock))
+                        pieceMaterial.MouseOver = true;
+                    else if(hasPieceMaterial)
+                        pieceMaterial.MouseOver = false;
+                }
+                if (foundBlock != null)
+                    lastFoundBlock = foundBlock;
+                
                 DestroyBlock(foundBlock);
             }
             else
@@ -154,24 +165,24 @@ public class PlayerInputCreation : MonoBehaviour
                 switch (GameManager.instance.GetCurrentPieceType)
                 {
                     case Block.BlockBehavior.Types.Standard:
-                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(1))/*  = GameManager.instance.GetVehicle.transform.GetChild(1) */;
                         // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
                         break;
                     case Block.BlockBehavior.Types.Wheel:
-                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(2);
-                        myBlock.GetComponentInChildren<WheelColliderConfigure>().currentDirection = dir;
-                        GameManager.instance.AddWheelCollider(myBlock.GetComponentInChildren<WheelCollider>());
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(2))/*  = GameManager.instance.GetVehicle.transform.GetChild(2) */;
+                        myBlock.GetComponent/* InChildren */<ConfigureWheelMesh>().currentDirection = dir;
+                        GameManager.instance.AddWheelCollider(myBlock.GetComponent/* InChildren */<WheelCollider>());
                         break;
                     case Block.BlockBehavior.Types.Engine:
-                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(3);
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(3))/*  = GameManager.instance.GetVehicle.transform.GetChild(3) */;
                         // GameManager.instance.AddEngine(myBlock.GetComponent<Engine>());
                         break;
                     default:
-                        myBlock.transform.parent = GameManager.instance.GetVehicle.transform.GetChild(1);
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(1))/*  = GameManager.instance.GetVehicle.transform.GetChild(1) */;
                         // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
                         break;
                 }
-                obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Remove(dir);
+                // obj.GetComponent<PieceConfigure>().GetNonColliderDirs().Remove(dir);
             }
         }
     }
@@ -197,36 +208,7 @@ public class PlayerInputCreation : MonoBehaviour
     private void ControllBlocks()
     {
         ChangeBlock(GameManager.instance.GetPieceToCreate);
-        switch (GameManager.instance.GetCurrentPieceType)
-        {
-            case Block.BlockBehavior.Types.Standard:
-                // ChangeBlock();
-                SetPlaceHolderGameObject(defaultPlaceHolder);
-                break;
-            case Block.BlockBehavior.Types.Wheel:
-                // ChangeBlock(pieceData.GetWheelCollider);
-                SetPlaceHolderGameObject(wheelPlaceHolder);
-                break;
-            case Block.BlockBehavior.Types.Engine:
-                // ChangeBlock(pieceData.GetEngineBlock);
-                SetPlaceHolderGameObject(defaultPlaceHolder);
-                break;
-            default:
-                // ChangeBlock(pieceData.GetDefaultBlock);
-                SetPlaceHolderGameObject(defaultPlaceHolder);
-                break;
-        }
-
-        // if (GetIsWheel())
-        // {
-        //     ChangeBlock(pieceData.GetWheelCollider);
-        //     SetPlaceHolderGameObject(wheelPlaceHolder);
-        // }
-        // else
-        // {
-        //     ChangeBlock(pieceData.GetDefaultBlock);
-        //     SetPlaceHolderGameObject(defaultPlaceHolder);
-        // }
+        SetPlaceHolderGameObject(GameManager.instance.GetPlaceHolder);
     }
     /// <summary>
     ///     Change block to instantiate
@@ -236,7 +218,7 @@ public class PlayerInputCreation : MonoBehaviour
         block = instantiateObject;
     }
     /// <summary>
-    ///     Sets place holder position, this function verifies wich block was encontred and wich direction by block point of view the place holder is in
+    ///     Sets place holder position, this function verifies which block was encountered and which direction by block point of view that the place holder is in
     /// </summary>
     /// <param name="obj">
     ///     Block that was found
@@ -248,65 +230,177 @@ public class PlayerInputCreation : MonoBehaviour
     {
         if (obj != null)
         {
-            if (obj.GetComponent<PieceConfigureJoint>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
+            if (obj.GetComponent<PieceConfigure>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
             {
                 Vector3 objPos = obj.transform.position;
                 switch (direction)
                 {
                     case 0://forward
                         objPos.z += distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // {
+                        //     placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                        // }
+                        // else
+                        //    DefinePlaceHolderPos(objPos);
+                        switch(GameManager.instance.GetPieceToCreate.name)
                         {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                            case "WheelSimple":
+                            case "WheelSimpleBack":
+                            case "WheelSimpleFront":
+                            case "WheelTop":
+                            case "WheelTopBack":
+                            case "WheelTopFront":
+                                break;
+                            default:
+                                DefinePlaceHolderPos(objPos);
+                                break;
                         }
                         isColliding = true;
                         break;
                     case 1://back
                         objPos.z += -distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // {
+                        //     placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
+                        //     // placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                        // }
+                        // else
+                        //     DefinePlaceHolderPos(objPos);
+                        switch(GameManager.instance.GetPieceToCreate.name)
                         {
-                            // placeHolder.transform.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+                            case "WheelSimple":
+                            case "WheelSimpleBack":
+                            case "WheelSimpleFront":
+                            case "WheelTop":
+                            case "WheelTopBack":
+                            case "WheelTopFront":
+                                break;
+                            default:
+                                DefinePlaceHolderPos(objPos);
+                                break;
                         }
                         isColliding = true;
                         break;
                     case 2://left
                         objPos.x += -distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // DefinePlaceHolderPos(objPos);
+                        // if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // {
+                        //     placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                        // }
+                        switch(GameManager.instance.GetPieceToCreate.name)
                         {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-                            // placeHolder.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
+                            case "WheelSimple":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                                break;
+                            case "WheelSimpleBack":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,-0.5f);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                                break;
+                            case "WheelSimpleFront":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,0.5f);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                                break;
+                            case "WheelTop":
+                            case "WheelTopBack":
+                            case "WheelTopFront":
+                                break;
+                            default:
+                                DefinePlaceHolderPos(objPos);
+                                break;
                         }
                         isColliding = true;
                         break;
                     case 3://right
                         objPos.x += distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // DefinePlaceHolderPos(objPos);
+                        // if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // {
+                        //     placeHolder.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
+                        // }
+                        switch(GameManager.instance.GetPieceToCreate.name)
                         {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                            case "WheelSimple":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 180.0f);
+                                break;
+                            case "WheelSimpleBack":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,-0.5f);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 180.0f);
+                                break;
+                            case "WheelSimpleFront":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,0.5f);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 180.0f);
+                                break;
+                            case "WheelTop":
+                            case "WheelTopBack":
+                            case "WheelTopFront":
+                                break;
+                            default:
+                                DefinePlaceHolderPos(objPos);
+                                break;
                         }
                         isColliding = true;
                         break;
                     case 4://up
                         objPos.y += distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // {
+                        //     placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
+                        // }
+                        // else
+                        //     DefinePlaceHolderPos(objPos);
+                        switch(GameManager.instance.GetPieceToCreate.name)
                         {
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                            case "WheelSimple":
+                            case "WheelSimpleBack":
+                            case "WheelSimpleFront":
+                            case "WheelTop":
+                            case "WheelTopBack":
+                            case "WheelTopFront":
+                                break;
+                            default:
+                                DefinePlaceHolderPos(objPos);
+                                break;
                         }
                         isColliding = true;
                         break;
                     case 5://down
                         objPos.y += -distanceOffset;
-                        DefinePlaceHolderPos(objPos);
-                        if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // if (/* GetIsWheel() */GameManager.instance.GetCurrentPieceType == Block.BlockBehavior.Types.Wheel)
+                        // {
+                        //     placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                        //     // placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                        // }
+                        // else
+                        //     DefinePlaceHolderPos(objPos);
+                        switch(GameManager.instance.GetPieceToCreate.name)
                         {
-                            // placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-                            placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                            case "WheelSimple":
+                            case "WheelSimpleBack":
+                            case "WheelSimpleFront":
+                                break;
+                            case "WheelTop":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.55f,0.0f);
+                                break;
+                            case "WheelTopBack":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(1.0f,-0.55f,-0.5f);
+                                break;
+                            case "WheelTopFront":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(1.0f,-0.55f,0.5f);
+                                break;
+                            default:
+                                DefinePlaceHolderPos(objPos);
+                                break;
                         }
                         isColliding = true;
                         break;
@@ -322,7 +416,7 @@ public class PlayerInputCreation : MonoBehaviour
         }
     }
     /// <summary>
-    ///     Sets place holder position, this function verifies wich block was encontred and wich direction by block point of view the place holder is in
+    ///     Sets place holder position, this function verifies which block was encountered and which direction by block point of view that the place holder is in
     /// </summary>
     /// <returns>
     ///     <para>
@@ -333,7 +427,7 @@ public class PlayerInputCreation : MonoBehaviour
     ///     </para>
     /// </returns>
     /// <example>
-    /// This show how dir works, on the _directions array aways the next position of the array is your opposite, so when i found a position if is pair the next is your opposite if is odd the previous is your opposite
+    /// This show how dir works, on the _directions array always the next position of the array is your opposite, so when i found a position if is pair the next is your opposite if is odd the previous is your opposite
     /// </example>
     private (GameObject, int) IdentifyFoundBlock()
     {
@@ -442,7 +536,7 @@ public class PlayerInputCreation : MonoBehaviour
         placeHolder.transform.position = new Vector3(x, y, z);
     }
     /// <summary>
-    ///     Private function that used for define place holder position passing Vector3 as paramater.
+    ///     Private function that used for define place holder position passing Vector3 as parameter.
     /// </summary>
     private void DefinePlaceHolderPos(Vector3 pos)
     {

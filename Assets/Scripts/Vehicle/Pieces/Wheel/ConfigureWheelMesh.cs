@@ -1,39 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Block;
 
-public class WheelColliderConfigure : MonoBehaviour
+public class ConfigureWheelMesh : MonoBehaviour
 {
     [SerializeField] private PieceData pieceData;
+    [SerializeField] private GameObject wheelMesh;
+    [SerializeField] private WheelCollider wheelCollider;
+    [SerializeField] private BlockBehavior blockBehavior;
     public int currentDirection = -1;
-
-    // private float rayDistance = 1.0f;
-
     private void Start()
     {
-        // AddWheelCollider();
+        AddWheelCollider();
+        blockBehavior.wheelCollider = wheelCollider;
         ConfigureMesh();
     }
     private void AddWheelCollider(){
-        WheelCollider wheelCollider = this.transform.gameObject.AddComponent<WheelCollider>();
-        wheelCollider.mass = 100.0f;
-        wheelCollider.radius = 0.75f;
-        wheelCollider.forceAppPointDistance = 0.5f;
-        wheelCollider.suspensionDistance = 0.2f;
+        wheelCollider = this.transform.gameObject.AddComponent<WheelCollider>();
+        wheelCollider.mass = 20.0f;
+        wheelCollider.radius = 0.6f;
+        wheelCollider.wheelDampingRate = 0.25f;
+        wheelCollider.suspensionDistance = 0.4f;
+        wheelCollider.forceAppPointDistance = 0.0f;
+        JointSpring suspensionSpring = wheelCollider.suspensionSpring;
+        suspensionSpring.spring = 35000.0f;
+        suspensionSpring.damper = 4500.0f;
+        suspensionSpring.targetPosition = 0.5f;
         WheelFrictionCurve fowardFriction = wheelCollider.forwardFriction;
-        fowardFriction.stiffness = 2.0f;
+        fowardFriction.extremumSlip = 0.4f;
+        fowardFriction.extremumValue = 1.0f;
+        fowardFriction.asymptoteSlip = 0.8f;
+        fowardFriction.asymptoteValue = 0.5f;
+        fowardFriction.stiffness = 1.0f;
         wheelCollider.forwardFriction = fowardFriction;
         WheelFrictionCurve sidewaysFriction = wheelCollider.sidewaysFriction;
-        sidewaysFriction.stiffness = 2.0f;
+        sidewaysFriction.extremumSlip = 0.2f;
+        sidewaysFriction.extremumValue = 1.0f;
+        sidewaysFriction.asymptoteSlip = 0.5f;
+        sidewaysFriction.asymptoteValue = 0.75f;
+        sidewaysFriction.stiffness = 1.0f;
         wheelCollider.sidewaysFriction = sidewaysFriction;
-        // JointSpring suspensionSpring = wheelCollider.suspensionSpring;
-        // suspensionSpring.spring = 90000.0f;
-        // suspensionSpring.damper = 9000.0f;
     }
     private void ConfigureMesh(){
-        WheelMesh wheelMesh = Instantiate<WheelMesh>(pieceData.GetWheelBlock.GetComponent<WheelMesh>(),this.transform.position, this.transform.rotation);
-        wheelMesh.SetWheelCollider(this.GetComponent<WheelCollider>());
-        wheelMesh.transform.SetParent(this.gameObject.transform.parent.parent);
         Quaternion _rotation = new Quaternion();
         switch (currentDirection)
         {
@@ -53,7 +62,8 @@ public class WheelColliderConfigure : MonoBehaviour
                 _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
                 break;
             case 5://down
-                _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+                _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                 break;
             default:
                 break;

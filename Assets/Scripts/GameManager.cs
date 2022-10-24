@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     #region GameObjects
     [SerializeField]private GameObject pieceToCreate;
     [SerializeField]private GameObject selectedBlock;
+    [SerializeField]private GameObject placeHolder;
     [SerializeField]private GameObject mainBlock;
     [SerializeField]private GameObject vehicle;
     #endregion
@@ -29,7 +30,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<WheelCollider> wheelColliders;
     #endregion
 
-    [SerializeField] private PieceData pieceData;
+    [SerializeField] private PieceData pieceData;    
+    [SerializeField] private PlaceHoldersData placeHoldersData;
 
     void Awake(){
         // instance = this;
@@ -66,6 +68,13 @@ public class GameManager : MonoBehaviour
     public void SetPieceToCreate(string blockName){
         // selectedBlock = block;
         pieceToCreate = pieceData.FindPiece(blockName);
+    }
+    #endregion
+    
+    #region PlaceHolder
+    public GameObject GetPlaceHolder => placeHolder;
+    public void SetPlaceHolder(string blockName){
+        placeHolder = placeHoldersData.FindPlaceHolder(blockName);
     }
     #endregion
 
