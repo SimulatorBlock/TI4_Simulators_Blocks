@@ -29,6 +29,7 @@ namespace Level
         private void OnMouseDown()
         {
             if (isAvailableLevel) SceneManager.LoadScene(level.ToString());
+            if (!isAvailableLevel) isAvailableLevel = true;
         }
 
         private void OnMouseExit()

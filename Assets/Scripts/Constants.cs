@@ -29,6 +29,9 @@ public static class Constants
         City_03,
         City_04,
         City_05,
+        City_06,
+        City_07,
+        City_08,
     }
 
     public enum Vehicles
