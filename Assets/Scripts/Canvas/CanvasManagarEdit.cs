@@ -191,7 +191,7 @@ public class CanvasManagarEdit : MonoBehaviour
         GameManager.instance.SetIsEditing(false);
         GameManager.instance.SetCanCreate(false);
         GameManager.instance.SetCanDestroy(false);
-        GameManager.instance.GetVehicle.GetComponent<Vehicle>().Start();
+        GameManager.instance.GetVehicle.GetComponent<Vehicle2>().Config();
         GameManager.instance.GetVehicle.transform.position = new Vector3(1000,1000,1000);
         // FindObjectOfType<VehicleChanger>().VehicleObject = GameManager.instance.GetVehicle;
     }

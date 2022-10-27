@@ -315,6 +315,7 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0, z: 0}
   thousand: {x: 1000, y: 1000, z: 1000}
   foundBlock: {fileID: 0}
+  lastFoundBlock: {fileID: 0}
   foundBlockDir: -1
 --- !u!1 &135727417
 GameObject:
@@ -2033,7 +2034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 560237257}
   - component: {fileID: 560237263}
-  - component: {fileID: 560237262}
+  - component: {fileID: 560237264}
   - component: {fileID: 560237261}
   m_Layer: 0
   m_Name: Vehicle
@@ -2073,23 +2074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d965283d2458048b0e1dc4f6a0acd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &560237262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560237256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971fecb3394bba745bddba881ae97c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torqueTotal: 0
-  torqueWheel: 0
-  blocks: []
-  engines: []
-  wheels: []
 --- !u!54 &560237263
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2106,6 +2090,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &560237264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560237256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31053a355588fd44ba490b3a15cd02f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torqueTotal: 0
+  torqueWheel: 0
+  blocks: []
+  engines: []
+  wheels: []
 --- !u!1 &593780589
 GameObject:
   m_ObjectHideFlags: 3
@@ -4736,7 +4737,6 @@ MonoBehaviour:
   canCreate: 0
   wheelColliders: []
   pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
-  placeHoldersData: {fileID: 875602111}
 --- !u!4 &1684789568
 Transform:
   m_ObjectHideFlags: 0

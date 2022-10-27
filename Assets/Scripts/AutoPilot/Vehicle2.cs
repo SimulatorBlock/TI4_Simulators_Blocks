@@ -28,13 +28,19 @@ public class Vehicle2 : MonoBehaviour
         }
     }
 
+
     private void ConfigRigidbody()
     {
-        rb = this.gameObject.AddComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         rb.drag = 0f;
 
         CalcMass();
         CalcTorque();
+    }
+    public void ClearLists(){
+        blocks = new();
+        engines = new();
+        wheels = new();
     }
 
     private void ConfigWheelCollider()

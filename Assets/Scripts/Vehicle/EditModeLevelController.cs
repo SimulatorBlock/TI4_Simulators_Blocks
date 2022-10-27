@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using AutoPilot;
 public class EditModeLevelController : MonoBehaviour
 {
     public static EditModeLevelController instance;
@@ -30,6 +31,10 @@ public class EditModeLevelController : MonoBehaviour
             if (GameManager.instance)
             {
                 GameManager.instance.GetVehicle.transform.position = new Vector3(0,0,0);
+                Vehicle2 vehicleScript;
+                if (GameManager.instance.GetVehicle.TryGetComponent<Vehicle2>(out vehicleScript)){
+                    vehicleScript.ClearLists();
+                }
                 GameManager.instance.SetIsEditing(true);
             }
             SceneManager.LoadScene("SampleCarCreation");
