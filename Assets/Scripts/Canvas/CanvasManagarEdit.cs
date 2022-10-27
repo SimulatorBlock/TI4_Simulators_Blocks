@@ -187,10 +187,12 @@ public class CanvasManagarEdit : MonoBehaviour
     }
 
     private void ClickPlayButton(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
         GameManager.instance.SetIsEditing(false);
         GameManager.instance.SetCanCreate(false);
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.GetVehicle.GetComponent<Vehicle>().Start();
+        GameManager.instance.GetVehicle.transform.position = new Vector3(1000,1000,1000);
+        // FindObjectOfType<VehicleChanger>().VehicleObject = GameManager.instance.GetVehicle;
     }
 }

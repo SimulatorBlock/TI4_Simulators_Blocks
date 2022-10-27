@@ -12,9 +12,11 @@ public class ConfigureWheelMesh : MonoBehaviour
     public int currentDirection = -1;
     private void Start()
     {
-        AddWheelCollider();
-        blockBehavior.wheelCollider = wheelCollider;
-        ConfigureMesh();
+        if(this.gameObject.transform.parent.parent.name != "Vehicle(Clone)"){
+            AddWheelCollider();
+            blockBehavior.wheelCollider = wheelCollider;
+            ConfigureMesh();
+        }
     }
     private void AddWheelCollider(){
         wheelCollider = this.transform.gameObject.AddComponent<WheelCollider>();

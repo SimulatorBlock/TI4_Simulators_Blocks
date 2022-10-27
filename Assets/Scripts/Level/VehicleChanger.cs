@@ -3,10 +3,17 @@ using UnityEngine;
 public class VehicleChanger : MonoBehaviour
 {
     [SerializeField] private GameObject vehicleObject;
+    public GameObject VehicleObject{
+        get{return vehicleObject;}
+        set{vehicleObject = value;}
+    }
     [SerializeField] private GameObject[] vehicles;
 
     private void Start()
     {
+        if(GameManager.instance)
+            vehicles[0] = GameManager.instance.GetVehicle;
+
         int vehicleId = VehicleHelper.Vehicle;
         InstantiateVehicle(vehicleId);
     }

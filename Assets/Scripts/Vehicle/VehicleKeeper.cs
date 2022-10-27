@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class VehicleKeeper : MonoBehaviour
 {
-    private VehicleKeeper instance;
+    public static VehicleKeeper instance;
     private Rigidbody myRigidBody;
 
     private void Awake()
     {
-        if (instance != null) Destroy(instance);
-        else
+        if (this.gameObject.name != "Vehicle(Clone)")
         {
-            instance = this;
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             DontDestroyOnLoad(gameObject);
         }
         TryGetComponent<Rigidbody>(out myRigidBody);
     }
     private void Update()
     {
-        if (GameManager.instance.GetIsEditing)
+        if (GameManager.instance.GetIsEditing && this.gameObject.name == "Vehicle")
         {
             InEditMode();
         }
-        else
+        // else
+        // {
+        //     OutOfEditMode();
+        // }
+        if (this.gameObject.name == "Vehicle(Clone)")
         {
             OutOfEditMode();
         }

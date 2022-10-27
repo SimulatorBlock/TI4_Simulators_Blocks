@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [SerializeField] private PieceData pieceData;    
-    [SerializeField] private PlaceHoldersData placeHoldersData;
+    // [SerializeField] private PlaceHoldersData placeHoldersData;
 
     void Awake(){
         // instance = this;
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     #region PlaceHolder
     public GameObject GetPlaceHolder => placeHolder;
     public void SetPlaceHolder(string blockName){
-        placeHolder = placeHoldersData.FindPlaceHolder(blockName);
+        placeHolder = PlaceHoldersData.instance.FindPlaceHolder(blockName);
     }
     #endregion
 
