@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Level
 {
@@ -9,6 +11,8 @@ namespace Level
 
         private const float RotateSpeed = 90f;
         private const float Displacement = 1f;
+
+        private const float SecondsToNextLevel = 1.5f;
 
         private Vector3 positionOrigin;
         private Vector3 positionDisplacement;
@@ -41,6 +45,13 @@ namespace Level
         private void OnTriggerEnter(Collider other)
         {
             Status.Instance.UnlockLevel(levelToUnlock);
+            StartCoroutine(GoToNextLevel());
+        }
+
+        IEnumerator GoToNextLevel()
+        {
+            yield return new WaitForSeconds(SecondsToNextLevel);
+            SceneManager.LoadScene(levelToUnlock.ToString());
         }
     }
 }
