@@ -42,6 +42,15 @@ public class Vehicle2 : MonoBehaviour
         engines = new();
         wheels = new();
     }
+    public void ClearVehicle(){
+        foreach (var item in transform.GetComponentsInChildren<BlockBehavior>())
+        {
+            if (item.gameObject.name != "BlockMain")
+            {
+                Destroy(item.gameObject);
+            }
+        }
+    }
 
     private void ConfigWheelCollider()
     {

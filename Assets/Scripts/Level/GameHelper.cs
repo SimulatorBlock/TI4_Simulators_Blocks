@@ -18,7 +18,8 @@ public class GameHelper : MonoBehaviour
 
     private void ReloadCurrentLevel()
     {
-        var scene = SceneManager.GetSceneByName(level.ToString());
-        SceneManager.LoadScene(scene.buildIndex);
+        // var scene = SceneManager.GetSceneByName(level.ToString());
+        // SceneManager.LoadScene(scene.buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

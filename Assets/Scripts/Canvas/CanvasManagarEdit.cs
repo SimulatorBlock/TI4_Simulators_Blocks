@@ -13,6 +13,7 @@ public class CanvasManagarEdit : MonoBehaviour
     [SerializeField] private Button wheelButton;
     [SerializeField] private Button removeButton;
     [SerializeField] private Button playButton;
+    [SerializeField] private Button clearVehicleButton;
     [Space(10)]
 
     [Header("Standard")]
@@ -80,6 +81,7 @@ public class CanvasManagarEdit : MonoBehaviour
         #endregion
 
         removeButton.onClick.AddListener(ClickRemoveButton);
+        clearVehicleButton.onClick.AddListener(ClickClearVehicleButton);
         playButton.onClick.AddListener(ClickPlayButton);
     }
     private void ClickStandardButton(){
@@ -184,6 +186,9 @@ public class CanvasManagarEdit : MonoBehaviour
     private void ClickRemoveButton(){
         GameManager.instance.SetCanCreate(false);
         GameManager.instance.SetCanDestroy(true);
+    }
+    private void ClickClearVehicleButton(){
+        GameManager.instance.GetVehicle.GetComponent<Vehicle2>().ClearVehicle();
     }
 
     private void ClickPlayButton(){
