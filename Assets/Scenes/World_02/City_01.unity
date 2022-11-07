@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8510f9d3110307c48b0749f50523352b, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c3c94dc9de7acad4ebadd013ae667a0c, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -138,6 +138,10 @@ PrefabInstance:
     - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_Name
       value: AsfaltoCont (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
@@ -195,6 +199,10 @@ PrefabInstance:
     - target: {fileID: 3854345132942807387, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
       propertyPath: m_Name
       value: AsfaltoVazio (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854345132942807387, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7448503822749711502, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
       propertyPath: m_RootOrder
@@ -297,6 +305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1001 &133306843
@@ -369,6 +381,10 @@ PrefabInstance:
     - target: {fileID: 7477714405363608539, guid: facf511aeb46a0046acbe53b2a317274, type: 3}
       propertyPath: m_Name
       value: Tunel Topo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477714405363608539, guid: facf511aeb46a0046acbe53b2a317274, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: facf511aeb46a0046acbe53b2a317274, type: 3}
@@ -446,6 +462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1 &151357172
@@ -463,7 +483,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!108 &151357173
 Light:
@@ -534,14 +554,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151357172}
-  m_LocalRotation: {x: 0.34972954, y: 0.28432634, z: -0.11228583, w: 0.88557315}
+  m_LocalRotation: {x: 0.36208868, y: 0.15631151, z: -0.061730362, w: 0.9168685}
   m_LocalPosition: {x: -0.16, y: 2.2600029, z: 19.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 43.1, y: 35.6, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.1, y: 19.35, z: 0}
 --- !u!1001 &177239536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,6 +674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Predio P1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8571583853106148709, guid: 005b00ccae1292c479eb5b2eea2b1801, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005b00ccae1292c479eb5b2eea2b1801, type: 3}
 --- !u!4 &189371503 stripped
@@ -716,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1001 &259234655
@@ -773,6 +801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground.Inclinado v6 4X (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2797672290978398310, guid: 585574af0ab377642a8510438868b20b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585574af0ab377642a8510438868b20b, type: 3}
 --- !u!4 &259234656 stripped
@@ -790,6 +822,10 @@ PrefabInstance:
     - target: {fileID: 1160599136944418175, guid: 1cab6b6a9ea2cbc47b54dc21bfeed817, type: 3}
       propertyPath: m_Name
       value: AsfaltoPontilhado.Incli 8x
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160599136944418175, guid: 1cab6b6a9ea2cbc47b54dc21bfeed817, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2082478212397620746, guid: 1cab6b6a9ea2cbc47b54dc21bfeed817, type: 3}
       propertyPath: m_Convex
@@ -900,6 +936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1001 &300317771
@@ -957,6 +997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1001 &329947158
@@ -969,6 +1013,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -1031,6 +1079,10 @@ PrefabInstance:
     - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_Name
       value: AsfaltoCont (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
@@ -1133,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poste Luz Unico (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7030104823079988311, guid: 86a2a655564872f49a3f64667027d92e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a2a655564872f49a3f64667027d92e, type: 3}
 --- !u!1001 &362346977
@@ -1145,6 +1201,10 @@ PrefabInstance:
     - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_Name
       value: Poste Amassado (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4868492648725615944, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_RootOrder
@@ -1202,6 +1262,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -1265,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoCont (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1326,6 +1394,10 @@ PrefabInstance:
     - target: {fileID: 8131298807998395805, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
       propertyPath: m_Name
       value: Arvore Cidade 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131298807998395805, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8904739630276767527, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
       propertyPath: m_RootOrder
@@ -1389,6 +1461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassGround (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1450,6 +1526,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -1513,6 +1593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassGround (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1574,6 +1658,10 @@ PrefabInstance:
     - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_Name
       value: Poste Amassado
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4868492648725615944, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_RootOrder
@@ -1648,7 +1736,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &558125528
 Transform:
@@ -1829,6 +1917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoPontilhado (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5426848172921676870, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
 --- !u!4 &804445369 stripped
@@ -1846,6 +1938,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -1909,6 +2005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassGround (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1971,6 +2071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoCont (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -2028,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoCont (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2084,6 +2192,10 @@ PrefabInstance:
     - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_Name
       value: Poste Amassado (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4868492648725615944, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_RootOrder
@@ -2186,6 +2298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoPontilhado (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5426848172921676870, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
 --- !u!4 &966574452 stripped
@@ -2203,6 +2319,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -2271,6 +2391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassGround
       objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2332,6 +2456,10 @@ PrefabInstance:
     - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_Name
       value: AsfaltoCont (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
@@ -2434,6 +2562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tunel Topo
       objectReference: {fileID: 0}
+    - target: {fileID: 7477714405363608539, guid: facf511aeb46a0046acbe53b2a317274, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: facf511aeb46a0046acbe53b2a317274, type: 3}
 --- !u!4 &1232627886 stripped
@@ -2496,6 +2628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground.Inclinado V2.1 12X
       objectReference: {fileID: 0}
+    - target: {fileID: 5086469462684604283, guid: ef2be69eb3baad545a7fa35bdec4f9de, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef2be69eb3baad545a7fa35bdec4f9de, type: 3}
 --- !u!1001 &1279327172
@@ -2508,6 +2644,10 @@ PrefabInstance:
     - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_Name
       value: AsfaltoCont (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
@@ -2672,6 +2812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoPontilhado (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5426848172921676870, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
 --- !u!1001 &1310907750
@@ -2688,6 +2832,10 @@ PrefabInstance:
     - target: {fileID: 5330920733899254237, guid: 37d1ae59c37afd7489cefe7a895a9098, type: 3}
       propertyPath: m_Name
       value: Predio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330920733899254237, guid: 37d1ae59c37afd7489cefe7a895a9098, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7546942782516878183, guid: 37d1ae59c37afd7489cefe7a895a9098, type: 3}
       propertyPath: m_RootOrder
@@ -2755,6 +2903,10 @@ PrefabInstance:
     - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_Name
       value: AsfaltoCont (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
@@ -2874,6 +3026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8131298807998395805, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8904739630276767527, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2975,6 +3131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poste Luz Unico
       objectReference: {fileID: 0}
+    - target: {fileID: 7030104823079988311, guid: 86a2a655564872f49a3f64667027d92e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a2a655564872f49a3f64667027d92e, type: 3}
 --- !u!4 &1466882320 stripped
@@ -2992,6 +3152,10 @@ PrefabInstance:
     - target: {fileID: 3854345132942807387, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
       propertyPath: m_Name
       value: AsfaltoVazio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854345132942807387, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7448503822749711502, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
       propertyPath: m_RootOrder
@@ -3049,6 +3213,10 @@ PrefabInstance:
     - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_Name
       value: AsfaltoCont (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
@@ -3164,6 +3332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoCont (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 185867615374162905, guid: dc24337809fb5be498278f9f1704c749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1156838497528568594, guid: dc24337809fb5be498278f9f1704c749, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -3265,6 +3437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1001 &1614998151
@@ -3277,6 +3453,10 @@ PrefabInstance:
     - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_Name
       value: Poste Amassado (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344541556464716301, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4868492648725615944, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
       propertyPath: m_RootOrder
@@ -3379,6 +3559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground.Inclinado v6 4X (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2797672290978398310, guid: 585574af0ab377642a8510438868b20b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585574af0ab377642a8510438868b20b, type: 3}
 --- !u!4 &1642068815 stripped
@@ -3440,6 +3624,10 @@ PrefabInstance:
     - target: {fileID: 2797672290978398310, guid: 585574af0ab377642a8510438868b20b, type: 3}
       propertyPath: m_Name
       value: Ground.Inclinado v6 4X (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797672290978398310, guid: 585574af0ab377642a8510438868b20b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585574af0ab377642a8510438868b20b, type: 3}
@@ -3508,6 +3696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7836626825546346580, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7381cdbe96dcf40ab58544e5563184, type: 3}
 --- !u!1001 &1762992900
@@ -3520,6 +3712,10 @@ PrefabInstance:
     - target: {fileID: 8131298807998395805, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
       propertyPath: m_Name
       value: Arvore Cidade 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131298807998395805, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8904739630276767527, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
       propertyPath: m_RootOrder
@@ -3578,6 +3774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arvore Cidade 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8131298807998395805, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8904739630276767527, guid: c96d04a76a1f480478edaffaa5632cef, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -3634,6 +3834,10 @@ PrefabInstance:
     - target: {fileID: 5330920733899254237, guid: 37d1ae59c37afd7489cefe7a895a9098, type: 3}
       propertyPath: m_Name
       value: Predio (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330920733899254237, guid: 37d1ae59c37afd7489cefe7a895a9098, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7546942782516878183, guid: 37d1ae59c37afd7489cefe7a895a9098, type: 3}
       propertyPath: m_RootOrder
@@ -3696,6 +3900,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -3803,6 +4011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground.Inclinado v6 4X (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2797672290978398310, guid: 585574af0ab377642a8510438868b20b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585574af0ab377642a8510438868b20b, type: 3}
 --- !u!4 &1807140319 stripped
@@ -3865,6 +4077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsfaltoPontilhado (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5426848172921676870, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6d13eb90093714793e0651ad16d27f, type: 3}
 --- !u!1001 &1845285059
@@ -3877,6 +4093,10 @@ PrefabInstance:
     - target: {fileID: 3854345132942807387, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
       propertyPath: m_Name
       value: AsfaltoVazio (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854345132942807387, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7448503822749711502, guid: 810685dd67edeeb438b7f50958e666ab, type: 3}
       propertyPath: m_RootOrder
@@ -3939,6 +4159,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -4012,6 +4236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassGround (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4073,6 +4301,10 @@ PrefabInstance:
     - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_Name
       value: GrassGround (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 986501258406226150, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1933817252245056658, guid: ad3c5050e48cd0443bfef452e7b9a8b3, type: 3}
       propertyPath: m_RootOrder
@@ -4180,6 +4412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Predio P1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8571583853106148709, guid: 005b00ccae1292c479eb5b2eea2b1801, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005b00ccae1292c479eb5b2eea2b1801, type: 3}
 --- !u!1001 &2088982006
@@ -4249,6 +4485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Casa
       objectReference: {fileID: 0}
+    - target: {fileID: 7433576327970332086, guid: 3db03a3e69a1b9b488e6468ebd6e70c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4552021022140551549, guid: 3db03a3e69a1b9b488e6468ebd6e70c3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3db03a3e69a1b9b488e6468ebd6e70c3, type: 3}
@@ -4273,7 +4513,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &2094167649
 MeshRenderer:
@@ -4350,6 +4590,10 @@ PrefabInstance:
     - target: {fileID: 1160599136944418175, guid: 1cab6b6a9ea2cbc47b54dc21bfeed817, type: 3}
       propertyPath: m_Name
       value: AsfaltoPontilhado.Incli 8x (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160599136944418175, guid: 1cab6b6a9ea2cbc47b54dc21bfeed817, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2993288980443087025, guid: 1cab6b6a9ea2cbc47b54dc21bfeed817, type: 3}
       propertyPath: m_RootOrder
@@ -4491,6 +4735,10 @@ PrefabInstance:
     - target: {fileID: 351726379522243195, guid: 4cb19fe57c6ffd34a9eeb1216b5b69f6, type: 3}
       propertyPath: m_Name
       value: AsfaltoPontilhado.Incli 4x
+      objectReference: {fileID: 0}
+    - target: {fileID: 351726379522243195, guid: 4cb19fe57c6ffd34a9eeb1216b5b69f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8080933829022642901, guid: 4cb19fe57c6ffd34a9eeb1216b5b69f6, type: 3}
       propertyPath: m_RootOrder
