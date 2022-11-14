@@ -24,6 +24,8 @@ public static class Constants
         Forest_13,
         Forest_14,
         Forest_15,
+        Forest_16,
+        Forest_17,
         City_01,
         City_02,
         City_03,
