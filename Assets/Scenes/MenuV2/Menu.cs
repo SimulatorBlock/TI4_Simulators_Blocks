@@ -7,10 +7,19 @@ namespace Scenes.MenuV2
     {
         private IMenuState state;
         public static Menu instance;
-
+        
         [Header("Menu Panels")]
+        [SerializeField] public GameObject inMain;
         [SerializeField] public GameObject inGame;
         [SerializeField] public GameObject inGarage;
+        
+        [Header("Settings Panels")]
+        [SerializeField] public GameObject openSettings;
+        [SerializeField] public GameObject tooltipCredits;
+        [SerializeField] public GameObject tooltipLevelList;
+        
+        [Header("Modals Panels")]
+        [SerializeField] public GameObject modalExistGame;
 
         private void Awake()
         {
@@ -36,14 +45,23 @@ namespace Scenes.MenuV2
         public void SetState(IMenuState newState)
         {
             state?.Exit();
+            HiddenAllPanels();
+            
             state = newState;
             state?.Enter();
         }
 
-        public void HiddenAllPanels()
+        private void HiddenAllPanels()
         {
+            inMain.SetActive(false);
             inGame.SetActive(false);
             inGarage.SetActive(false);
+            
+            openSettings.SetActive(false);
+            tooltipCredits.SetActive(false);
+            tooltipLevelList.SetActive(false);
+            
+            modalExistGame.SetActive(false);
         }
     }
 }

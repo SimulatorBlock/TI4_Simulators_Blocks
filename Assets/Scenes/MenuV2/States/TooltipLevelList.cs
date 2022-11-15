@@ -2,23 +2,24 @@ using UnityEngine;
 
 namespace Scenes.MenuV2.States
 {
-    public class InGarage : IMenuState
+    public class TooltipLevelList : IMenuState
     {
         private readonly Menu menu;
 
-        public InGarage(Menu menu)
+        public TooltipLevelList(Menu menu)
         {
             this.menu = menu;
         }
         
         public void Enter()
         {
-            menu.inGarage.SetActive(true);
+            menu.inGame.SetActive(true);
+            menu.tooltipLevelList.SetActive(true);
         }
 
         public void Update()
         {
-            if (!Input.GetKeyDown(KeyCode.C)) return;
+            if (!Input.GetKeyDown(KeyCode.Escape)) return;
             
             IMenuState newState = new InGame(menu);
             menu.SetState(newState);
