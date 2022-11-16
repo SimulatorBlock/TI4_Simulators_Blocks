@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2125565094845885420}
   - component: {fileID: 3085068705572136009}
   - component: {fileID: 951573358403506307}
+  - component: {fileID: 7073409994757958454}
   m_Layer: 0
   m_Name: Arvore Seca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2125565094845885420
 Transform:
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7073409994757958454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599999002952233302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4974195030543017429}
   - component: {fileID: 2086089493364084329}
   - component: {fileID: 9026293437389601630}
+  - component: {fileID: -5634574840836795627}
   m_Layer: 0
   m_Name: Arbusto_Duplo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4994124139837923400
 Transform:
@@ -98,3 +99,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6711415539507199714, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
+--- !u!114 &-5634574840836795627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165374954666485709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

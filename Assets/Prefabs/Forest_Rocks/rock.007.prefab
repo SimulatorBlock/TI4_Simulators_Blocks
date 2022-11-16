@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6056722293267272987}
   - component: {fileID: 5229933751763380572}
   - component: {fileID: 6269385836977941533}
+  - component: {fileID: 7626441454843155020}
   m_Layer: 0
   m_Name: rock.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6056722293267272987
 Transform:
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7626441454843155020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931157563959380911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

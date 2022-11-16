@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 1010777932950271919}
   - component: {fileID: 4687330422839671815}
   - component: {fileID: 3625711157195066021}
+  - component: {fileID: 7767679152770144485}
   m_Layer: 0
   m_Name: Arvore_nova_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1010777932950271919
 Transform:
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7767679152770144485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3789637590538571099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

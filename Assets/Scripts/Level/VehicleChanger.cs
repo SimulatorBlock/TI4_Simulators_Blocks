@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class VehicleChanger : MonoBehaviour
@@ -15,9 +16,15 @@ public class VehicleChanger : MonoBehaviour
             vehicles[0] = GameManager.instance.GetVehicle;
 
         int vehicleId = VehicleHelper.Vehicle;
-        InstantiateVehicle(vehicleId);
+        StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
+        //InstantiateVehicle(vehicleId);
     }
 
+    IEnumerator WaitToBlocksAnimationsOver(int id)
+    {
+        yield return new WaitForSeconds(1.5f);
+        InstantiateVehicle(id);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);

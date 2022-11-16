@@ -31,10 +31,10 @@ namespace Level
 
         private void Update()
         {
-            timePassed += Time.deltaTime;
+            /*timePassed += Time.deltaTime;
 
             float timeInterpolation = Mathf.PingPong(timePassed, 1f);
-            model.position = Vector3.Lerp(positionOrigin, positionDisplacement, timeInterpolation);
+            model.position = Vector3.Lerp(positionOrigin, positionDisplacement, timeInterpolation);*/
         }
 
         private void FixedUpdate()

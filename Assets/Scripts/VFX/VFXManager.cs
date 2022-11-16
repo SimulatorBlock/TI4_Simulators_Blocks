@@ -30,9 +30,13 @@ public class VFXManager : MonoBehaviour
 
     public void EnableVFX(string vfxName)
     {
-        VFXs vfx = Array.Find(vfXsList, vFXs => vFXs.name == vfxName);
-        
-        vfx.vfxGameObj.SetActive(true);
+        VFXs vfx = Array.Find(vfXsList, vFXs =>  vFXs.name == vfxName);
+
+        foreach (var var in vfXsList)
+        {
+            if(var.name == vfxName)
+                vfx.vfxGameObj.SetActive(true);
+        }
         //vfx.vfxParticleSys.seila;
     }
 }

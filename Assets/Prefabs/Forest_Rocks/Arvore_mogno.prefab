@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 6450501318455414977}
   - component: {fileID: 2440104388560046289}
   - component: {fileID: -1201623037365653702}
+  - component: {fileID: 8804584466006484521}
   m_Layer: 0
   m_Name: Arvore_mogno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7638589920233045761
 Transform:
@@ -98,3 +99,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8000798878013280926, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
+--- !u!114 &8804584466006484521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289492619627153296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
