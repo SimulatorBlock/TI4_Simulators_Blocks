@@ -7,17 +7,19 @@ public class TweenToStart : MonoBehaviour
 {
     [SerializeField] private List<ModelsTweenToStart> modelsTweenToStarts;
     private int randomStart;
+
     private void Start()
     {
-        randomStart = Random.Range(0, 2);
+        randomStart = Random.Range(0, 3);
 
         foreach (var models in modelsTweenToStarts)
             models.DoTween(randomStart);
     }
+
     private void Update()
     {
         if(!Input.GetKeyDown(KeyCode.R)) return;
-        randomStart = Random.Range(0, 2);
+        randomStart = Random.Range(0, 3);
 
         foreach (var models in modelsTweenToStarts)
             models.DoTween(randomStart);
