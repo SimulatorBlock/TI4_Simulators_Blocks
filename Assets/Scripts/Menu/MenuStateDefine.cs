@@ -1,7 +1,8 @@
+using Menu.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scenes.MenuV2.States
+namespace Menu
 {
     public class MenuStateDefine : MonoBehaviour
     {

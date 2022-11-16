@@ -1,19 +1,20 @@
 using UnityEngine;
 
-namespace Scenes.MenuV2.States
+namespace Menu.States
 {
-    public class OpenSettings : IMenuState
+    public class TooltipLevelList : IMenuState
     {
         private readonly Menu menu;
 
-        public OpenSettings(Menu menu)
+        public TooltipLevelList(Menu menu)
         {
             this.menu = menu;
         }
         
         public void Enter()
         {
-            menu.openSettings.SetActive(true);
+            menu.inGame.SetActive(true);
+            menu.tooltipLevelList.SetActive(true);
         }
 
         public void Update()

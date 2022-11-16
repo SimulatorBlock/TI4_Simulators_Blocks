@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scenes.MenuV2.States
+namespace Menu.States
 {
     public class InGame : IMenuState
     {

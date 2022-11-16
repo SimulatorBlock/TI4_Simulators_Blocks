@@ -1,7 +1,7 @@
+using Menu.States;
 using UnityEngine;
-using Scenes.MenuV2.States;
 
-namespace Scenes.MenuV2
+namespace Menu
 {
     public class Menu : MonoBehaviour
     {

@@ -1,19 +1,19 @@
 using UnityEngine;
 
-namespace Scenes.MenuV2.States
+namespace Menu.States
 {
-    public class ModalExitGame : IMenuState
+    public class OpenSettings : IMenuState
     {
         private readonly Menu menu;
 
-        public ModalExitGame(Menu menu)
+        public OpenSettings(Menu menu)
         {
             this.menu = menu;
         }
-
+        
         public void Enter()
         {
-            menu.modalExistGame.SetActive(true);
+            menu.openSettings.SetActive(true);
         }
 
         public void Update()

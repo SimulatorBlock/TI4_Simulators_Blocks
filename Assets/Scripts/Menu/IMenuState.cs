@@ -1,4 +1,4 @@
-namespace Scenes.MenuV2.States
+namespace Menu
 {
     public interface IMenuState
     {

@@ -1,30 +1,28 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace Scenes.MenuV2.States
+namespace Menu.States
 {
-    public class InMain : IMenuState
+    public class TooltipCredits : IMenuState
     {
         private readonly Menu menu;
 
-        public InMain(Menu menu)
+        public TooltipCredits(Menu menu)
         {
             this.menu = menu;
         }
-
+        
         public void Enter()
         {
-            menu.inMain.SetActive(true);
+            menu.openSettings.SetActive(true);
+            menu.tooltipCredits.SetActive(true);
         }
 
         public void Update()
         {
-            if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.KeypadEnter)) return;
+            if (!Input.GetKeyDown(KeyCode.Escape)) return;
             
             IMenuState newState = new InGame(menu);
             menu.SetState(newState);
-            
-            SceneManager.LoadScene("Levels");
         }
 
         public void Exit() {}
