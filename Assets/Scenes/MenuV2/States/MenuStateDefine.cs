@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Scenes.MenuV2.States
@@ -29,13 +30,19 @@ namespace Scenes.MenuV2.States
         
         public void SetTooltipCreditsState()
         {
-            IMenuState newState = new TooltipCredits(Menu.instance);
+            IMenuState newState = Menu.instance.tooltipCredits.activeInHierarchy
+                ? new OpenSettings(Menu.instance)
+                : new TooltipCredits(Menu.instance);
+            
             Menu.instance.SetState(newState);
         }
         
         public void SetTooltipLevelListState()
         {
-            IMenuState newState = new TooltipLevelList(Menu.instance);
+            IMenuState newState = Menu.instance.tooltipLevelList.activeInHierarchy
+                ? new InGame(Menu.instance)
+                : new TooltipLevelList(Menu.instance);
+            
             Menu.instance.SetState(newState);
         }
         
