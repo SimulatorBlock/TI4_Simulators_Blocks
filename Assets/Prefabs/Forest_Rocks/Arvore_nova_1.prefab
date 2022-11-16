@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 3066190253746478305}
   - component: {fileID: 5330167920211030090}
   - component: {fileID: 7441945264738248202}
+  - component: {fileID: 3495508491684324955}
   m_Layer: 0
   m_Name: Arvore_nova_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6205309204245588228
 Transform:
@@ -98,3 +99,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3373505646345322983, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
+--- !u!114 &3495508491684324955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068868277067959686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

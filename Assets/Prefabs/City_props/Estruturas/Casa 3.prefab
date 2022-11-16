@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3416590840796256280}
   - component: {fileID: 696081795185331176}
   - component: {fileID: 2387005076450337349}
+  - component: {fileID: 6634751967949680722}
   m_Layer: 0
   m_Name: Casa 3
   m_TagString: Untagged
@@ -98,6 +99,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.044906955, y: 0.023972925, z: 0.039984405}
   m_Center: {x: -0.0009625327, y: -0.00025798564, z: 0.019993648}
+--- !u!114 &6634751967949680722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411081948564505531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3297644639967253163
 PrefabInstance:
   m_ObjectHideFlags: 0
