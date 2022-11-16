@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 197672207447177502}
   - component: {fileID: 247982622501311808}
   - component: {fileID: -5435119064760496567}
+  - component: {fileID: 4406244388969714060}
   m_Layer: 0
   m_Name: SideWalk V1
   m_TagString: Untagged
@@ -95,7 +96,7 @@ BoxCollider:
   m_GameObject: {fileID: 4585272971620200206}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.07001452, y: 0.10000002, z: 0.03995134}
   m_Center: {x: 0.014992652, y: -5.3749165e-13, z: -0.020024348}
@@ -108,7 +109,7 @@ BoxCollider:
   m_GameObject: {fileID: 4585272971620200206}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.030011544, y: 0.10000002, z: 0.04500001}
   m_Center: {x: -0.03499409, y: -4.777728e-13, z: -0.017500002}
@@ -124,3 +125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  justScale: 0
+--- !u!64 &4406244388969714060
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585272971620200206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4602672661585941874, guid: 46820632fcba8aa499bdd05958c0ad2a, type: 3}
