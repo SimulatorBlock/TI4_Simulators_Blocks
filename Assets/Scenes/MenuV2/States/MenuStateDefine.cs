@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scenes.MenuV2.States
 {
@@ -48,8 +48,18 @@ namespace Scenes.MenuV2.States
         
         public void SetModalExitGameState()
         {
-            IMenuState newState = new ModalExitGame(Menu.instance);
-            Menu.instance.SetState(newState);
+            SceneManager.LoadScene(Constants.Menus.Levels.ToString());
+            
+            // TODO: Remover cena de selecionar level
+            // IMenuState newState = new ModalExitGame(Menu.instance);
+            // Menu.instance.SetState(newState);
+
+            SetInGameState();
+        }
+        
+        public void ReloadLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
