@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 2667659274676589570}
   - component: {fileID: 6089697263789829816}
   - component: {fileID: 7292243571875435559}
-  - component: {fileID: 1870393667661700704}
-  - component: {fileID: 9117273494481527628}
-  - component: {fileID: 1037750741077040140}
   - component: {fileID: -9067650733889436277}
+  - component: {fileID: 5311836400706582176}
   m_Layer: 0
   m_Name: SideWalk V3
   m_TagString: Untagged
@@ -87,45 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1870393667661700704
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950419747784227089}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.09999999, y: 0.10000002, z: 0.040667467}
-  m_Center: {x: -0.0000000047683715, y: -4.792557e-13, z: -0.019666282}
---- !u!65 &9117273494481527628
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950419747784227089}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.029811, y: 0.10000002, z: 0.04500001}
-  m_Center: {x: -0.035094388, y: -4.777728e-13, z: -0.017500002}
---- !u!65 &1037750741077040140
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950419747784227089}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.09999999, y: 0.029810663, z: 0.04500001}
-  m_Center: {x: -0.0000000047683715, y: -0.03509479, z: -0.017500002}
 --- !u!114 &-9067650733889436277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  justScale: 0
+--- !u!64 &5311836400706582176
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950419747784227089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4555859111049273014, guid: 3e75872f8fe477c4882cd52a8d0a5d04, type: 3}

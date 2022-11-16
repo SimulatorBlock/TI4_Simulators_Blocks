@@ -263,16 +263,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5027430195297408768, guid: 15367d6e5eeba8549ad001725382de6c, type: 3}
   m_PrefabInstance: {fileID: 61922323}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &100744662 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1297509436984403342, guid: 3db03a3e69a1b9b488e6468ebd6e70c3, type: 3}
-  m_PrefabInstance: {fileID: 1612192743}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &100744665 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1297509436984403328, guid: 3db03a3e69a1b9b488e6468ebd6e70c3, type: 3}
-  m_PrefabInstance: {fileID: 1612192743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &111155716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1640,7 +1630,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 558125528}
-  - component: {fileID: 558125529}
   m_Layer: 0
   m_Name: Fase
   m_TagString: Untagged
@@ -1734,25 +1723,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &558125529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558125527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5225c1cc029b6fd4b9b529322b1df534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vfXsList:
-  - name: "Fuma\xE7aChamine"
-    vfxGameObj: {fileID: 100744662}
-    vfxParticleSys: {fileID: 100744665}
-  - name: "Fuma\xE7aChamine"
-    vfxGameObj: {fileID: 1839642339}
-    vfxParticleSys: {fileID: 1839642342}
 --- !u!114 &599096132 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3681081322452524954, guid: 15367d6e5eeba8549ad001725382de6c, type: 3}
@@ -5258,16 +5228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1839642339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8514610511747160315, guid: 5f7be09df70f35d40a74625790d7389b, type: 3}
-  m_PrefabInstance: {fileID: 2017906621}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1839642342 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8514610511747160309, guid: 5f7be09df70f35d40a74625790d7389b, type: 3}
-  m_PrefabInstance: {fileID: 2017906621}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1858788232 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5090502812165718229, guid: 946d8cc795914f247930d8d9363a9026, type: 3}
