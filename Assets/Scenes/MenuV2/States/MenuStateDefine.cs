@@ -5,30 +5,30 @@ namespace Scenes.MenuV2.States
 {
     public class MenuStateDefine : MonoBehaviour
     {
-        public void SetInMainState()
+        public static void SetInMainState()
         {
             IMenuState newState = new InMain(Menu.instance);
             Menu.instance.SetState(newState);
         }
-        public void SetInGameState()
+        public static void SetInGameState()
         {
             IMenuState newState = new InGame(Menu.instance);
             Menu.instance.SetState(newState);
         }
         
-        public void SetInGarageState()
+        public static void SetInGarageState()
         {
             IMenuState newState = new InGarage(Menu.instance);
             Menu.instance.SetState(newState);
         }
         
-        public void SetOpenSettingsState()
+        public static void SetOpenSettingsState()
         {
             IMenuState newState = new OpenSettings(Menu.instance);
             Menu.instance.SetState(newState);
         }
         
-        public void SetTooltipCreditsState()
+        public static void SetTooltipCreditsState()
         {
             IMenuState newState = Menu.instance.tooltipCredits.activeInHierarchy
                 ? new OpenSettings(Menu.instance)
@@ -37,7 +37,7 @@ namespace Scenes.MenuV2.States
             Menu.instance.SetState(newState);
         }
         
-        public void SetTooltipLevelListState()
+        public static void SetTooltipLevelListState()
         {
             IMenuState newState = Menu.instance.tooltipLevelList.activeInHierarchy
                 ? new InGame(Menu.instance)
@@ -46,7 +46,7 @@ namespace Scenes.MenuV2.States
             Menu.instance.SetState(newState);
         }
         
-        public void SetModalExitGameState()
+        public static void SetModalExitGameState()
         {
             SceneManager.LoadScene(Constants.Menus.Levels.ToString());
             
@@ -57,8 +57,9 @@ namespace Scenes.MenuV2.States
             SetInGameState();
         }
         
-        public void ReloadLevel()
+        public static void ReloadLevel()
         {
+            SetInGameState();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

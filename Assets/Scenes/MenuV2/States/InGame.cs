@@ -21,7 +21,7 @@ namespace Scenes.MenuV2.States
             IMenuState newState = null;
             
             if (Input.GetKeyDown(KeyCode.C)) newState = new InGarage(menu);
-            else if (Input.GetKeyDown(KeyCode.R)) newState = new InGarage(menu);
+            else if (Input.GetKeyDown(KeyCode.R)) MenuStateDefine.ReloadLevel();
             else if (Input.GetKeyDown(KeyCode.L)) newState = new TooltipLevelList(menu);
             else if (Input.GetKeyDown(KeyCode.Escape)) newState = new OpenSettings(menu);
 

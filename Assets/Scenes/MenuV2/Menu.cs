@@ -33,7 +33,7 @@ namespace Scenes.MenuV2
 
         private void Start()
         {
-            IMenuState newState = new InGame(this);
+            IMenuState newState = new InMain(this);
             SetState(newState);
         }
 

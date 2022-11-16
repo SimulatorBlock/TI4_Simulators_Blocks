@@ -2,9 +2,9 @@ using Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Scenes.Menu
+namespace Scenes.MenuV2
 {
-    public class ButtonBehavior : MonoBehaviour
+    public class ButtonSounds : MonoBehaviour
     {
 
         private void Awake()

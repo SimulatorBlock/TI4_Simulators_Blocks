@@ -20,8 +20,11 @@ namespace Scenes.MenuV2.States
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.KeypadEnter)) return;
-
-            //SceneManager.LoadScene(1);
+            
+            IMenuState newState = new InGame(menu);
+            menu.SetState(newState);
+            
+            SceneManager.LoadScene("Levels");
         }
 
         public void Exit() {}
