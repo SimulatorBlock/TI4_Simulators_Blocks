@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4413873599326291796}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7993062091232851313
 MonoBehaviour:
@@ -47,22 +47,22 @@ MonoBehaviour:
   sounds:
   - name: ButtonCancel
     clip: {fileID: 8300000, guid: ade2626a7bb73074796289ba5bde9a0b, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: ButtonClick
     clip: {fileID: 8300000, guid: f0769adfc9438e945a986affb9c52ef7, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     source: {fileID: 0}
   - name: ButtonConfirm
     clip: {fileID: 8300000, guid: f7c28aa8e25320c4aa4967ec35ab8cc6, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: 73dbd6358abf93e48b933d12c92e4fa8, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
 --- !u!1 &700173178425337743
@@ -96,7 +96,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4413873599326291796}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3257619012739860749
 MonoBehaviour:
@@ -828,8 +828,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4413873599923284131}
-  - {fileID: 8388423209445823038}
   - {fileID: 8930172483887093109}
+  - {fileID: 8388423209445823038}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

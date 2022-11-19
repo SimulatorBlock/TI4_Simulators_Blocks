@@ -11,11 +11,7 @@ namespace Audio
         private void Awake()
         {
             if (Instance) Destroy(gameObject);
-            else
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
+            else Instance = this;
         }
 
         private void Start()
