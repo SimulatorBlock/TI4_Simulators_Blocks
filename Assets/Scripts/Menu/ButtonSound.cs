@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace Menu
 {
-    public class MenuButtonSound : MonoBehaviour
+    public class ButtonSound : MonoBehaviour
     {
 
         private void Awake()

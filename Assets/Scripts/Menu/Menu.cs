@@ -1,3 +1,4 @@
+using System;
 using Menu.States;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ namespace Menu
     public class Menu : MonoBehaviour
     {
         private IMenuState state;
-        public static Menu instance;
+        public static Menu Instance;
+
+        public MenuDefaultState defaultState = MenuDefaultState.InGame; 
         
         [Header("Menu Panels")]
         [SerializeField] public GameObject inMain;
@@ -23,17 +26,35 @@ namespace Menu
 
         private void Awake()
         {
-            if (instance) Destroy(gameObject);
+            if (Instance) Destroy(gameObject);
             else
             {
-                instance = this;
+                Instance = this;
                 DontDestroyOnLoad(this);
             }
         }
 
         private void Start()
         {
-            IMenuState newState = new InMain(this);
+            IMenuState newState;
+            switch (defaultState)
+            {
+                case MenuDefaultState.InMain:
+                {
+                    newState = new InMain(this);
+                    break;
+                }
+                case MenuDefaultState.InGarage:
+                {
+                    newState = new InGarage(this);
+                    break;
+                }
+                case MenuDefaultState.InGame:
+                default:
+                    newState = new InGame(this);
+                    break;
+            }
+            
             SetState(newState);
         }
 
