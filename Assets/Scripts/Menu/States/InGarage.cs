@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Menu.States
 {
@@ -9,6 +10,7 @@ namespace Menu.States
         public InGarage(Menu menu)
         {
             this.menu = menu;
+            SceneManager.LoadScene("SampleCarCreation");
         }
         
         public void Enter()

@@ -49,13 +49,13 @@ namespace Menu
         
         public static void SetModalExitGameState()
         {
-            SceneManager.LoadScene(Constants.Menus.Levels.ToString());
+            Application.Quit();
             
             // TODO: Remover cena de selecionar level
             // IMenuState newState = new ModalExitGame(Menu.instance);
             // Menu.instance.SetState(newState);
 
-            SetInGameState();
+            // SetInGameState();
         }
         
         public static void ReloadLevel()

@@ -1,4 +1,5 @@
 using System.Collections;
+using Menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,14 +30,6 @@ namespace Level
             };
         }
 
-        private void Update()
-        {
-            /*timePassed += Time.deltaTime;
-
-            float timeInterpolation = Mathf.PingPong(timePassed, 1f);
-            model.position = Vector3.Lerp(positionOrigin, positionDisplacement, timeInterpolation);*/
-        }
-
         private void FixedUpdate()
         {
             model.Rotate(Vector3.up, RotateSpeed * Time.fixedDeltaTime);
@@ -48,10 +41,11 @@ namespace Level
             StartCoroutine(GoToNextLevel());
         }
 
-        IEnumerator GoToNextLevel()
+        private IEnumerator GoToNextLevel()
         {
             yield return new WaitForSeconds(SecondsToNextLevel);
             SceneManager.LoadScene(levelToUnlock.ToString());
+            MenuStateDefine.SetInGameState();
         }
     }
 }
