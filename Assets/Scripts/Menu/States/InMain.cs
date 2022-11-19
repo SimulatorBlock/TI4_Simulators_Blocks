@@ -24,7 +24,7 @@ namespace Menu.States
             IMenuState newState = new InGame(menu);
             menu.SetState(newState);
             
-            SceneManager.LoadScene("Levels");
+            SceneManager.LoadScene(Constants.Levels.Forest_01.ToString());
         }
 
         public void Exit() {}
