@@ -23,6 +23,24 @@ namespace Menu
             Menu.Instance.SetState(newState);
         }
         
+        public static void SetGarageBlocksState()
+        {
+            IMenuState newState = new GarageBlocks(Menu.Instance);
+            Menu.Instance.SetState(newState);
+        }
+        
+        public static void SetGarageEnginesState()
+        {
+            IMenuState newState = new GarageEngines(Menu.Instance);
+            Menu.Instance.SetState(newState);
+        }
+        
+        public static void SetGarageWheelsState()
+        {
+            IMenuState newState = new GarageWheels(Menu.Instance);
+            Menu.Instance.SetState(newState);
+        }
+        
         public static void SetOpenSettingsState()
         {
             IMenuState newState = new OpenSettings(Menu.Instance);

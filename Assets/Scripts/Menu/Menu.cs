@@ -1,4 +1,3 @@
-using System;
 using Menu.States;
 using UnityEngine;
 
@@ -23,6 +22,11 @@ namespace Menu
         
         [Header("Modals Panels")]
         [SerializeField] public GameObject modalExistGame;
+        
+        [Header("Garage Panels")]
+        [SerializeField] public GameObject garageBlocks;
+        [SerializeField] public GameObject garageEngines;
+        [SerializeField] public GameObject garageWheels;
 
         private void Awake()
         {
@@ -83,6 +87,10 @@ namespace Menu
             tooltipLevelList.SetActive(false);
             
             modalExistGame.SetActive(false);
+            
+            garageBlocks.SetActive(false);
+            garageEngines.SetActive(false);
+            garageWheels.SetActive(false);
         }
     }
 }
