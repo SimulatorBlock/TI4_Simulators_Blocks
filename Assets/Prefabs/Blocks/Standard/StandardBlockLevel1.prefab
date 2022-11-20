@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5551457283363024571}
   - component: {fileID: -6649266995852399270}
   - component: {fileID: 5551457283363024564}
+  - component: {fileID: 5050789260064478523}
   m_Layer: 6
   m_Name: StandardBlockLevel1
   m_TagString: Block
@@ -79,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMaterials: []
   renderers: []
+  mouseOver: 0
   pieceData: {fileID: 11400000, guid: c30be5b4768b7c04c9f8a01419c734a5, type: 2}
 --- !u!114 &5551457283363024564
 MonoBehaviour:
@@ -97,6 +99,24 @@ MonoBehaviour:
   wheelRevert: 0
   wheelCollider: {fileID: 0}
   wheelModel: {fileID: 0}
+--- !u!114 &5050789260064478523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551457283363024566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b1e4d142845745b601e4849ff4f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5551457283691995421
 GameObject:
   m_ObjectHideFlags: 0

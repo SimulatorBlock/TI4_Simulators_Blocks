@@ -22,25 +22,30 @@ public class ModelsTweenToStart : MonoBehaviour
 
     public void DoTween(int randomStart)
     {
-        if (randomStart == 0)
+        switch (randomStart)
         {
-            middlePos = new Vector3(initialAndLastPos.x, Random.Range(50, 401), initialAndLastPos.z);
+            case 0:
+                //Blocos caem de cima para baixo
+                middlePos = new Vector3(initialAndLastPos.x, Random.Range(50, 401), initialAndLastPos.z);
 
-            transform.position = middlePos;
+                transform.position = middlePos;
 
-            transform.DOMove(new Vector3(initialAndLastPos.x, initialAndLastPos.y, initialAndLastPos.z), 1);
+                transform.DOMove(new Vector3(initialAndLastPos.x, initialAndLastPos.y, initialAndLastPos.z), 1);
+                break;
+            case 1:
+                //Blocos escalonam de 0 a 1 na mesma posição
+                middleScale = new Vector3(0, 0, 0);
+
+                transform.localScale = middleScale;
+
+                transform.DOScale(new Vector3(initialAndLastScale.x, initialAndLastScale.y, initialAndLastScale.z), 1);
+                break;
+            case 2:
+                //Blocos de composição escalonam e blocos do chão caem de cima para baixo
+                StartCoroutine(WaitToBlocksFall());
+                break;
+            
         }
-        else if(randomStart == 1)
-        {
-            middleScale = new Vector3(0, 0, 0);
-
-            transform.localScale = middleScale;
-
-            transform.DOScale(new Vector3(initialAndLastScale.x, initialAndLastScale.y, initialAndLastScale.z), 1);
-        }
-        else if (randomStart == 2)
-            StartCoroutine(WaitToBlocksFall());
-        
     }
 
     IEnumerator WaitToBlocksFall()
