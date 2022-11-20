@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 2890085282070246359}
   - component: {fileID: 3355342325165492637}
   - component: {fileID: 6270643894982231025}
-  - component: {fileID: 5776926241870393209}
-  - component: {fileID: 409662119551064842}
-  - component: {fileID: 4466336772319948067}
   - component: {fileID: -8351951121156134880}
+  - component: {fileID: 6761066116551962514}
   m_Layer: 0
   m_Name: Tunel Topo
   m_TagString: Untagged
@@ -87,45 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5776926241870393209
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7477714405363608539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010000033, y: 0.10000002, z: 0.01185017}
-  m_Center: {x: 0.005000012, y: -2.3837743e-14, z: -0.0059250426}
---- !u!65 &409662119551064842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7477714405363608539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010000033, y: 0.0104964385, z: 0.08000001}
-  m_Center: {x: 0.005000012, y: 0.0455143, z: -0.04000001}
---- !u!65 &4466336772319948067
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7477714405363608539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010000033, y: 0.010494357, z: 0.08000003}
-  m_Center: {x: 0.005000012, y: -0.044752873, z: -0.040000018}
 --- !u!114 &-8351951121156134880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  justScale: 0
+--- !u!64 &6761066116551962514
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477714405363608539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4636430076666905370, guid: 4348bc48682dec6498fb9d0044e3ea09, type: 3}
