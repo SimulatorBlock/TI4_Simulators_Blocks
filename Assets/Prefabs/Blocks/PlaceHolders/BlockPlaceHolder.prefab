@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3761091396785784849}
   - component: {fileID: 199707792}
+  - component: {fileID: -543285442665884654}
   m_Layer: 0
   m_Name: BlockPlaceHolder
   m_TagString: Untagged
@@ -51,6 +52,24 @@ MonoBehaviour:
   meshToDraw: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   renderers: []
   pieceMaterialData: {fileID: 11400000, guid: c30be5b4768b7c04c9f8a01419c734a5, type: 2}
+--- !u!114 &-543285442665884654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3761091396785784850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b1e4d142845745b601e4849ff4f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4103761551237455754
 GameObject:
   m_ObjectHideFlags: 0

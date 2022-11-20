@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 3096157896639916018}
   - component: {fileID: 3020110597872466302}
   - component: {fileID: 8820848559500166924}
-  - component: {fileID: 883802690952214121}
-  - component: {fileID: 8048084079808444279}
   - component: {fileID: -4229516563661604658}
+  - component: {fileID: -5203567747915693203}
   m_Layer: 0
   m_Name: Casa 4
   m_TagString: Untagged
@@ -87,32 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &883802690952214121
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128125476945624644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.061989635, y: 0.030123014, z: 0.04108815}
-  m_Center: {x: 0.0089948205, y: 0.031732425, z: 0.02053235}
---- !u!65 &8048084079808444279
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128125476945624644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.045555394, y: 0.07179377, z: 0.043532703}
-  m_Center: {x: 0.00077772385, y: 0.010896888, z: 0.021754567}
 --- !u!114 &-4229516563661604658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  justScale: 0
+  justScale: 1
+--- !u!64 &-5203567747915693203
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128125476945624644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1872945565816391269, guid: 86fc73505e5067a479e178fd34dbafb3, type: 3}
 --- !u!1001 &1901409531418898096
 PrefabInstance:
   m_ObjectHideFlags: 0
