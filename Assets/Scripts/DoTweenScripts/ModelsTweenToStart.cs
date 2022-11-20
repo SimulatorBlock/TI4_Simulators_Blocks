@@ -14,10 +14,18 @@ public class ModelsTweenToStart : MonoBehaviour
     private Vector3 middleScale;
 
     public bool justScale;
+
+    private Rigidbody rigidbody;
     private void Awake()
     {
         initialAndLastPos = transform.position;
         initialAndLastScale = transform.localScale;
+
+        if (GetComponent<Rigidbody>())
+        {
+            rigidbody = GetComponent<Rigidbody>();
+            rigidbody.isKinematic = true;
+        }
     }
 
     public void DoTween(int randomStart)
@@ -69,5 +77,10 @@ public class ModelsTweenToStart : MonoBehaviour
 
         if (justScale)
             transform.DOScale(new Vector3(initialAndLastScale.x, initialAndLastScale.y, initialAndLastScale.z), 1);
+        
+        if (GetComponent<Rigidbody>())
+        {
+            rigidbody.isKinematic = false;
+        }
     }
 }
