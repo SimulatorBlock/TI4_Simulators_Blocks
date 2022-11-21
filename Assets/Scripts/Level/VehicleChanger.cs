@@ -10,8 +10,11 @@ public class VehicleChanger : MonoBehaviour
     }
     [SerializeField] private GameObject[] vehicles;
 
+    private VFXManager vfxManager;
+
     private void Start()
     {
+        vfxManager = GetComponent<VFXManager>();
         if(GameManager.instance)
             vehicles[0] = GameManager.instance.GetVehicle;
         
@@ -62,5 +65,7 @@ public class VehicleChanger : MonoBehaviour
         Vector3 position = new(0, 1, 0);
         vehicleObject = Instantiate(vehicles[vehicleId], position, Quaternion.identity);
         VehicleHelper.Vehicle = vehicleId;
+        //vfxManager.EnableVFX("CFX3_Hit_SmokePuff");
     }
+  
 }
