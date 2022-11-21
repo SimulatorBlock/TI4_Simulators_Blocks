@@ -145,6 +145,46 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1
     source: {fileID: 0}
+  - name: Delete Blocks
+    clip: {fileID: 8300000, guid: aae6fdf9d98076e48b8d55689fe51470, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 76e40db952f5b954cb16f77fc3380d1d, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit Blocks 1
+    clip: {fileID: 8300000, guid: 36c39a5683f348b43a5284cc20d4d66f, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit Blocks 2
+    clip: {fileID: 8300000, guid: ef441387dad006f4f8822a61899bd6cc, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Pull Block
+    clip: {fileID: 8300000, guid: 600ceea73d704b64fa36a2739891d6ea, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Motor
+    clip: {fileID: 8300000, guid: 6a7fdf6c55e0f804b8429fb2f6747a23, type: 3}
+    volume: 0.7
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Music 1
+    clip: {fileID: 8300000, guid: 780981432c2258443a914c9226a572a6, type: 3}
+    volume: 0.7
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Music 2
+    clip: {fileID: 8300000, guid: d8e5d41d8bb35734cab3eeff31a4d84e, type: 3}
+    volume: 0.7
+    pitch: 0.5
+    source: {fileID: 0}
 --- !u!1 &97483399090906365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,6 +5756,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecb8916a60de316ea91111c24afc5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardButton: {fileID: 0}
+  engineButton: {fileID: 0}
+  wheelButton: {fileID: 0}
+  removeButton: {fileID: 0}
+  playButton: {fileID: 0}
+  clearVehicleButton: {fileID: 0}
+  standardLevel1Button: {fileID: 0}
+  standardLevel2Button: {fileID: 0}
+  standardLevel3Button: {fileID: 0}
+  engineLevel1Button: {fileID: 0}
+  engineLevel2Button: {fileID: 0}
+  engineLevel3Button: {fileID: 0}
+  wheelSimpleButton: {fileID: 0}
+  wheelSimpleBackButton: {fileID: 0}
+  wheelSimpleFrontButton: {fileID: 0}
+  wheelTopButton: {fileID: 0}
+  wheelTopBackButton: {fileID: 0}
+  wheelTopFrontButton: {fileID: 0}
 --- !u!1 &4413873599555282957
 GameObject:
   m_ObjectHideFlags: 0

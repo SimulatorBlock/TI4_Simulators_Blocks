@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 public class PlayerInputCreation : MonoBehaviour
 {
@@ -182,6 +183,7 @@ public class PlayerInputCreation : MonoBehaviour
                         // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
                         break;
                 }
+                AudioManager.Instance.Play("Pull Block", false);
                 // obj.GetComponent<PieceConfigure>().GetNonColliderDirs().Remove(dir);
             }
         }
@@ -199,6 +201,7 @@ public class PlayerInputCreation : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Destroy(obj);
+                AudioManager.Instance.Play("Delete Blocks", false);
             }
         }
     }
