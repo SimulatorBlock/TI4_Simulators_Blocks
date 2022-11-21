@@ -80,17 +80,18 @@ public class PieceMaterial : MonoBehaviour
     private void SetToDestroyMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = pieceData.GetDestroyMaterial;
-        foreach (var renderer in renderers)
+        // foreach (var renderer in renderers)
+        // {
+        //     renderer.material = pieceData.GetDestroyMaterial;
+        //     for (int i = 0; i < renderer.materials.Length; i++)
+        //     {
+        //         renderer.materials[i] = pieceData.GetDestroyMaterial;
+        //     }
+        // }
+        Material[] _DestroyMaterial = {pieceData.GetDestroyMaterial};
+        for (int i = 0; i < renderers.Count; i++)
         {
-            // foreach (var m in renderer.materials)
-            // {
-            //     m = pieceData.GetDestroyMaterial;
-            // }
-            for (int i = 0; i < renderer.materials.Length; i++)
-            {
-                renderer.materials[i] = pieceData.GetDestroyMaterial;
-            }
-            // renderer.material = pieceData.GetDestroyMaterial;
+            renderers[i].materials = _DestroyMaterial;
         }
     }
 
@@ -102,11 +103,6 @@ public class PieceMaterial : MonoBehaviour
         // this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
         for (int i = 0; i < renderers.Count; i++)
         {
-            // renderers[i].GetMaterials();
-            // for (int j = 0; j < renderers[i].materials.Length; j++)
-            // {
-            //     renderers[i].materials[0] = pieceData.GetDestroyMaterial;
-            // }
             renderers[i].materials = defaultMaterials[i].ToArray();
         }
     }

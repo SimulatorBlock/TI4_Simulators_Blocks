@@ -25,7 +25,9 @@ namespace Menu.States
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.C)) return;
-            
+
+
+            SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
             IMenuState newState = new InGame(menu);
             menu.SetState(newState);
         }
