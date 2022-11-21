@@ -53,7 +53,7 @@ public class ModelsTweenToStart : MonoBehaviour
                 StartCoroutine(WaitToBlocksFall());
                 break;
         }
-        TweenToStart.Instance.vehicleChanger.WaitBlocks();
+        //TweenToStart.Instance.vehicleChanger.WaitBlocks();
     }
 
     IEnumerator WaitToBlocksFall()

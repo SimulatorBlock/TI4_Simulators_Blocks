@@ -15,7 +15,8 @@ public class VehicleChanger : MonoBehaviour
         if(GameManager.instance)
             vehicles[0] = GameManager.instance.GetVehicle;
         
-       
+        int vehicleId = VehicleHelper.Vehicle;
+        StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
         //InstantiateVehicle(vehicleId);
     }
 
