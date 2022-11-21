@@ -19,8 +19,10 @@ namespace Level
         private Vector3 positionDisplacement;
         private float timePassed;
 
+        private bool trigger = false;
         private void Start()
         {
+            trigger = false;
             positionOrigin = model.position;
             positionDisplacement = new Vector3
             {
@@ -35,17 +37,23 @@ namespace Level
             model.Rotate(Vector3.up, RotateSpeed * Time.fixedDeltaTime);
         }
 
+      
         private void OnTriggerEnter(Collider other)
         {
+            if(trigger) return;
+            trigger = true;
             Status.Instance.UnlockLevel(levelToUnlock);
             StartCoroutine(GoToNextLevel());
         }
 
         private IEnumerator GoToNextLevel()
         {
+            //Transitions.Instance.ChooseeTransition(Random.Range(0, 4));
             yield return new WaitForSeconds(SecondsToNextLevel);
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameState();
+            //Transitions.Instance.DestroyTransitions();
         }
+        
     }
 }

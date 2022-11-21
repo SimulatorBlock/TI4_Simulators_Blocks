@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8820848559500166924}
   - component: {fileID: -4229516563661604658}
   - component: {fileID: -5203567747915693203}
+  - component: {fileID: 6607612534703119297}
   m_Layer: 0
   m_Name: Casa 4
   m_TagString: Untagged
@@ -113,6 +114,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1872945565816391269, guid: 86fc73505e5067a479e178fd34dbafb3, type: 3}
+--- !u!114 &6607612534703119297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128125476945624644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5225c1cc029b6fd4b9b529322b1df534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableVFX: 1
+  vfXsList:
+  - name: "Fuma\xE7aChamine"
+    vfxGameObj: {fileID: 8514610511747160315}
+    vfxParticleSys: {fileID: 8514610511747160309}
 --- !u!1001 &1901409531418898096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,10 +186,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Fuma\xE7aChamine"
       objectReference: {fileID: 0}
+    - target: {fileID: 7803278831279470155, guid: b482fa0766189e94286235e81bad6246, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b482fa0766189e94286235e81bad6246, type: 3}
 --- !u!4 &8514610511747160308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7803278831279470148, guid: b482fa0766189e94286235e81bad6246, type: 3}
+  m_PrefabInstance: {fileID: 1901409531418898096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8514610511747160309 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7803278831279470149, guid: b482fa0766189e94286235e81bad6246, type: 3}
+  m_PrefabInstance: {fileID: 1901409531418898096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8514610511747160315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7803278831279470155, guid: b482fa0766189e94286235e81bad6246, type: 3}
   m_PrefabInstance: {fileID: 1901409531418898096}
   m_PrefabAsset: {fileID: 0}

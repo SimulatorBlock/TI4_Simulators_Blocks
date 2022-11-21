@@ -12,16 +12,31 @@ public struct VFXs
 }
 public class VFXManager : MonoBehaviour
 {
-    public static VFXManager Instance;
-
+    //public static VFXManager Instance;
+    public bool enableVFX;
     private void Awake()
     {
-        if(Instance) {Destroy(gameObject); return;}
+        /*if(Instance) {Destroy(gameObject); return;}
         
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);*/
+       
     }
 
+    private void Start()
+    {
+        if (enableVFX)
+            StartCoroutine(EnableTheVFX());
+    }
+
+    IEnumerator EnableTheVFX()
+    {
+        yield return new WaitForSeconds(1.5f);
+        foreach (var var in vfXsList)
+        {
+            var.vfxGameObj.SetActive(true);
+        }
+    }
     [SerializeField] private VFXs[] vfXsList;
     
     

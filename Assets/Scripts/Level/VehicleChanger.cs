@@ -14,12 +14,16 @@ public class VehicleChanger : MonoBehaviour
     {
         if(GameManager.instance)
             vehicles[0] = GameManager.instance.GetVehicle;
-
-        int vehicleId = VehicleHelper.Vehicle;
-        StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
+        
+       
         //InstantiateVehicle(vehicleId);
     }
 
+    public void WaitBlocks()
+    {
+        int vehicleId = VehicleHelper.Vehicle;
+        StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
+    }
     IEnumerator WaitToBlocksAnimationsOver(int id)
     {
         yield return new WaitForSeconds(1.5f);

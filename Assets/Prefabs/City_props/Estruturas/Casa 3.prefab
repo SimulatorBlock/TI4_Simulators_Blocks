@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 696081795185331176}
   - component: {fileID: 2387005076450337349}
   - component: {fileID: 6634751967949680722}
+  - component: {fileID: 1923087944312711794}
   m_Layer: 0
   m_Name: Casa 3
   m_TagString: Untagged
@@ -112,6 +113,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!114 &1923087944312711794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411081948564505531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5225c1cc029b6fd4b9b529322b1df534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableVFX: 1
+  vfXsList:
+  - name: "Fuma\xE7aChamine"
+    vfxGameObj: {fileID: 4722383289854518496}
+    vfxParticleSys: {fileID: 4722383289854518510}
 --- !u!1001 &3297644639967253163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,8 +185,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Fuma\xE7aChamine"
       objectReference: {fileID: 0}
+    - target: {fileID: 7803278831279470155, guid: b482fa0766189e94286235e81bad6246, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b482fa0766189e94286235e81bad6246, type: 3}
+--- !u!1 &4722383289854518496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7803278831279470155, guid: b482fa0766189e94286235e81bad6246, type: 3}
+  m_PrefabInstance: {fileID: 3297644639967253163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4722383289854518510 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7803278831279470149, guid: b482fa0766189e94286235e81bad6246, type: 3}
+  m_PrefabInstance: {fileID: 3297644639967253163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4722383289854518511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7803278831279470148, guid: b482fa0766189e94286235e81bad6246, type: 3}

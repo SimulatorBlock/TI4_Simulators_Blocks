@@ -52,8 +52,8 @@ public class ModelsTweenToStart : MonoBehaviour
                 //Blocos de composição escalonam e blocos do chão caem de cima para baixo
                 StartCoroutine(WaitToBlocksFall());
                 break;
-            
         }
+        TweenToStart.Instance.vehicleChanger.WaitBlocks();
     }
 
     IEnumerator WaitToBlocksFall()
@@ -83,4 +83,5 @@ public class ModelsTweenToStart : MonoBehaviour
             rigidbody.isKinematic = false;
         }
     }
+    
 }

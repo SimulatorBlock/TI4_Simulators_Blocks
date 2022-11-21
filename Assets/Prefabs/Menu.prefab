@@ -710,6 +710,75 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
+--- !u!1 &1147636976978542644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 917319544652391913}
+  - component: {fileID: 1572615080372597015}
+  m_Layer: 5
+  m_Name: Transitions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &917319544652391913
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147636976978542644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4413873599923284131}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1572615080372597015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147636976978542644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10005abbba073f4a952836ae2be8834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quad: {fileID: 3811099050665383602, guid: 6c12760c73fcddc4a8ff25d89a5069e4, type: 3}
+  colors:
+  - serializedVersion: 2
+    rgba: 4286965759
+  - serializedVersion: 2
+    rgba: 4293173867
+  - serializedVersion: 2
+    rgba: 4286699182
+  - serializedVersion: 2
+    rgba: 4286276335
+  - serializedVersion: 2
+    rgba: 4290086380
+  - serializedVersion: 2
+    rgba: 4289885336
+  - serializedVersion: 2
+    rgba: 4285965303
+  - serializedVersion: 2
+    rgba: 4291932536
+  - serializedVersion: 2
+    rgba: 4285106865
 --- !u!1 &1148472760897154557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,27 +5716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecb8916a60de316ea91111c24afc5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardButton: {fileID: 5252506305330047670}
-  engineButton: {fileID: 7215472584176572960}
-  wheelButton: {fileID: 6906470200631951324}
-  removeButton: {fileID: 1010209729228475022}
-  playButton: {fileID: 4413873600804599506}
-  clearVehicleButton: {fileID: 1010209729228475022}
-  standardLevel1Button: {fileID: 591833657440169563}
-  standardLevel2Button: {fileID: 4386621875084162781}
-  standardLevel3Button: {fileID: 6649187712004493330}
-  engineLevel1Button: {fileID: 8830844875242615722}
-  engineLevel2Button: {fileID: 8138417492583574142}
-  engineLevel3Button: {fileID: 9145095341963767188}
-  wheelSimpleButton: {fileID: 1626549789300832489}
-  wheelSimpleBackButton: {fileID: 1113538216380508366}
-  wheelSimpleFrontButton: {fileID: 2424787648746333211}
-  wheelTopButton: {fileID: 1174997989306153182}
-  wheelTopBackButton: {fileID: 3678559801773436148}
-  wheelTopFrontButton: {fileID: 8816873945467135511}
-  standard: {fileID: 627394405048961557, guid: 9ba6afe53b479624aab667fe2fb5e15d, type: 3}
-  engine: {fileID: 627394405048961557, guid: 9ba6afe53b479624aab667fe2fb5e15d, type: 3}
-  wheel: {fileID: 627394405048961557, guid: 9ba6afe53b479624aab667fe2fb5e15d, type: 3}
 --- !u!1 &4413873599555282957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,6 +5819,7 @@ RectTransform:
   - {fileID: 5901363714535929861}
   - {fileID: 533312701225084334}
   - {fileID: 1644003373493712162}
+  - {fileID: 917319544652391913}
   m_Father: {fileID: 4413873599326291796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
