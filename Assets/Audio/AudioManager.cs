@@ -25,10 +25,16 @@ namespace Audio
             }
         }
 
-        public void Play(string n)
+        public void Play(string n, bool looping)
         {
             Sound s = Array.Find(sounds, sound => sound.name == n);
             s.source.Play();
+            s.source.loop = looping;
+        }
+        public void Stop(string n)
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == n);
+            s.source.Stop();
         }
 
         public void Pause(string n)
@@ -39,12 +45,12 @@ namespace Audio
 
         public void ButtonClick()
         {
-            Play("ButtonClick");
+            Play("ButtonClick", false);
         }
 
         public void ButtonHover()
         {
-            Play("ButtonHover");
+            Play("ButtonHover", false);
         }
     }
 }

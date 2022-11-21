@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 // using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ namespace Menu.States
         
         public void Enter()
         {
+            AudioManager.Instance.Stop("Motor");
             menu.inGame.SetActive(true);
             EditModeLevelController.GoToGameScene();
         }

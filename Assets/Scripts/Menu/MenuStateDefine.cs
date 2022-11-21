@@ -1,3 +1,4 @@
+using Audio;
 using Menu.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -80,6 +81,7 @@ namespace Menu
         {
             SetInGameState();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            AudioManager.Instance.Stop("Motor");
         }
     }
 }

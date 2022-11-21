@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3594628736147119679}
   - component: {fileID: 7220478845738468187}
   - component: {fileID: -7152618622770009021}
+  - component: {fileID: 7172653119794795790}
   m_Layer: 0
   m_Name: Arbustinho
   m_TagString: Untagged
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!64 &7172653119794795790
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5187018454980080471}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5185888075698249310, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}

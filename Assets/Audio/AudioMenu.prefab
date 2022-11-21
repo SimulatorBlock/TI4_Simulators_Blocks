@@ -47,21 +47,51 @@ MonoBehaviour:
   sounds:
   - name: ButtonCancel
     clip: {fileID: 8300000, guid: ade2626a7bb73074796289ba5bde9a0b, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: ButtonClick
     clip: {fileID: 8300000, guid: f0769adfc9438e945a986affb9c52ef7, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     source: {fileID: 0}
   - name: ButtonConfirm
     clip: {fileID: 8300000, guid: f7c28aa8e25320c4aa4967ec35ab8cc6, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: 73dbd6358abf93e48b933d12c92e4fa8, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
+    source: {fileID: 0}
+  - name: Delete Blocks
+    clip: {fileID: 8300000, guid: aae6fdf9d98076e48b8d55689fe51470, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 76e40db952f5b954cb16f77fc3380d1d, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit Blocks 1
+    clip: {fileID: 8300000, guid: 36c39a5683f348b43a5284cc20d4d66f, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit Blocks 2
+    clip: {fileID: 8300000, guid: ef441387dad006f4f8822a61899bd6cc, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Pull Block
+    clip: {fileID: 8300000, guid: 600ceea73d704b64fa36a2739891d6ea, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Motor
+    clip: {fileID: 8300000, guid: 6a7fdf6c55e0f804b8429fb2f6747a23, type: 3}
+    volume: 1
+    pitch: 1.5
     source: {fileID: 0}

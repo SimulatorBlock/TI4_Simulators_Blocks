@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6555003033614242346}
   - component: {fileID: 2783435330333496919}
   - component: {fileID: -8067521143002277848}
+  - component: {fileID: 8229092195056027284}
   m_Layer: 0
   m_Name: Arvore_gigante
   m_TagString: Untagged
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!64 &8229092195056027284
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578961310957136685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3897443730252139564, guid: 9dcbf082ff8db5941a33f943a02c595f, type: 3}

@@ -61,7 +61,8 @@ namespace Level
             //Transitions.Instance.ChooseeTransition(Random.Range(0, 4));
             vfxManager.EnableVFX("CFX2_PickupDiamond2");
             vfxManager.DisableVFX("CFX3_MagicAura_B_Runic");
-            AudioManager.Instance.Play("Victory");
+            AudioManager.Instance.Play("Victory" , false);
+            AudioManager.Instance.Stop("Motor");
             yield return new WaitForSeconds(SecondsToNextLevel);
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameState();

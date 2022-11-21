@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3616501968552780434}
   - component: {fileID: 8867138552111504233}
   - component: {fileID: 6367308096819516145}
+  - component: {fileID: 7821735765959670954}
   m_Layer: 0
   m_Name: Arvore Seca_2
   m_TagString: Untagged
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!64 &7821735765959670954
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084550285607888936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8005917176663878069, guid: 9dcbf082ff8db5941a33f943a02c595f, type: 3}

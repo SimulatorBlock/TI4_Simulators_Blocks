@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,7 @@ namespace Menu.States
         
         public void Enter()
         {
+            AudioManager.Instance.Stop("Motor");
             menu.inGarage.SetActive(true);
             menu.garageBlocks.SetActive(true);
         }

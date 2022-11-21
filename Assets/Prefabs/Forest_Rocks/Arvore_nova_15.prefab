@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1536656902532844209}
   - component: {fileID: 7450924351862436054}
   - component: {fileID: 2967599753773326254}
+  - component: {fileID: 4207922739209984795}
   m_Layer: 0
   m_Name: Arvore_nova_15
   m_TagString: Untagged
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!64 &4207922739209984795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697355341341877726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6758330512634111233, guid: 9dcbf082ff8db5941a33f943a02c595f, type: 3}
