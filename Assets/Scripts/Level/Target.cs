@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio;
 using Menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,6 +61,7 @@ namespace Level
             //Transitions.Instance.ChooseeTransition(Random.Range(0, 4));
             vfxManager.EnableVFX("CFX2_PickupDiamond2");
             vfxManager.DisableVFX("CFX3_MagicAura_B_Runic");
+            AudioManager.Instance.Play("Victory");
             yield return new WaitForSeconds(SecondsToNextLevel);
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameState();
