@@ -16,7 +16,6 @@ namespace Menu.States
         {
             menu.inGame.SetActive(true);
             EditModeLevelController.GoToGameScene();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
         }
 
         public void Update()
