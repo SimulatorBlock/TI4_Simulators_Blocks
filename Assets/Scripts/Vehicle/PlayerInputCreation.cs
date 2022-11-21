@@ -392,11 +392,11 @@ public class PlayerInputCreation : MonoBehaviour
                                 break;
                             case "WheelTopBack":
                                 DefinePlaceHolderPos(objPos);
-                                placeHolder.transform.position += new Vector3(1.0f,-0.55f,-0.5f);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.55f,-0.5f);
                                 break;
                             case "WheelTopFront":
                                 DefinePlaceHolderPos(objPos);
-                                placeHolder.transform.position += new Vector3(1.0f,-0.55f,0.5f);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.55f,0.5f);
                                 break;
                             default:
                                 DefinePlaceHolderPos(objPos);
