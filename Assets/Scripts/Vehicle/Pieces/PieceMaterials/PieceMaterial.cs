@@ -43,6 +43,7 @@ public class PieceMaterial : MonoBehaviour
             //     defaultMaterials.Add(i);
             // }
         }
+
         // defaultMaterial = GetComponentsInChildren<Renderer>().material;
         // destroyMaterial = pieceData.GetDestroyMaterial;
     }

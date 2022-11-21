@@ -38,10 +38,34 @@ public class PieceConfigure : MonoBehaviour
         mainBlock = GameManager.instance.GetMainBlock;
         Configure();
         IdentityBlocks();
-        if (this.gameObject.name != mainBlock.name)
+        if (this.gameObject.name == mainBlock.name)
         {
-            IsLinkedToMain();
+            if (this.transform.parent.name != "Vehicle"){
+                Outlines outlines;
+                if (!this.gameObject.TryGetComponent<Outlines>(out outlines))
+                {
+                    outlines = this.gameObject.AddComponent<Outlines>();
+                }else
+                {
+                    outlines.OutlineWidth = 2.0f;
+                }
+            }
         }
+        else if (this.transform.parent.parent.name != "Vehicle")
+        {
+            Outlines outlines;
+            if (!this.gameObject.TryGetComponent<Outlines>(out outlines))
+            {
+                outlines = this.gameObject.AddComponent<Outlines>();
+            }else
+            {
+                outlines.OutlineWidth = 2.0f;
+            }
+        }
+        // if (this.gameObject.name != mainBlock.name)
+        // {
+        //     // IsLinkedToMain();
+        // }
         // InEditMode();
     }
     void Update()
@@ -116,17 +140,17 @@ public class PieceConfigure : MonoBehaviour
         }
         if(linkedBlocks.Count == 0)
             linkedToMain = false;
-        if (this.gameObject.transform.parent.parent.name != "Vehicle")
-        {
-            if (!linkedToMain)
-            {
-                Destroy(this.gameObject.GetComponent<Block.BlockBehavior>());
-                Destroy(this.gameObject.GetComponent<PieceMaterial>());
-                this.transform.SetParent(null);
-                this.gameObject.AddComponent<Rigidbody>();
-                Destroy(this);
-            }
-        }
+        // if (this.gameObject.transform.parent.parent.name != "Vehicle")
+        // {
+        //     if (!linkedToMain)
+        //     {
+        //         Destroy(this.gameObject.GetComponent<Block.BlockBehavior>());
+        //         Destroy(this.gameObject.GetComponent<PieceMaterial>());
+        //         this.transform.SetParent(null);
+        //         this.gameObject.AddComponent<Rigidbody>();
+        //         Destroy(this);
+        //     }
+        // }
     }
 
     /// <summary>
