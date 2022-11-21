@@ -30,12 +30,18 @@ public class PieceConfigure : MonoBehaviour
         Vector3.down
     };
 
+    [SerializeField] private bool linkedToMain = false;
+
     void Start()
     {
         /* mainBlock = GameObject.Find("BlockMain");  */
         mainBlock = GameManager.instance.GetMainBlock;
         Configure();
         IdentityBlocks();
+        if (this.gameObject.name != mainBlock.name)
+        {
+            IsLinkedToMain();
+        }
         // InEditMode();
     }
     void Update()
@@ -87,6 +93,38 @@ public class PieceConfigure : MonoBehaviour
             if (block != null)
             {
                 block.GetComponent<PieceConfigure>().IdentityBlocks();
+                block.GetComponent<PieceConfigure>().IdentityLinkedBlocks();
+            }
+        }
+    }
+
+    private void IsLinkedToMain(){
+        foreach (GameObject obj in linkedBlocks)
+        {
+            if (obj.name == mainBlock.name)
+            {
+                linkedToMain = true;
+            }
+            else if(obj.GetComponent<PieceConfigure>().LinkedToMain)
+            {
+                linkedToMain = true;
+            }
+            else
+            {
+                linkedToMain = false;
+            }
+        }
+        if(linkedBlocks.Count == 0)
+            linkedToMain = false;
+        if (this.gameObject.transform.parent.parent.name != "Vehicle")
+        {
+            if (!linkedToMain)
+            {
+                Destroy(this.gameObject.GetComponent<Block.BlockBehavior>());
+                Destroy(this.gameObject.GetComponent<PieceMaterial>());
+                this.transform.SetParent(null);
+                this.gameObject.AddComponent<Rigidbody>();
+                Destroy(this);
             }
         }
     }
@@ -105,6 +143,18 @@ public class PieceConfigure : MonoBehaviour
             {
                 // print(name + " - " + "Direção: " + i + ";");
                 nonCollidingDirs.Add(i);
+            }
+        }
+    }
+    public void IdentityLinkedBlocks()
+    {
+        linkedBlocks.Clear();
+        for (int i = 0; i < _directions.Length; i++)
+        {
+            bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
+            if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
+            {
+                linkedBlocks.Add(_hit[i].collider.gameObject);
             }
         }
     }
@@ -135,6 +185,8 @@ public class PieceConfigure : MonoBehaviour
     {
         return nonCollidingDirs;
     }
+
+    public bool LinkedToMain => linkedToMain;
     /// <summary>
     ///     Private function that is used to draw and debug casted rays
     /// </summary>

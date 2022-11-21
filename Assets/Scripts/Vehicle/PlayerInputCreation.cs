@@ -83,7 +83,7 @@ public class PlayerInputCreation : MonoBehaviour
                 GameManager.instance.SetSelectedBlock(IdentifyFoundBlock().Item1);
                 if (!GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines))
                 {
-                    IdentifyFoundBlock().Item1.AddComponent<Outlines>().OutlineWidth = 5.0f;
+                    IdentifyFoundBlock().Item1.AddComponent<Outlines>().OutlineWidth = 4.0f;
                 }
             }
             if (GameManager.instance.GetCanCreate)
