@@ -48,17 +48,17 @@ public class PieceMaterial : MonoBehaviour
     }
 
     private void Update(){
-        if (this.gameObject.transform.parent != null)
-        {
-            if (this.gameObject.transform.parent.parent.name == "Vehicle")
-            {
-                if (MouseOver)
-                    SetToDestroyMaterial();
-                else
-                    SetToDefaultMaterial();
-                ResetMaterial();
-            }
-        }
+        // if (this.gameObject.transform.parent != null)
+        // {
+        //     if (this.gameObject.transform.parent.parent.name == "Vehicle")
+        //     {
+        //         if (MouseOver)
+        //             SetToDestroyMaterial();
+        //         else
+        //             SetToDefaultMaterial();
+        //         ResetMaterial();
+        //     }
+        // }
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ public class PieceMaterial : MonoBehaviour
     /// <summary>
     ///     This function set the block to the destroy material.
     /// </summary>
-    private void SetToDestroyMaterial()
+    public void SetToDestroyMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = pieceData.GetDestroyMaterial;
         // foreach (var renderer in renderers)
@@ -104,7 +104,7 @@ public class PieceMaterial : MonoBehaviour
     /// <summary>
     ///     This function set the block to the default material.
     /// </summary>
-    private void SetToDefaultMaterial()
+    public void SetToDefaultMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
         for (int i = 0; i < renderers.Count; i++)

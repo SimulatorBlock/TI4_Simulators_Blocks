@@ -23,7 +23,7 @@ public class FreeLookInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(0))
+        if (/* Input.GetKey(KeyCode.LeftAlt) &&  */Input.GetMouseButton(1))
         {
             freeLookCamera.m_XAxis.m_InputAxisValue = Input.GetAxis(XAxisName) * speed * Time.deltaTime;
             freeLookCamera.m_YAxis.m_InputAxisValue = Input.GetAxis(YAxisName) * speed * Time.deltaTime;
