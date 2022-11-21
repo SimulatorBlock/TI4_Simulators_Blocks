@@ -11,11 +11,13 @@ namespace Menu.States
         {
             this.menu = menu;
             SceneManager.LoadScene("SampleCarCreation");
+            EditModeLevelController.BackToEditScene();
         }
         
         public void Enter()
         {
             menu.inGarage.SetActive(true);
+            menu.garageBlocks.SetActive(true);
         }
 
         public void Update()

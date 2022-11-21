@@ -32,7 +32,10 @@ public class PieceMaterial : MonoBehaviour
         foreach (var item in GetComponentsInChildren<Renderer>())
         {
             renderers.Add(item);
-            defaultMaterials.Add(item.material);
+            foreach (var i in item.materials)
+            {
+                defaultMaterials.Add(i);
+            }
         }
         // defaultMaterial = GetComponentsInChildren<Renderer>().material;
         // destroyMaterial = pieceData.GetDestroyMaterial;
@@ -73,6 +76,10 @@ public class PieceMaterial : MonoBehaviour
         // this.gameObject.GetComponentInChildren<Renderer>().material = pieceData.GetDestroyMaterial;
         foreach (var item in renderers)
         {
+            // foreach (var i in item.materials)
+            // {
+                
+            // }
             item.material = pieceData.GetDestroyMaterial;
         }
     }
@@ -85,6 +92,7 @@ public class PieceMaterial : MonoBehaviour
         // this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
         for (int i = 0; i < renderers.Count; i++)
         {
+            // renderers[i].materials;
             renderers[i].material = defaultMaterials[i];
         }
     }

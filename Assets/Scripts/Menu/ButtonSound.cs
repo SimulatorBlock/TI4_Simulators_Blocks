@@ -6,8 +6,12 @@ namespace Menu
 {
     public class ButtonSound : MonoBehaviour
     {
-
         private void Awake()
+        {
+            AddEventTrigger();
+        }
+
+        private void AddEventTrigger()
         {
             EventTrigger trigger = gameObject.AddComponent<EventTrigger>();
 
@@ -19,7 +23,7 @@ namespace Menu
             EventTrigger.Entry entryPointerClick = new EventTrigger.Entry();
             entryPointerClick.eventID = EventTriggerType.PointerClick;
             entryPointerClick.callback.AddListener(_ => { OnPointerClickDelegate(); });
-            trigger.triggers.Add(entryPointerClick);
+            trigger.triggers.Add(entryPointerClick);            
         }
 
         public static void OnPointerEnterDelegate()
@@ -30,6 +34,7 @@ namespace Menu
         public static void OnPointerClickDelegate()
         {
             AudioManager.Instance.ButtonClick();
+            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 }
