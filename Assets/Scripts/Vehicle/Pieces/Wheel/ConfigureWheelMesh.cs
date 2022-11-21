@@ -49,20 +49,20 @@ public class ConfigureWheelMesh : MonoBehaviour
         switch (currentDirection)
         {
             case 0://forward
-                _rotation.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                // break;
             case 1://back
-                _rotation.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                // break;
             case 2://left
                 _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                 break;
             case 3://right
-                _rotation.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
+                _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                 break;
             case 4://up
-                _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
+                // break;
             case 5://down
                 // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
                 _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);

@@ -9,7 +9,7 @@ public class PieceMaterial : MonoBehaviour
     // [Tooltip("The Destroy Material, Gets on start by the GameManager.cs")]
     // [SerializeField] private Material destroyMaterial;
     [Tooltip("The Default Material, Gets on start by the block")]
-    [SerializeField] private List<Material> defaultMaterials = new();
+    [SerializeField] private List<List<Material>> defaultMaterials = new();
     [SerializeField] private List<Renderer> renderers = new();
 
     [SerializeField] private bool mouseOver = false;
@@ -32,10 +32,16 @@ public class PieceMaterial : MonoBehaviour
         foreach (var item in GetComponentsInChildren<Renderer>())
         {
             renderers.Add(item);
+            List<Material> _materials = new();
             foreach (var i in item.materials)
             {
-                defaultMaterials.Add(i);
+                _materials.Add(i);
             }
+            defaultMaterials.Add(_materials);
+            // foreach (var i in item.materials)
+            // {
+            //     defaultMaterials.Add(i);
+            // }
         }
         // defaultMaterial = GetComponentsInChildren<Renderer>().material;
         // destroyMaterial = pieceData.GetDestroyMaterial;
@@ -74,13 +80,17 @@ public class PieceMaterial : MonoBehaviour
     private void SetToDestroyMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = pieceData.GetDestroyMaterial;
-        foreach (var item in renderers)
+        foreach (var renderer in renderers)
         {
-            // foreach (var i in item.materials)
+            // foreach (var m in renderer.materials)
             // {
-                
+            //     m = pieceData.GetDestroyMaterial;
             // }
-            item.material = pieceData.GetDestroyMaterial;
+            for (int i = 0; i < renderer.materials.Length; i++)
+            {
+                renderer.materials[i] = pieceData.GetDestroyMaterial;
+            }
+            // renderer.material = pieceData.GetDestroyMaterial;
         }
     }
 
@@ -92,8 +102,12 @@ public class PieceMaterial : MonoBehaviour
         // this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
         for (int i = 0; i < renderers.Count; i++)
         {
-            // renderers[i].materials;
-            renderers[i].material = defaultMaterials[i];
+            // renderers[i].GetMaterials();
+            // for (int j = 0; j < renderers[i].materials.Length; j++)
+            // {
+            //     renderers[i].materials[0] = pieceData.GetDestroyMaterial;
+            // }
+            renderers[i].materials = defaultMaterials[i].ToArray();
         }
     }
 

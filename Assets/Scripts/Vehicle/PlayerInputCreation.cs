@@ -248,7 +248,12 @@ public class PlayerInputCreation : MonoBehaviour
                             case "WheelSimple":
                             case "WheelSimpleBack":
                             case "WheelSimpleFront":
+                                break;
                             case "WheelTop":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,0.55f);
+                                placeHolder.transform.eulerAngles = new Vector3(270.0f, 0.0f, 0.0f);
+                                break;
                             case "WheelTopBack":
                             case "WheelTopFront":
                                 break;
@@ -273,6 +278,10 @@ public class PlayerInputCreation : MonoBehaviour
                             case "WheelSimpleBack":
                             case "WheelSimpleFront":
                             case "WheelTop":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,-0.55f);
+                                placeHolder.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
+                                break;
                             case "WheelTopBack":
                             case "WheelTopFront":
                                 break;
@@ -388,6 +397,7 @@ public class PlayerInputCreation : MonoBehaviour
                                 break;
                             case "WheelTop":
                                 DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                                 placeHolder.transform.position += new Vector3(0.0f,-0.55f,0.0f);
                                 break;
                             case "WheelTopBack":
