@@ -16,6 +16,7 @@ namespace Menu.States
         public void Enter()
         {
             menu.inGarage.SetActive(true);
+            menu.garageBlocks.SetActive(true);
         }
 
         public void Update()
