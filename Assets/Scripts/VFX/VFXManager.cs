@@ -54,4 +54,15 @@ public class VFXManager : MonoBehaviour
         }
         //vfx.vfxParticleSys.seila;
     }
+    public void DisableVFX(string vfxName)
+    {
+        VFXs vfx = Array.Find(vfXsList, vFXs =>  vFXs.name == vfxName);
+
+        foreach (var var in vfXsList)
+        {
+            if(var.name == vfxName)
+                vfx.vfxGameObj.SetActive(false);
+        }
+        //vfx.vfxParticleSys.seila;
+    }
 }

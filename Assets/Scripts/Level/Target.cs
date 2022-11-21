@@ -20,8 +20,10 @@ namespace Level
         private float timePassed;
 
         private bool trigger = false;
+        private VFXManager vfxManager;
         private void Start()
         {
+            vfxManager = GetComponent<VFXManager>();
             trigger = false;
             positionOrigin = model.position;
             positionDisplacement = new Vector3
@@ -30,8 +32,15 @@ namespace Level
                 y = positionOrigin.y + Displacement,
                 z = positionOrigin.z
             };
+
+            StartCoroutine(WaitBlocks());
         }
 
+        IEnumerator WaitBlocks()
+        {
+            yield return new WaitForSeconds(1.5f);
+            vfxManager.EnableVFX("CFX3_MagicAura_B_Runic");
+        }
         private void FixedUpdate()
         {
             model.Rotate(Vector3.up, RotateSpeed * Time.fixedDeltaTime);
@@ -49,6 +58,8 @@ namespace Level
         private IEnumerator GoToNextLevel()
         {
             //Transitions.Instance.ChooseeTransition(Random.Range(0, 4));
+            vfxManager.EnableVFX("CFX2_PickupDiamond2");
+            vfxManager.DisableVFX("CFX3_MagicAura_B_Runic");
             yield return new WaitForSeconds(SecondsToNextLevel);
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameState();
