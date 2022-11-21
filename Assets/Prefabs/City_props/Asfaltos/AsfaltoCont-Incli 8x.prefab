@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3033342978593629383}
   - component: {fileID: 5818717840885893830}
   - component: {fileID: 2053645665660776297}
+  - component: {fileID: -9100150446778575985}
   m_Layer: 0
   m_Name: AsfaltoCont-Incli 8x
   m_TagString: Untagged
@@ -95,6 +96,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6844720102805796542, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
+--- !u!114 &-9100150446778575985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105108094710520128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 0

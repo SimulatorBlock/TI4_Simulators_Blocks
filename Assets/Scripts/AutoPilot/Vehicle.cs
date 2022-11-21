@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using Block;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ namespace AutoPilot
         {
             GetAllBlockBehavior();
             ConfigRigidbody();
+            AudioManager.Instance.Play("Motor", true);
         }
 
         private void FixedUpdate()

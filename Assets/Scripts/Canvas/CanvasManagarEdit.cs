@@ -35,12 +35,12 @@ public class CanvasManagarEdit : MonoBehaviour
     [SerializeField] private Button wheelTopButton;
     [SerializeField] private Button wheelTopBackButton;
     [SerializeField] private Button wheelTopFrontButton;
-    [Space(10)]
+    // [Space(10)]
     
-    [Header("Empty's")]
-    [SerializeField] private GameObject standard;
-    [SerializeField] private GameObject engine;
-    [SerializeField] private GameObject wheel;
+    // [Header("Empty's")]
+    // [SerializeField] private GameObject standard;
+    // [SerializeField] private GameObject engine;
+    // [SerializeField] private GameObject wheel;
 
 
     private void Update() {
@@ -48,9 +48,9 @@ public class CanvasManagarEdit : MonoBehaviour
         {
             GameManager.instance.SetCanCreate(false);
             GameManager.instance.SetCanDestroy(false);
-            engine.SetActive(false);
-            wheel.SetActive(false);
-            standard.SetActive(false);
+            // engine.SetActive(false);
+            // wheel.SetActive(false);
+            // standard.SetActive(false);
         }
     }
 
@@ -84,120 +84,121 @@ public class CanvasManagarEdit : MonoBehaviour
         clearVehicleButton.onClick.AddListener(ClickClearVehicleButton);
         playButton.onClick.AddListener(ClickPlayButton);
     }
-    private void ClickStandardButton(){
-        engine.SetActive(false);
-        wheel.SetActive(false);
-        standard.SetActive(true);
+    public static void ClickStandardButton(){
+        // engine.SetActive(false);
+        // wheel.SetActive(false);
+        // standard.SetActive(true);
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("StandardLevel1");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickStandardLevel1Button(){
+    public static void ClickStandardLevel1Button(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("StandardLevel1");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickStandardLevel2Button(){
+    public static void ClickStandardLevel2Button(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("StandardLevel2");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickStandardLevel3Button(){
+    public static void ClickStandardLevel3Button(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("StandardLevel3");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickEngineButton(){
-        standard.SetActive(false);
-        wheel.SetActive(false);
-        engine.SetActive(true);
+    public static void ClickEngineButton(){
+        // standard.SetActive(false);
+        // wheel.SetActive(false);
+        // engine.SetActive(true);
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("EngineLevel1");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickEngineLevel1Button(){
+    public static void ClickEngineLevel1Button(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("EngineLevel1");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickEngineLevel2Button(){
+    public static void ClickEngineLevel2Button(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("EngineLevel2");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickEngineLevel3Button(){
+    public static void ClickEngineLevel3Button(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("EngineLevel3");
         GameManager.instance.SetPlaceHolder("BlockPlaceHolder");
     }
-    private void ClickWheelButton(){
-        standard.SetActive(false);
-        engine.SetActive(false);
-        wheel.SetActive(true);
+    public static void ClickWheelButton(){
+        // standard.SetActive(false);
+        // engine.SetActive(false);
+        // wheel.SetActive(true);
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelSimple");
         GameManager.instance.SetPlaceHolder("WheelSimple");
     }
-    private void ClickWheelSimpleButton(){
+    public static void ClickWheelSimpleButton(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelSimple");
         GameManager.instance.SetPlaceHolder("WheelSimple");
     }
-    private void ClickWheelSimpleBackButton(){
+    public static void ClickWheelSimpleBackButton(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelSimpleBack");
         GameManager.instance.SetPlaceHolder("WheelSimpleBack");
     }
-    private void ClickWheelSimpleFrontButton(){
+    public static void ClickWheelSimpleFrontButton(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelSimpleFront");
         GameManager.instance.SetPlaceHolder("WheelSimpleFront");
     }
-    private void ClickWheelTopButton(){
+    public static void ClickWheelTopButton(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelTop");
         GameManager.instance.SetPlaceHolder("WheelTop");
     }
-    private void ClickWheelTopBackButton(){
+    public static void ClickWheelTopBackButton(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelTopBack");
         GameManager.instance.SetPlaceHolder("WheelTopBack");
     }
-    private void ClickWheelTopFrontButton(){
+    public static void ClickWheelTopFrontButton(){
         GameManager.instance.SetCanDestroy(false);
         GameManager.instance.SetCanCreate(true);
         GameManager.instance.SetPieceToCreate("WheelTopFront");
         GameManager.instance.SetPlaceHolder("WheelTopFront");
     }
-    private void ClickRemoveButton(){
+    public static void ClickRemoveButton(){
         GameManager.instance.SetCanCreate(false);
         GameManager.instance.SetCanDestroy(true);
     }
-    private void ClickClearVehicleButton(){
+    public static void ClickClearVehicleButton(){
         GameManager.instance.GetVehicle.GetComponent<Vehicle2>().ClearVehicle();
     }
 
-    private void ClickPlayButton(){
+    public static void ClickPlayButton(){
         SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
-        GameManager.instance.SetIsEditing(false);
-        GameManager.instance.SetCanCreate(false);
-        GameManager.instance.SetCanDestroy(false);
-        GameManager.instance.GetVehicle.GetComponent<Vehicle2>().Config();
-        GameManager.instance.GetVehicle.transform.position = new Vector3(1000,1000,1000);
+        EditModeLevelController.GoToGameScene();
+        // GameManager.instance.SetIsEditing(false);
+        // GameManager.instance.SetCanCreate(false);
+        // GameManager.instance.SetCanDestroy(false);
+        // GameManager.instance.GetVehicle.GetComponent<Vehicle2>().Config();
+        // GameManager.instance.GetVehicle.transform.position = new Vector3(1000,1000,1000);
         // FindObjectOfType<VehicleChanger>().VehicleObject = GameManager.instance.GetVehicle;
     }
 }

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7448503822749711502}
   - component: {fileID: 3072178826709953981}
   - component: {fileID: 6962110244184465117}
-  - component: {fileID: 5180251329866720242}
+  - component: {fileID: 9162900738712307113}
+  - component: {fileID: 7028113470890517234}
   m_Layer: 0
   m_Name: AsfaltoVazio
   m_TagString: Untagged
@@ -84,8 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5180251329866720242
-BoxCollider:
+--- !u!114 &9162900738712307113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854345132942807387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 0
+--- !u!64 &7028113470890517234
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +108,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.099999994, y: 0.09999998, z: 0.03999999}
-  m_Center: {x: 0, y: 0, z: -0.019999996}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5417975139960510653, guid: e98814f18392d2e45b085543a6660bc7, type: 3}

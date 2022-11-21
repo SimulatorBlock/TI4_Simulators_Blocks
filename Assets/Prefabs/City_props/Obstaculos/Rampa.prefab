@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9161220628647397566}
   - component: {fileID: 8104707600669796624}
   - component: {fileID: 4164497940514620047}
+  - component: {fileID: -6399531759103221975}
   m_Layer: 0
   m_Name: Rampa
   m_TagString: Untagged
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.025999999, y: 0.031999994, z: 0.001481569}
   m_Center: {x: 0, y: -2.043318e-18, z: 0.0005840458}
+--- !u!114 &-6399531759103221975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004504232862260308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 1

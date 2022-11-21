@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3482686649572725824}
   - component: {fileID: 2126382556863149897}
   - component: {fileID: 8014113531116822323}
+  - component: {fileID: -6627042900483803179}
   m_Layer: 0
   m_Name: Predio 4
   m_TagString: Untagged
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2754113942346054648}
-  m_Mesh: {fileID: 7598936406024307154, guid: 7a974ea7ffe71a94fa3bf5c61295bae7, type: 3}
+  m_Mesh: {fileID: 7598936406024307154, guid: efc511213fbb9b945890bdf15ca1e640, type: 3}
 --- !u!23 &2126382556863149897
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05892043, y: 0.05669387, z: 0.13198489}
   m_Center: {x: 0, y: 0, z: 0.065992445}
+--- !u!114 &-6627042900483803179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754113942346054648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 1

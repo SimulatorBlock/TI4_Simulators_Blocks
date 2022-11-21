@@ -143,9 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d961549f4b300bd4c94a6fa215e09069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyMaterial: {fileID: 0}
-  defaultMaterial: {fileID: 0}
-  pieceData: {fileID: 11400000, guid: 22ded3616a760274f953986b6787e40a, type: 2}
+  defaultMaterials: []
+  renderers: []
+  mouseOver: 0
+  pieceData: {fileID: 0}
 --- !u!114 &8587562899913532748
 MonoBehaviour:
   m_ObjectHideFlags: 0

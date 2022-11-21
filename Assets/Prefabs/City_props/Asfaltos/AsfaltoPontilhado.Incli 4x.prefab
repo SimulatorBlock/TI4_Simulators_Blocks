@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2882269487456954550}
   - component: {fileID: 2423515956319766059}
   - component: {fileID: 2952214181316175217}
+  - component: {fileID: -1576473492763471585}
   m_Layer: 0
   m_Name: AsfaltoPontilhado.Incli 4x
   m_TagString: Untagged
@@ -95,6 +96,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2804276269288759591, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
+--- !u!114 &-1576473492763471585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351726379522243195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 0

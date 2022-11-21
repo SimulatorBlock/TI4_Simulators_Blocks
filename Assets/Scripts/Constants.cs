@@ -24,6 +24,8 @@ public static class Constants
         Forest_13,
         Forest_14,
         Forest_15,
+        Forest_16,
+        Forest_17,
         City_01,
         City_02,
         City_03,
@@ -33,6 +35,9 @@ public static class Constants
         City_07,
         City_08,
         City_09,
+        City_10,
+        City_11,
+        City_12,
     }
 
     public enum Vehicles

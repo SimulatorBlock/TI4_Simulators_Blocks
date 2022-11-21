@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6421427584058158568}
   - component: {fileID: 2625284670573001829}
   - component: {fileID: 1704450864032152778}
+  - component: {fileID: -1292386099935536027}
   m_Layer: 0
   m_Name: Sinal Duplo
   m_TagString: Untagged
@@ -40,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7228307717027600365}
-  m_Mesh: {fileID: 8628484500863299078, guid: 37bb50aefb3e90d4db5e6d7239256f3e, type: 3}
+  m_Mesh: {fileID: 8628484500863299078, guid: 1d15de86f26ef1e43b3bdd580ca8c728, type: 3}
 --- !u!23 &1704450864032152778
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1292386099935536027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228307717027600365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 1

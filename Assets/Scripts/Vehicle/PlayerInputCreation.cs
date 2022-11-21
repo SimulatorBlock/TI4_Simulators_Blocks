@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 public class PlayerInputCreation : MonoBehaviour
 {
@@ -74,7 +75,16 @@ public class PlayerInputCreation : MonoBehaviour
             TestDraw();
             if (Input.GetMouseButtonDown(0) && (IdentifyFoundBlock().Item1 != null))
             {
+                Outlines outlines;
+                if (GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines))
+                {
+                    Destroy(outlines);
+                }
                 GameManager.instance.SetSelectedBlock(IdentifyFoundBlock().Item1);
+                if (!GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines))
+                {
+                    IdentifyFoundBlock().Item1.AddComponent<Outlines>().OutlineWidth = 5.0f;
+                }
             }
             if (GameManager.instance.GetCanCreate)
             {
@@ -99,9 +109,11 @@ public class PlayerInputCreation : MonoBehaviour
                     PieceMaterial pieceMaterial;
                     bool hasPieceMaterial = lastFoundBlock.TryGetComponent<PieceMaterial>(out pieceMaterial);
                     if(hasPieceMaterial && (foundBlock == lastFoundBlock))
-                        pieceMaterial.MouseOver = true;
+                        pieceMaterial.SetToDestroyMaterial();
+                        // pieceMaterial.MouseOver = true;
                     else if(hasPieceMaterial)
-                        pieceMaterial.MouseOver = false;
+                        pieceMaterial.SetToDefaultMaterial();
+                        // pieceMaterial.MouseOver = false;
                 }
                 if (foundBlock != null)
                     lastFoundBlock = foundBlock;
@@ -161,27 +173,25 @@ public class PlayerInputCreation : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && isColliding && !placeHolder.GetComponent<PiecePlaceHolder>().GetHasPieceOver)
             {
-                var myBlock = Instantiate(block, placeHolder.transform.position, placeHolder.transform.rotation);
+                GameObject myBlock = Instantiate<GameObject>(block, placeHolder.transform.position, placeHolder.transform.rotation);
                 switch (GameManager.instance.GetCurrentPieceType)
                 {
                     case Block.BlockBehavior.Types.Standard:
-                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(1))/*  = GameManager.instance.GetVehicle.transform.GetChild(1) */;
-                        // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(1));
                         break;
                     case Block.BlockBehavior.Types.Wheel:
-                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(2))/*  = GameManager.instance.GetVehicle.transform.GetChild(2) */;
-                        myBlock.GetComponent/* InChildren */<ConfigureWheelMesh>().currentDirection = dir;
-                        GameManager.instance.AddWheelCollider(myBlock.GetComponent/* InChildren */<WheelCollider>());
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(2));
+                        myBlock.GetComponent<ConfigureWheelMesh>().currentDirection = dir;
+                        GameManager.instance.AddWheelCollider(myBlock.GetComponent<WheelCollider>());
                         break;
                     case Block.BlockBehavior.Types.Engine:
-                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(3))/*  = GameManager.instance.GetVehicle.transform.GetChild(3) */;
-                        // GameManager.instance.AddEngine(myBlock.GetComponent<Engine>());
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(3));
                         break;
                     default:
-                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(1))/*  = GameManager.instance.GetVehicle.transform.GetChild(1) */;
-                        // GameManager.instance.AddBlock(myBlock.GetComponent<Block>());
+                        myBlock.transform.SetParent(GameManager.instance.GetVehicle.transform.GetChild(1));
                         break;
                 }
+                AudioManager.Instance.Play("Pull Block", false);
                 // obj.GetComponent<PieceConfigure>().GetNonColliderDirs().Remove(dir);
             }
         }
@@ -199,6 +209,7 @@ public class PlayerInputCreation : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Destroy(obj);
+                AudioManager.Instance.Play("Delete Blocks", false);
             }
         }
     }
@@ -248,9 +259,21 @@ public class PlayerInputCreation : MonoBehaviour
                             case "WheelSimple":
                             case "WheelSimpleBack":
                             case "WheelSimpleFront":
+                                break;
                             case "WheelTop":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,0.56f);
+                                placeHolder.transform.eulerAngles = new Vector3(270.0f, 0.0f, 0.0f);
+                                break;
                             case "WheelTopBack":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.5f,0.56f);
+                                placeHolder.transform.eulerAngles = new Vector3(270.0f, 0.0f, 0.0f);
+                                break;
                             case "WheelTopFront":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.5f,0.56f);
+                                placeHolder.transform.eulerAngles = new Vector3(270.0f, 0.0f, 0.0f);
                                 break;
                             default:
                                 DefinePlaceHolderPos(objPos);
@@ -272,9 +295,21 @@ public class PlayerInputCreation : MonoBehaviour
                             case "WheelSimple":
                             case "WheelSimpleBack":
                             case "WheelSimpleFront":
+                                break;
                             case "WheelTop":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.0f,-0.56f);
+                                placeHolder.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
+                                break;
                             case "WheelTopBack":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,0.5f,-0.56f);
+                                placeHolder.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
+                                break;
                             case "WheelTopFront":
+                                DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.5f,-0.56f);
+                                placeHolder.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
                                 break;
                             default:
                                 DefinePlaceHolderPos(objPos);
@@ -388,15 +423,16 @@ public class PlayerInputCreation : MonoBehaviour
                                 break;
                             case "WheelTop":
                                 DefinePlaceHolderPos(objPos);
-                                placeHolder.transform.position += new Vector3(0.0f,-0.55f,0.0f);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.56f,0.0f);
                                 break;
                             case "WheelTopBack":
                                 DefinePlaceHolderPos(objPos);
-                                placeHolder.transform.position += new Vector3(1.0f,-0.55f,-0.5f);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.56f,-0.5f);
                                 break;
                             case "WheelTopFront":
                                 DefinePlaceHolderPos(objPos);
-                                placeHolder.transform.position += new Vector3(1.0f,-0.55f,0.5f);
+                                placeHolder.transform.position += new Vector3(0.0f,-0.56f,0.5f);
                                 break;
                             default:
                                 DefinePlaceHolderPos(objPos);

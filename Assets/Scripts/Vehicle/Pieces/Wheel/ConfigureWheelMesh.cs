@@ -13,8 +13,8 @@ public class ConfigureWheelMesh : MonoBehaviour
     private void Start()
     {
         if(this.gameObject.transform.parent.parent.name != "Vehicle(Clone)"){
-            AddWheelCollider();
-            blockBehavior.wheelCollider = wheelCollider;
+            // AddWheelCollider();
+            // blockBehavior.wheelCollider = wheelCollider;
             ConfigureMesh();
         }
     }
@@ -25,18 +25,19 @@ public class ConfigureWheelMesh : MonoBehaviour
         wheelCollider.wheelDampingRate = 0.25f;
         wheelCollider.suspensionDistance = 0.4f;
         wheelCollider.forceAppPointDistance = 0.0f;
-        JointSpring suspensionSpring = wheelCollider.suspensionSpring;
+        JointSpring suspensionSpring = new() /* = wheelCollider.suspensionSpring */;
         suspensionSpring.spring = 35000.0f;
         suspensionSpring.damper = 4500.0f;
         suspensionSpring.targetPosition = 0.5f;
-        WheelFrictionCurve fowardFriction = wheelCollider.forwardFriction;
+        wheelCollider.suspensionSpring = suspensionSpring;
+        WheelFrictionCurve fowardFriction = new()/* wheelCollider.forwardFriction */;
         fowardFriction.extremumSlip = 0.4f;
         fowardFriction.extremumValue = 1.0f;
         fowardFriction.asymptoteSlip = 0.8f;
         fowardFriction.asymptoteValue = 0.5f;
         fowardFriction.stiffness = 1.0f;
         wheelCollider.forwardFriction = fowardFriction;
-        WheelFrictionCurve sidewaysFriction = wheelCollider.sidewaysFriction;
+        WheelFrictionCurve sidewaysFriction = new()/* = wheelCollider.sidewaysFriction */;
         sidewaysFriction.extremumSlip = 0.2f;
         sidewaysFriction.extremumValue = 1.0f;
         sidewaysFriction.asymptoteSlip = 0.5f;
@@ -49,20 +50,20 @@ public class ConfigureWheelMesh : MonoBehaviour
         switch (currentDirection)
         {
             case 0://forward
-                _rotation.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                // break;
             case 1://back
-                _rotation.eulerAngles = new Vector3(0.0f, 270.0f, 0.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                // break;
             case 2://left
-                _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                // break;
             case 3://right
-                _rotation.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+                // break;
             case 4://up
-                _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-                break;
+                // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
+                // break;
             case 5://down
                 // _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
                 _rotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4786684344866922222}
   - component: {fileID: 1994728229502675224}
   - component: {fileID: 8993757969689674238}
-  - component: {fileID: 9043442232000418869}
   - component: {fileID: -3122256253378062543}
+  - component: {fileID: 5423195689494127946}
   m_Layer: 0
   m_Name: AsfaltoCont-Incli 4x
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9043442232000418869
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7616083914788235208}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4674100102480609441, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
 --- !u!64 &-3122256253378062543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -113,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4674100102480609441, guid: 33ba617728c912a448a5cda4ffec9c88, type: 3}
+--- !u!114 &5423195689494127946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616083914788235208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 0

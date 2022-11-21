@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7663157371582393020}
   - component: {fileID: 4150205567947300950}
   - component: {fileID: 5500003773661123892}
+  - component: {fileID: -3246325293661367064}
   m_Layer: 0
   m_Name: Poste Amassado Vazio
   m_TagString: Untagged
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5226966538961263949}
-  m_Mesh: {fileID: 3725061959425428002, guid: 2cf2bbdda0fb087479567ec05fa1afb4, type: 3}
+  m_Mesh: {fileID: 3725061959425428002, guid: f147d2baa2d86354799268bf33a587a0, type: 3}
 --- !u!23 &4150205567947300950
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00828362, y: 0.006909566, z: 0.06994329}
   m_Center: {x: 0.00009883165, y: 0.00019630135, z: 0.03504057}
+--- !u!114 &-3246325293661367064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226966538961263949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justScale: 1

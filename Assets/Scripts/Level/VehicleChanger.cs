@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class VehicleChanger : MonoBehaviour
@@ -9,15 +10,29 @@ public class VehicleChanger : MonoBehaviour
     }
     [SerializeField] private GameObject[] vehicles;
 
+    private VFXManager vfxManager;
+
     private void Start()
     {
+        vfxManager = GetComponent<VFXManager>();
         if(GameManager.instance)
             vehicles[0] = GameManager.instance.GetVehicle;
-
+        
         int vehicleId = VehicleHelper.Vehicle;
-        InstantiateVehicle(vehicleId);
+        StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
+        //InstantiateVehicle(vehicleId);
     }
 
+    public void WaitBlocks()
+    {
+        int vehicleId = VehicleHelper.Vehicle;
+        StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
+    }
+    IEnumerator WaitToBlocksAnimationsOver(int id)
+    {
+        yield return new WaitForSeconds(1.5f);
+        InstantiateVehicle(id);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);
@@ -50,5 +65,7 @@ public class VehicleChanger : MonoBehaviour
         Vector3 position = new(0, 1, 0);
         vehicleObject = Instantiate(vehicles[vehicleId], position, Quaternion.identity);
         VehicleHelper.Vehicle = vehicleId;
+        //vfxManager.EnableVFX("CFX3_Hit_SmokePuff");
     }
+  
 }

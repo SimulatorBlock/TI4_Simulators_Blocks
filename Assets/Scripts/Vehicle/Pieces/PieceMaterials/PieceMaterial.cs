@@ -9,7 +9,7 @@ public class PieceMaterial : MonoBehaviour
     // [Tooltip("The Destroy Material, Gets on start by the GameManager.cs")]
     // [SerializeField] private Material destroyMaterial;
     [Tooltip("The Default Material, Gets on start by the block")]
-    [SerializeField] private List<Material> defaultMaterials = new();
+    [SerializeField] private List<List<Material>> defaultMaterials = new();
     [SerializeField] private List<Renderer> renderers = new();
 
     [SerializeField] private bool mouseOver = false;
@@ -32,18 +32,33 @@ public class PieceMaterial : MonoBehaviour
         foreach (var item in GetComponentsInChildren<Renderer>())
         {
             renderers.Add(item);
-            defaultMaterials.Add(item.material);
+            List<Material> _materials = new();
+            foreach (var i in item.materials)
+            {
+                _materials.Add(i);
+            }
+            defaultMaterials.Add(_materials);
+            // foreach (var i in item.materials)
+            // {
+            //     defaultMaterials.Add(i);
+            // }
         }
         // defaultMaterial = GetComponentsInChildren<Renderer>().material;
         // destroyMaterial = pieceData.GetDestroyMaterial;
     }
 
     private void Update(){
-        if (MouseOver)
-            SetToDestroyMaterial();
-        else
-            SetToDefaultMaterial();
-        ResetMaterial();
+        // if (this.gameObject.transform.parent != null)
+        // {
+        //     if (this.gameObject.transform.parent.parent.name == "Vehicle")
+        //     {
+        //         if (MouseOver)
+        //             SetToDestroyMaterial();
+        //         else
+        //             SetToDefaultMaterial();
+        //         ResetMaterial();
+        //     }
+        // }
     }
 
     /// <summary>
@@ -68,24 +83,33 @@ public class PieceMaterial : MonoBehaviour
     /// <summary>
     ///     This function set the block to the destroy material.
     /// </summary>
-    private void SetToDestroyMaterial()
+    public void SetToDestroyMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = pieceData.GetDestroyMaterial;
-        foreach (var item in renderers)
+        // foreach (var renderer in renderers)
+        // {
+        //     renderer.material = pieceData.GetDestroyMaterial;
+        //     for (int i = 0; i < renderer.materials.Length; i++)
+        //     {
+        //         renderer.materials[i] = pieceData.GetDestroyMaterial;
+        //     }
+        // }
+        Material[] _DestroyMaterial = {pieceData.GetDestroyMaterial};
+        for (int i = 0; i < renderers.Count; i++)
         {
-            item.material = pieceData.GetDestroyMaterial;
+            renderers[i].materials = _DestroyMaterial;
         }
     }
 
     /// <summary>
     ///     This function set the block to the default material.
     /// </summary>
-    private void SetToDefaultMaterial()
+    public void SetToDefaultMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
         for (int i = 0; i < renderers.Count; i++)
         {
-            renderers[i].material = defaultMaterials[i];
+            renderers[i].materials = defaultMaterials[i].ToArray();
         }
     }
 
