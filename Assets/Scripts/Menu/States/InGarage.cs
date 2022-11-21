@@ -11,6 +11,7 @@ namespace Menu.States
         {
             this.menu = menu;
             SceneManager.LoadScene("SampleCarCreation");
+            EditModeLevelController.BackToEditScene();
         }
         
         public void Enter()
