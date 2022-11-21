@@ -48,11 +48,17 @@ public class PieceMaterial : MonoBehaviour
     }
 
     private void Update(){
-        if (MouseOver)
-            SetToDestroyMaterial();
-        else
-            SetToDefaultMaterial();
-        ResetMaterial();
+        if (this.gameObject.transform.parent != null)
+        {
+            if (this.gameObject.transform.parent.parent.name == "Vehicle")
+            {
+                if (MouseOver)
+                    SetToDestroyMaterial();
+                else
+                    SetToDefaultMaterial();
+                ResetMaterial();
+            }
+        }
     }
 
     /// <summary>
