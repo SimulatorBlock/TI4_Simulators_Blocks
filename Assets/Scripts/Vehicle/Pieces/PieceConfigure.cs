@@ -14,7 +14,7 @@ public class PieceConfigure : MonoBehaviour
     [Tooltip("List of all directions that not have a block")]
     [SerializeField] private List<int> nonCollidingDirs;
     [Tooltip("List of all blocks jointed to this block")]
-    [SerializeField] private List<GameObject> linkedBlocks;
+    [SerializeField] private List<GameObject> blocksAround;
     [Tooltip("Ray Distance to capture other block around this block")]
 
     [Header("Floats")]
@@ -29,8 +29,18 @@ public class PieceConfigure : MonoBehaviour
         Vector3.up,
         Vector3.down
     };
-
+    [SerializeField] private bool directlyLinkedToMain = false;
     [SerializeField] private bool linkedToMain = false;
+
+    public class Connection {
+        private GameObject father;
+        private GameObject linkedBlock;
+        public Connection(GameObject _father, GameObject _linkedBlock){
+            father = _father;
+            linkedBlock = _linkedBlock;
+        }
+    }
+    private List<Connection> connectedBlocks = new List<Connection>();
 
     void Start()
     {
@@ -64,7 +74,7 @@ public class PieceConfigure : MonoBehaviour
         }
         // if (this.gameObject.name != mainBlock.name)
         // {
-        //     // IsLinkedToMain();
+        //     IsLinkedToMain(this.gameObject);
         // }
         // InEditMode();
     }
@@ -87,62 +97,71 @@ public class PieceConfigure : MonoBehaviour
 
                 if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
                 {
-                    linkedBlocks.Add(_hit[i].collider.gameObject);//Here we add to the linkedBlocks list all blocks linked to the block created
+                    blocksAround.Add(_hit[i].collider.gameObject);//Here we add to the blocksAround list all blocks linked to the block created
                     // Debug.Log(this.gameObject.name);
                     _hit[i].collider.gameObject.GetComponent<PieceConfigure>().IdentityBlocks();
-                    if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetLinkedBlocks().Contains(this.gameObject)) && _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetLinkedBlocks().Count > 0)
+                    if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Contains(this.gameObject)) && _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Count > 0)
                     {
-                        List<GameObject> _linkedBlocks = _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetLinkedBlocks();
-                        _linkedBlocks.Add(this.gameObject);
-                        _hit[i].collider.gameObject.GetComponent<PieceConfigure>().SetLinkedBlocks(_linkedBlocks);
+                        List<GameObject> _blocksAround = _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround();
+                        _blocksAround.Add(this.gameObject);
+                        _hit[i].collider.gameObject.GetComponent<PieceConfigure>().SetBlocksAround(_blocksAround);
                     }
                 }
             }
         }
     }
     /// <summary>
-    ///     This is native function that check if the mouse is clicked over the block, i used this function to set the selected block to camera lock over he.
-    /// </summary>
-    private void OnMouseDown()
-    {
-        GameManager.instance.SetSelectedBlock(this.gameObject);
-    }
-    /// <summary>
     ///     This is native function that check if the object was destroyed, i use this function to order all blocks linked in this, check the new direction without a block.
     /// </summary>
     private void OnDestroy()
     {
-        foreach (GameObject block in linkedBlocks)
+        foreach (GameObject block in blocksAround)
         {
             if (block != null)
             {
                 block.GetComponent<PieceConfigure>().IdentityBlocks();
-                block.GetComponent<PieceConfigure>().IdentityLinkedBlocks();
+                block.GetComponent<PieceConfigure>().IdentityBlocksAround();
             }
         }
     }
-
-    private void IsLinkedToMain(){
-        foreach (GameObject obj in linkedBlocks)
+    public void DefineConnections(){
+        foreach (GameObject block in blocksAround)
+        {
+            connectedBlocks.Add(new Connection(this.gameObject, block));
+        }
+    }
+    public bool IsLinkedToMain(GameObject objectRequest){
+        bool isLinked = false;
+        print($"Testando conexões do bloco {this.gameObject.name}");
+        foreach (GameObject obj in blocksAround)
         {
             if (obj.name == mainBlock.name)
             {
-                linkedToMain = true;
+                print($"o bloco {this.gameObject.name} é diretamente ligado ao principal");
+                directlyLinkedToMain = true;
+                isLinked = true;
             }
-            else if(obj.GetComponent<PieceConfigure>().LinkedToMain)
+            else if (obj.GetComponent<PieceConfigure>().DirectlyLinkedToMain)
             {
-                linkedToMain = true;
+                print($"o bloco {this.gameObject.name} ligado com um que é diretamente ligado ao principal");
+                isLinked = true;
             }
-            else
+            else if (obj != objectRequest)
             {
-                linkedToMain = false;
+                print($"o bloco {this.gameObject.name} é diferente do bloco de requisição");
+                if (obj.GetComponent<PieceConfigure>().IsLinkedToMain(this.gameObject))
+                {
+                    print($"o bloco {this.gameObject.name} em alguma ligação dos blocos ligados a esse existe uma ligação ao principal");
+                    isLinked = true;
+                }
             }
         }
-        if(linkedBlocks.Count == 0)
-            linkedToMain = false;
+        if(blocksAround.Count == 0)
+            print($"O bloco {this.gameObject.name} não é ligado a nenhum bloco");
+            isLinked = false;
         // if (this.gameObject.transform.parent.parent.name != "Vehicle")
         // {
-        //     if (!linkedToMain)
+        //     if (!isLinked)
         //     {
         //         Destroy(this.gameObject.GetComponent<Block.BlockBehavior>());
         //         Destroy(this.gameObject.GetComponent<PieceMaterial>());
@@ -151,7 +170,11 @@ public class PieceConfigure : MonoBehaviour
         //         Destroy(this);
         //     }
         // }
+        linkedToMain = isLinked;
+        return isLinked;
     }
+
+    public bool DirectlyLinkedToMain => directlyLinkedToMain;
 
     /// <summary>
     ///     This public function is used for check directions that's not contains a block.
@@ -170,34 +193,34 @@ public class PieceConfigure : MonoBehaviour
             }
         }
     }
-    public void IdentityLinkedBlocks()
+    public void IdentityBlocksAround()
     {
-        linkedBlocks.Clear();
+        blocksAround.Clear();
         for (int i = 0; i < _directions.Length; i++)
         {
             bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
             if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
             {
-                linkedBlocks.Add(_hit[i].collider.gameObject);
+                blocksAround.Add(_hit[i].collider.gameObject);
             }
         }
     }
     /// <summary>
-    ///     Public function thats used for get the linkedBlocks list.
+    ///     Public function thats used for get the blocksAround list.
     /// </summary>
     /// <returns>
-    ///     linkedBlocks list
+    ///     blocksAround list
     /// </returns>
-    public List<GameObject> GetLinkedBlocks()
+    public List<GameObject> GetBlocksAround()
     {
-        return linkedBlocks;
+        return blocksAround;
     }
     /// <summary>
-    ///     Public function thats used for set the linkedBlocks list.
+    ///     Public function thats used for set the blocksAround list.
     /// </summary>
-    public void SetLinkedBlocks(List<GameObject> _linkedBlocks)
+    public void SetBlocksAround(List<GameObject> _blocksAround)
     {
-        linkedBlocks = _linkedBlocks;
+        blocksAround = _blocksAround;
     }
     /// <summary>
     ///     Public function thats used for get the nonCollidingDirs list.
@@ -209,8 +232,6 @@ public class PieceConfigure : MonoBehaviour
     {
         return nonCollidingDirs;
     }
-
-    public bool LinkedToMain => linkedToMain;
     /// <summary>
     ///     Private function that is used to draw and debug casted rays
     /// </summary>

@@ -75,16 +75,7 @@ public class PlayerInputCreation : MonoBehaviour
             TestDraw();
             if (Input.GetMouseButtonDown(0) && (IdentifyFoundBlock().Item1 != null))
             {
-                Outlines outlines;
-                if (GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines))
-                {
-                    Destroy(outlines);
-                }
-                GameManager.instance.SetSelectedBlock(IdentifyFoundBlock().Item1);
-                if (!GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines))
-                {
-                    IdentifyFoundBlock().Item1.AddComponent<Outlines>().OutlineWidth = 4.0f;
-                }
+                CreateOutline(IdentifyFoundBlock().Item1);
             }
             if (GameManager.instance.GetCanCreate)
             {
@@ -157,6 +148,17 @@ public class PlayerInputCreation : MonoBehaviour
         }
     }
     */
+
+    private void CreateOutline(GameObject outlineObject){
+        Outlines outlines;
+        if (GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines) || outlineObject.TryGetComponent<Outlines>(out outlines))
+            Destroy(outlines);
+        GameManager.instance.SetSelectedBlock(outlineObject);
+        if (!GameManager.instance.GetSelectedBlock().TryGetComponent<Outlines>(out outlines))
+        {
+            outlineObject.AddComponent<Outlines>().OutlineWidth = 4.0f;
+        }
+    }
 
     /// <summary>
     ///     Instantiate a new block.

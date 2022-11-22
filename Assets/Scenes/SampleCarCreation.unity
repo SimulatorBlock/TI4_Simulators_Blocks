@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2097086600592189090, guid: 13873db2877a1664b89943fb581774d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2097086600592189090, guid: 13873db2877a1664b89943fb581774d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -743,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2097086600592189090, guid: 13873db2877a1664b89943fb581774d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2097086600592189090, guid: 13873db2877a1664b89943fb581774d8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -755,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2097086600592189090, guid: 13873db2877a1664b89943fb581774d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2097086600592189090, guid: 13873db2877a1664b89943fb581774d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7060,6 +7060,7 @@ MonoBehaviour:
   nonCollidingDirs: 
   linkedBlocks: []
   rayDistance: 0.75
+  linkedToMain: 0
 --- !u!33 &6094157887166658237
 MeshFilter:
   m_ObjectHideFlags: 0
