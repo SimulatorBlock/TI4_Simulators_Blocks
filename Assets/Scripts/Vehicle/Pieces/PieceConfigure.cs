@@ -33,12 +33,14 @@ public class PieceConfigure : MonoBehaviour
     [SerializeField] private bool linkedToMain = false;
 
     public class Connection {
-        private GameObject father;
+        private GameObject whoPutThis;
         private GameObject linkedBlock;
-        public Connection(GameObject _father, GameObject _linkedBlock){
-            father = _father;
+        public Connection(GameObject _whoPutThis, GameObject _linkedBlock){
+            whoPutThis = _whoPutThis;
             linkedBlock = _linkedBlock;
         }
+        public GameObject GetWhoPutThis => whoPutThis;
+        public GameObject GetLinkedBlock => linkedBlock;
     }
     private List<Connection> connectedBlocks = new List<Connection>();
 
@@ -127,7 +129,11 @@ public class PieceConfigure : MonoBehaviour
     public void DefineConnections(){
         foreach (GameObject block in blocksAround)
         {
-            connectedBlocks.Add(new Connection(this.gameObject, block));
+            AddToConnectedBlocks(this.gameObject, block);
+            PieceConfigure piece;
+            if (block.TryGetComponent<PieceConfigure>(out piece)){
+                piece.AddToConnectedBlocks(this.gameObject, this.gameObject);
+            }
         }
     }
     public bool IsLinkedToMain(GameObject objectRequest){
@@ -141,7 +147,7 @@ public class PieceConfigure : MonoBehaviour
                 directlyLinkedToMain = true;
                 isLinked = true;
             }
-            else if (obj.GetComponent<PieceConfigure>().DirectlyLinkedToMain)
+            else if (obj.GetComponent<PieceConfigure>().GetDirectlyLinkedToMain)
             {
                 print($"o bloco {this.gameObject.name} ligado com um que é diretamente ligado ao principal");
                 isLinked = true;
@@ -174,7 +180,6 @@ public class PieceConfigure : MonoBehaviour
         return isLinked;
     }
 
-    public bool DirectlyLinkedToMain => directlyLinkedToMain;
 
     /// <summary>
     ///     This public function is used for check directions that's not contains a block.
@@ -204,6 +209,14 @@ public class PieceConfigure : MonoBehaviour
                 blocksAround.Add(_hit[i].collider.gameObject);
             }
         }
+    }
+    public bool GetDirectlyLinkedToMain => directlyLinkedToMain;
+    public List<Connection> GetConnectedBlocks => connectedBlocks;
+    public void AddToConnectedBlocks(GameObject father, GameObject block){
+        connectedBlocks.Add(new Connection(father, block));
+    }
+    public void RemoveFromConnectedBlocks(GameObject father, GameObject block){
+        connectedBlocks.Add(new Connection(father, block));
     }
     /// <summary>
     ///     Public function thats used for get the blocksAround list.
