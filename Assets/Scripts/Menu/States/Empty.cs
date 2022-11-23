@@ -17,7 +17,6 @@ namespace Menu.States
 
         public void Update()
         {
-            Debug.Log("UPDATE");
             if (!(Time.time >= maxTime)) return;
             
             IMenuState newState = new InGame(menu);
