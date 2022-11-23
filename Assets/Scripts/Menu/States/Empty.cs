@@ -13,10 +13,7 @@ namespace Menu.States
             maxTime = Time.time + delayTime;
         }
         
-        public void Enter()
-        {
-            Debug.Log("ENTREU");
-        }
+        public void Enter() {}
 
         public void Update()
         {
