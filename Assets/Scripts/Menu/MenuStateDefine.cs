@@ -12,9 +12,16 @@ namespace Menu
             IMenuState newState = new InMain(Menu.Instance);
             Menu.Instance.SetState(newState);
         }
+        
         public static void SetInGameState()
         {
             IMenuState newState = new InGame(Menu.Instance);
+            Menu.Instance.SetState(newState);
+        }
+        
+        public static void SetInGameStateWithDelay()
+        {
+            IMenuState newState = new Empty(Menu.Instance);
             Menu.Instance.SetState(newState);
         }
         
@@ -75,6 +82,12 @@ namespace Menu
             // Menu.instance.SetState(newState);
 
             // SetInGameState();
+        }
+        
+        public static void SetEmptyState()
+        {
+            IMenuState newState = new Empty(Menu.Instance);
+            Menu.Instance.SetState(newState);
         }
         
         public static void ReloadLevel()

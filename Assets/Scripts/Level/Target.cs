@@ -65,7 +65,7 @@ namespace Level
             AudioManager.Instance.Stop("Motor");
             yield return new WaitForSeconds(SecondsToNextLevel);
             SceneManager.LoadScene(levelToUnlock.ToString());
-            MenuStateDefine.SetInGameState();
+            MenuStateDefine.SetInGameStateWithDelay();
             //Transitions.Instance.DestroyTransitions();
         }
         

@@ -25,7 +25,7 @@ namespace Menu.States
             if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.KeypadEnter)) return;
             
             //Transitions.Instance.ChooseeTransition(Random.Range(0,4));
-            IMenuState newState = new InGame(menu);
+            IMenuState newState = new Empty(menu);
             menu.SetState(newState);
             
             SceneManager.LoadScene(Constants.Levels.Forest_01.ToString());
