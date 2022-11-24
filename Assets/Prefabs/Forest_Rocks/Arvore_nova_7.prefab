@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8601750059417585005}
   - component: {fileID: 4606987442496736645}
   - component: {fileID: 3522827152089860948}
-  - component: {fileID: -7968881493395990552}
-  - component: {fileID: -853274440539274281}
+  - component: {fileID: -8902578793276489341}
+  - component: {fileID: -4324254310717454107}
   m_Layer: 0
   m_Name: Arvore_nova_7
   m_TagString: Untagged
@@ -85,21 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-7968881493395990552
-MeshCollider:
+--- !u!136 &-8902578793276489341
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4352823259735618604}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -397591072330096804, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
---- !u!114 &-853274440539274281
+  m_Radius: 0.2092925
+  m_Height: 3.6689672
+  m_Direction: 1
+  m_Center: {x: 0.02397114, y: 1.7200317, z: 0.0171009}
+--- !u!114 &-4324254310717454107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

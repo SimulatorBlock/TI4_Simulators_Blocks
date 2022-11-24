@@ -4,6 +4,7 @@ public class EnemyVehicleMovement : MonoBehaviour
 {
     public float speed = 10f;
     private Vector3 direction = Vector3.right;
+    private Transform rotation;
 
     private void Update()
     {
@@ -11,7 +12,7 @@ public class EnemyVehicleMovement : MonoBehaviour
 
         if (transform.position.x > 20)
         {
-            direction = Vector3.left;
+            direction = Vector3.left;           
         }
 
         if (transform.position.x < -20)

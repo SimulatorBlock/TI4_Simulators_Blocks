@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3704663421236382356}
   - component: {fileID: 6082066476828753222}
   - component: {fileID: 3751193516054833299}
+  - component: {fileID: 5402978457863235113}
   m_Layer: 0
   m_Name: rock.004
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78482b590a1ecd445ac98ddeb49b4d91, type: 2}
+  - {fileID: 2100000, guid: 04a5523acaa4d4049aec3d12eb16458f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!65 &5402978457863235113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215088101573501473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0271523, y: 1.0599291, z: 0.84711456}
+  m_Center: {x: -0.010387927, y: -0.026899427, z: 0.031624466}

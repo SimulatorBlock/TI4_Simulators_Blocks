@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4245421196337679843}
   - component: {fileID: 2976852226231705859}
   - component: {fileID: 7407394980937129688}
+  - component: {fileID: 8797270056536700608}
   m_Layer: 0
   m_Name: Pedra_4
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78482b590a1ecd445ac98ddeb49b4d91, type: 2}
+  - {fileID: 2100000, guid: 04a5523acaa4d4049aec3d12eb16458f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!65 &8797270056536700608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806749190656034423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8380793, y: 1.1411774, z: 2.5684938}
+  m_Center: {x: 0.000000059604645, y: 0.5596125, z: 0}

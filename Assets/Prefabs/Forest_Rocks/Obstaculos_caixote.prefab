@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 376034024571527119}
   - component: {fileID: 2509357913091025669}
   - component: {fileID: -480144160882075512}
+  - component: {fileID: -5130304556542513852}
   m_Layer: 0
   m_Name: Obstaculos_caixote
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d05e8645a775a644bb2f3bfcb44c39f, type: 2}
+  - {fileID: 2100000, guid: 04a5523acaa4d4049aec3d12eb16458f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!65 &-5130304556542513852
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166950925899172560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5028124, y: 1.1039715, z: 1.0883927}
+  m_Center: {x: -0.00877279, y: 0.5221355, z: 0.02107817}

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1753043032441054343}
   - component: {fileID: 8482826231751287128}
   - component: {fileID: 825983332280504481}
-  - component: {fileID: 5568376659092545210}
   - component: {fileID: 2001654906517686872}
+  - component: {fileID: 6866789807612026797}
   m_Layer: 0
   m_Name: Palmeira
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5568376659092545210
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8215726423912787491}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3426166864387280194, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
 --- !u!114 &2001654906517686872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
+--- !u!136 &6866789807612026797
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215726423912787491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29156876
+  m_Height: 3.73463
+  m_Direction: 1
+  m_Center: {x: -0.1532898, y: 1.439887, z: 0.029765785}

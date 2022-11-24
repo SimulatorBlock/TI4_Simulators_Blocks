@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1010777932950271919}
   - component: {fileID: 4687330422839671815}
   - component: {fileID: 3625711157195066021}
-  - component: {fileID: 7767679152770144485}
-  - component: {fileID: 6585622050929174436}
+  - component: {fileID: 8109594617709007348}
+  - component: {fileID: 6320620897371207519}
   m_Layer: 0
   m_Name: Arvore_nova_12
   m_TagString: Untagged
@@ -85,7 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7767679152770144485
+--- !u!136 &8109594617709007348
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3789637590538571099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2644148
+  m_Height: 3.0652974
+  m_Direction: 1
+  m_Center: {x: -0.10416317, y: 1.5324959, z: 0.0051085353}
+--- !u!114 &6320620897371207519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,17 +112,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
---- !u!64 &6585622050929174436
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3789637590538571099}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1193731643104004929, guid: 9dcbf082ff8db5941a33f943a02c595f, type: 3}

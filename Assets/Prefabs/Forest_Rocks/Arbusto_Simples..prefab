@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8829231382568521985}
   - component: {fileID: 8431226664508491166}
   - component: {fileID: 352610613572149997}
-  - component: {fileID: -622613793478781686}
-  - component: {fileID: -2602275735113119842}
+  - component: {fileID: 6772857602568966880}
+  - component: {fileID: 3404065165128921477}
   m_Layer: 0
   m_Name: Arbusto_Simples.
   m_TagString: Untagged
@@ -85,21 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-622613793478781686
-MeshCollider:
+--- !u!136 &6772857602568966880
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4489902900613985172}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5687055704246115767, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
---- !u!114 &-2602275735113119842
+  m_Radius: 0.9596053
+  m_Height: 2.1864684
+  m_Direction: 1
+  m_Center: {x: 0.011691332, y: 1.0788964, z: 0.3826589}
+--- !u!114 &3404065165128921477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

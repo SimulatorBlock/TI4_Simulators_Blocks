@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7638589920233045761}
   - component: {fileID: 6450501318455414977}
   - component: {fileID: 2440104388560046289}
-  - component: {fileID: -1201623037365653702}
-  - component: {fileID: 8804584466006484521}
+  - component: {fileID: -550160493781813999}
+  - component: {fileID: -8606999883477505063}
   m_Layer: 0
   m_Name: Arvore_mogno
   m_TagString: Untagged
@@ -85,21 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-1201623037365653702
-MeshCollider:
+--- !u!136 &-550160493781813999
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6289492619627153296}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8000798878013280926, guid: 071c885951acd024bb9bb2855fad4c02, type: 3}
---- !u!114 &8804584466006484521
+  m_Radius: 0.72246844
+  m_Height: 7.620388
+  m_Direction: 1
+  m_Center: {x: -0.02797705, y: 3.7815442, z: -0.01301986}
+--- !u!114 &-8606999883477505063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

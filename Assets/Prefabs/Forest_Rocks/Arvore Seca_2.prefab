@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 261556392222266383}
   - component: {fileID: 3616501968552780434}
   - component: {fileID: 8867138552111504233}
-  - component: {fileID: 6367308096819516145}
-  - component: {fileID: 7821735765959670954}
+  - component: {fileID: -9001542124667262532}
+  - component: {fileID: -1625243066791279106}
   m_Layer: 0
   m_Name: Arvore Seca_2
   m_TagString: Untagged
@@ -85,7 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6367308096819516145
+--- !u!136 &-9001542124667262532
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084550285607888936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.51272124
+  m_Height: 4.686688
+  m_Direction: 1
+  m_Center: {x: -0.05125445, y: 2.1185715, z: 0.070361376}
+--- !u!114 &-1625243066791279106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,17 +112,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justScale: 1
---- !u!64 &7821735765959670954
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4084550285607888936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8005917176663878069, guid: 9dcbf082ff8db5941a33f943a02c595f, type: 3}
