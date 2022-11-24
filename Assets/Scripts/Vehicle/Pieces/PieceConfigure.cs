@@ -20,6 +20,7 @@ public class PieceConfigure : MonoBehaviour
     [Header("Floats")]
     [Space(10)]
     [SerializeField] private float rayDistance = 0.75f;
+    [SerializeField] private Transform rayOrigin;
     private readonly RaycastHit[] _hit = new RaycastHit[6];
     private readonly Vector3[] _directions = {
         Vector3.forward,
@@ -29,56 +30,32 @@ public class PieceConfigure : MonoBehaviour
         Vector3.up,
         Vector3.down
     };
-    [SerializeField] private bool directlyLinkedToMain = false;
-    [SerializeField] private bool linkedToMain = false;
-
-    public class Connection {
-        private GameObject whoPutThis;
-        private GameObject linkedBlock;
-        public Connection(GameObject _whoPutThis, GameObject _linkedBlock){
-            whoPutThis = _whoPutThis;
-            linkedBlock = _linkedBlock;
-        }
-        public GameObject GetWhoPutThis => whoPutThis;
-        public GameObject GetLinkedBlock => linkedBlock;
-    }
-    private List<Connection> connectedBlocks = new List<Connection>();
+    [SerializeField] private List<GameObject> connectedBlocks = new List<GameObject>();
 
     void Start()
     {
         /* mainBlock = GameObject.Find("BlockMain");  */
         mainBlock = GameManager.instance.GetMainBlock;
+        if (rayOrigin == null)
+        {
+            rayOrigin = this.transform;
+        }
         Configure();
         IdentityBlocks();
         if (this.gameObject.name == mainBlock.name)
         {
-            if (this.transform.parent.name != "Vehicle"){
-                Outlines outlines;
-                if (!this.gameObject.TryGetComponent<Outlines>(out outlines))
-                {
-                    outlines = this.gameObject.AddComponent<Outlines>();
-                }else
-                {
-                    outlines.OutlineWidth = 2.0f;
-                }
+            if (this.transform.parent.name != "Vehicle")
+            {
+                DiscoverAllBlocksConnected(this.gameObject,this.gameObject, new List<GameObject>());
+                this.transform.parent.GetComponent<Vehicle2>().BroadcastMessage("AddToPiecesList");
+                DisconnectBlockUnlinked();
+                CreateOutline();
             }
         }
         else if (this.transform.parent.parent.name != "Vehicle")
         {
-            Outlines outlines;
-            if (!this.gameObject.TryGetComponent<Outlines>(out outlines))
-            {
-                outlines = this.gameObject.AddComponent<Outlines>();
-            }else
-            {
-                outlines.OutlineWidth = 2.0f;
-            }
+            CreateOutline();
         }
-        // if (this.gameObject.name != mainBlock.name)
-        // {
-        //     IsLinkedToMain(this.gameObject);
-        // }
-        // InEditMode();
     }
     void Update()
     {
@@ -90,27 +67,27 @@ public class PieceConfigure : MonoBehaviour
     /// </summary>
     private void Configure()
     {
-        if (this.gameObject != mainBlock)
+        // if (this.gameObject != mainBlock)
+        // {
+        //Here we tells which block is around then this
+        for (int i = 0; i < _directions.Length; i++)
         {
-            //Here we tells which block is around then this
-            for (int i = 0; i < _directions.Length; i++)
-            {
-                bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
+            bool colliding = Physics.Raycast(rayOrigin.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
 
-                if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
+            if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
+            {
+                blocksAround.Add(_hit[i].collider.gameObject);//Here we add to the blocksAround list all blocks linked to the block created
+                _hit[i].collider.gameObject.GetComponent<PieceConfigure>().IdentityBlocks();
+                if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround.Contains(this.gameObject)) /* && _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Count > 0 */)
                 {
-                    blocksAround.Add(_hit[i].collider.gameObject);//Here we add to the blocksAround list all blocks linked to the block created
-                    // Debug.Log(this.gameObject.name);
-                    _hit[i].collider.gameObject.GetComponent<PieceConfigure>().IdentityBlocks();
-                    if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Contains(this.gameObject)) && _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Count > 0)
-                    {
-                        List<GameObject> _blocksAround = _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround();
-                        _blocksAround.Add(this.gameObject);
-                        _hit[i].collider.gameObject.GetComponent<PieceConfigure>().SetBlocksAround(_blocksAround);
-                    }
+                    _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround.Add(this.gameObject);
+                    // List<GameObject> _blocksAround = _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround;
+                    // _blocksAround.Add(this.gameObject);
+                    // _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround = _blocksAround;
                 }
             }
         }
+        // }
     }
     /// <summary>
     ///     This is native function that check if the object was destroyed, i use this function to order all blocks linked in this, check the new direction without a block.
@@ -121,63 +98,52 @@ public class PieceConfigure : MonoBehaviour
         {
             if (block != null)
             {
-                block.GetComponent<PieceConfigure>().IdentityBlocks();
-                block.GetComponent<PieceConfigure>().IdentityBlocksAround();
-            }
-        }
-    }
-    public void DefineConnections(){
-        foreach (GameObject block in blocksAround)
-        {
-            AddToConnectedBlocks(this.gameObject, block);
-            PieceConfigure piece;
-            if (block.TryGetComponent<PieceConfigure>(out piece)){
-                piece.AddToConnectedBlocks(this.gameObject, this.gameObject);
-            }
-        }
-    }
-    public bool IsLinkedToMain(GameObject objectRequest){
-        bool isLinked = false;
-        print($"Testando conexões do bloco {this.gameObject.name}");
-        foreach (GameObject obj in blocksAround)
-        {
-            if (obj.name == mainBlock.name)
-            {
-                print($"o bloco {this.gameObject.name} é diretamente ligado ao principal");
-                directlyLinkedToMain = true;
-                isLinked = true;
-            }
-            else if (obj.GetComponent<PieceConfigure>().GetDirectlyLinkedToMain)
-            {
-                print($"o bloco {this.gameObject.name} ligado com um que é diretamente ligado ao principal");
-                isLinked = true;
-            }
-            else if (obj != objectRequest)
-            {
-                print($"o bloco {this.gameObject.name} é diferente do bloco de requisição");
-                if (obj.GetComponent<PieceConfigure>().IsLinkedToMain(this.gameObject))
-                {
-                    print($"o bloco {this.gameObject.name} em alguma ligação dos blocos ligados a esse existe uma ligação ao principal");
-                    isLinked = true;
+                PieceConfigure pieceConfigure;
+                if(block.TryGetComponent<PieceConfigure>(out pieceConfigure)){
+                    pieceConfigure.IdentityBlocks();
+                    pieceConfigure.IdentityBlocksAround();
                 }
             }
         }
-        if(blocksAround.Count == 0)
-            print($"O bloco {this.gameObject.name} não é ligado a nenhum bloco");
-            isLinked = false;
-        // if (this.gameObject.transform.parent.parent.name != "Vehicle")
-        // {
-        //     if (!isLinked)
-        //     {
-        //         Destroy(this.gameObject.GetComponent<Block.BlockBehavior>());
-        //         Destroy(this.gameObject.GetComponent<PieceMaterial>());
-        //         this.transform.SetParent(null);
-        //         this.gameObject.AddComponent<Rigidbody>();
-        //         Destroy(this);
-        //     }
-        // }
-        linkedToMain = isLinked;
-        return isLinked;
+    }
+
+    private void CreateOutline(){
+        Outlines outlines;
+        if (!this.gameObject.TryGetComponent<Outlines>(out outlines))
+        {
+            outlines = this.gameObject.AddComponent<Outlines>();
+        }
+        else
+        {
+            outlines.OutlineWidth = 2.0f;
+        }
+    }
+    private void AddToPiecesList(){
+        if (this.gameObject.name != "BlockMain")
+        {
+            if (this.gameObject.tag == "Wheel")
+            {
+                this.transform.parent.parent.GetComponent<Vehicle2>().Pieces.Add(this.gameObject);
+            }
+            else
+            {
+                this.transform.parent.parent.gameObject.GetComponent<Vehicle2>().Pieces.Add(this.gameObject);
+            }
+        }
+    }
+    public void DisconnectBlockUnlinked()
+    {
+        foreach (GameObject block in this.gameObject.transform.parent.GetComponent<Vehicle2>().Pieces)
+        {
+            if (!connectedBlocks.Contains(block))
+            {
+                Destroy(block.gameObject.GetComponent<Block.BlockBehavior>());
+                Destroy(block.gameObject.GetComponent<PieceMaterial>());
+                Destroy(block.gameObject.GetComponent<PieceConfigure>());
+                block.gameObject.AddComponent<Rigidbody>().mass = 40;
+                block.transform.SetParent(null);
+            }
+        }
     }
 
 
@@ -186,14 +152,12 @@ public class PieceConfigure : MonoBehaviour
     /// </summary>
     public void IdentityBlocks()
     {
-        // Debug.Log($"chamou: {this.gameObject.name}");
         nonCollidingDirs.Clear();
         for (int i = 0; i < _directions.Length; i++)
         {
-            bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
+            bool colliding = Physics.Raycast(rayOrigin.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
             if (!colliding)
             {
-                // print(name + " - " + "Direção: " + i + ";");
                 nonCollidingDirs.Add(i);
             }
         }
@@ -203,47 +167,41 @@ public class PieceConfigure : MonoBehaviour
         blocksAround.Clear();
         for (int i = 0; i < _directions.Length; i++)
         {
-            bool colliding = Physics.Raycast(transform.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
+            bool colliding = Physics.Raycast(rayOrigin.position, transform.TransformDirection(_directions[i]), out _hit[i], rayDistance);
             if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
             {
                 blocksAround.Add(_hit[i].collider.gameObject);
             }
         }
     }
-    public bool GetDirectlyLinkedToMain => directlyLinkedToMain;
-    public List<Connection> GetConnectedBlocks => connectedBlocks;
-    public void AddToConnectedBlocks(GameObject father, GameObject block){
-        connectedBlocks.Add(new Connection(father, block));
-    }
-    public void RemoveFromConnectedBlocks(GameObject father, GameObject block){
-        connectedBlocks.Add(new Connection(father, block));
-    }
-    /// <summary>
-    ///     Public function thats used for get the blocksAround list.
-    /// </summary>
-    /// <returns>
-    ///     blocksAround list
-    /// </returns>
-    public List<GameObject> GetBlocksAround()
-    {
-        return blocksAround;
-    }
-    /// <summary>
-    ///     Public function thats used for set the blocksAround list.
-    /// </summary>
-    public void SetBlocksAround(List<GameObject> _blocksAround)
-    {
-        blocksAround = _blocksAround;
-    }
-    /// <summary>
-    ///     Public function thats used for get the nonCollidingDirs list.
-    /// </summary>
-    /// <returns>
-    ///     nonCollidingDirs list
-    /// </returns>
-    public List<int> GetNonColliderDirs()
-    {
-        return nonCollidingDirs;
+    public void DiscoverAllBlocksConnected(GameObject startPiece, GameObject lastPieceFound, List<GameObject> piecesRead){
+        PieceConfigure pieceConfigure;
+        PieceConfigure startPieceConfigure;
+        if (!piecesRead.Contains(this.gameObject))
+        {
+            foreach (GameObject piece in blocksAround)
+            {
+                if (piece != lastPieceFound && piece != startPiece)
+                {
+                    if (this.gameObject.name == mainBlock.name){
+                        if (!ConnectedBlocks.Contains(piece)){
+                            ConnectedBlocks.Add(piece);
+                        }
+                    }
+                    else{
+                        if (startPiece.TryGetComponent<PieceConfigure>(out startPieceConfigure)){
+                            if (!startPieceConfigure.ConnectedBlocks.Contains(piece)){
+                                startPieceConfigure.ConnectedBlocks.Add(piece);
+                            }
+                        }
+                    }
+                    if (piece.TryGetComponent<PieceConfigure>(out pieceConfigure)){
+                        piecesRead.Add(this.gameObject);
+                        pieceConfigure.DiscoverAllBlocksConnected(startPiece, this.gameObject, piecesRead);
+                    }
+                }
+            }
+        }
     }
     /// <summary>
     ///     Private function that is used to draw and debug casted rays
@@ -252,17 +210,47 @@ public class PieceConfigure : MonoBehaviour
     {
         for (int i = 0; i < _directions.Length; i++)
         {
-            if (Physics.Raycast(transform.position, _directions[i], out _hit[i], rayDistance))
+            if (Physics.Raycast(rayOrigin.position, _directions[i], out _hit[i], rayDistance))
             {
                 if (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel")
                 {
-                    Debug.DrawRay(transform.position, transform.TransformDirection(_directions[i]) * _hit[i].distance, Color.red);
+                    Debug.DrawRay(rayOrigin.position, transform.TransformDirection(_directions[i]) * _hit[i].distance, Color.red);
                 }
             }
             else
             {
-                Debug.DrawRay(transform.position, _directions[i] * rayDistance, Color.white);
+                Debug.DrawRay(rayOrigin.position, _directions[i] * rayDistance, Color.white);
             }
         }
     }
+    /// <summary>
+    ///     Get and Sets <paramref name="connectedBlocks"/> list.
+    /// </summary>
+    /// <returns>
+    ///     <paramref name="connectedBlocks"/> list
+    /// </returns>
+    public List<GameObject> ConnectedBlocks 
+    {
+        get {return connectedBlocks;}
+        set {connectedBlocks = value;}
+    }
+    // public List<GameObject> GetConnectedBlocks => connectedBlocks;
+    /// <summary>
+    ///     Get and Sets <paramref name="blocksAround"/> list
+    /// </summary>
+    /// <returns>
+    ///     blocksAround list
+    /// </returns>
+    public List<GameObject> BlocksAround 
+    {
+        get {return blocksAround;}
+        set {blocksAround = value;}
+    }
+    /// <summary>
+    ///     Get the <paramref name="nonCollidingDirs"/> list.
+    /// </summary>
+    /// <returns>
+    ///     <paramref name="nonCollidingDirs"/> list
+    /// </returns>
+    public List<int> GetNonColliderDirs => nonCollidingDirs;
 }

@@ -63,10 +63,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainBlock: {fileID: 0}
   nonCollidingDirs: 
-  linkedBlocks: []
+  blocksAround: []
   rayDistance: 0.75
-  linkedToMain: 0
-  rayOrigen: {fileID: 5551457283363024565}
+  rayOrigin: {fileID: 0}
+  connectedBlocks: []
 --- !u!114 &-6649266995852399270
 MonoBehaviour:
   m_ObjectHideFlags: 0
