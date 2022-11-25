@@ -147,9 +147,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainBlock: {fileID: 0}
   nonCollidingDirs: 
-  linkedBlocks: []
+  blocksAround: []
   rayDistance: 0.75
-  linkedToMain: 0
+  rayOrigin: {fileID: 0}
+  connectedBlocks: []
 --- !u!114 &8680864279798640861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EngineBlock3Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 5967375620694473930, guid: 3652af2d5e1728d46ba2ea345d46b58c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 205c8e99402476f48b26be6017ec50c3, type: 2}
     - target: {fileID: 8973342485300685950, guid: 3652af2d5e1728d46ba2ea345d46b58c, type: 3}
       propertyPath: m_RootOrder
       value: 0

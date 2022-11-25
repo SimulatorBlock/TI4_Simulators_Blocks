@@ -243,7 +243,7 @@ public class PlayerInputCreation : MonoBehaviour
     {
         if (obj != null)
         {
-            if (obj.GetComponent<PieceConfigure>().GetNonColliderDirs().Contains(direction))//verifies if this direction already have a block
+            if (obj.GetComponent<PieceConfigure>().GetNonColliderDirs.Contains(direction))//verifies if this direction already have a block
             {
                 Vector3 objPos = obj.transform.position;
                 switch (direction)
@@ -430,10 +430,12 @@ public class PlayerInputCreation : MonoBehaviour
                                 break;
                             case "WheelTopBack":
                                 DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                                 placeHolder.transform.position += new Vector3(0.0f,-0.56f,-0.5f);
                                 break;
                             case "WheelTopFront":
                                 DefinePlaceHolderPos(objPos);
+                                placeHolder.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
                                 placeHolder.transform.position += new Vector3(0.0f,-0.56f,0.5f);
                                 break;
                             default:
