@@ -59,10 +59,11 @@ public class VehicleChanger : MonoBehaviour
         if (vehicleObject) Destroy(vehicleObject);
 
         Vector3 position = new(0, 1, 0);
+        vfxManager.EnableVFX("CFX3_Hit_SmokePuff");
         vehicleObject = Instantiate(vehicles[vehicleId], position, Quaternion.identity);
         VehicleHelper.Vehicle = vehicleId;
        
-        //vfxManager.EnableVFX("CFX3_Hit_SmokePuff");
+       
     }
   
 }

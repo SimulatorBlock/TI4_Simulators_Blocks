@@ -65,4 +65,15 @@ public class VFXManager : MonoBehaviour
         }
         //vfx.vfxParticleSys.seila;
     }
+
+    public void ChangePos(Vector3 pos, string vfxName)
+    {
+        VFXs vfx = Array.Find(vfXsList, vFXs =>  vFXs.name == vfxName);
+
+        foreach (var var in vfXsList)
+        {
+            if (var.name == vfxName)
+                vfx.vfxGameObj.transform.position = pos;
+        }
+    }
 }

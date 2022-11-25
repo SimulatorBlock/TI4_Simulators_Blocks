@@ -517,7 +517,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: VehicleChager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8224609377108755512, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224609377108989976, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224609377108989976, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224609377108989976, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224609377108989976, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224609377123147096, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224609377123147096, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8224609377098035672, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
 --- !u!114 &207456434 stripped
 MonoBehaviour:
@@ -1389,7 +1418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225605ee124c46c468920caecc95c859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleChanger: {fileID: 0}
   TypeOfTween: 0
   modelsTweenToStarts:
   - {fileID: 955556535}
