@@ -2629,12 +2629,12 @@ Transform:
   - {fileID: 714170055}
   - {fileID: 678766617}
   - {fileID: 1147042694}
+  - {fileID: 1491659585}
   - {fileID: 1534273857}
   - {fileID: 1728888134}
   - {fileID: 1982028955}
-  - {fileID: 1491659585}
-  - {fileID: 1834623808}
   - {fileID: 36283411}
+  - {fileID: 1834623808}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6891,9 +6891,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225605ee124c46c468920caecc95c859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleChanger: {fileID: 0}
   TypeOfTween: 0
   modelsTweenToStarts:
+  - {fileID: 892637532}
+  - {fileID: 1730754960}
+  - {fileID: 781410952}
+  - {fileID: 1491077827}
+  - {fileID: 1536244700}
+  - {fileID: 693896681}
+  - {fileID: 1458839087}
+  - {fileID: 502517811}
+  - {fileID: 245339156}
+  - {fileID: 1432700484}
   - {fileID: 172964078}
   - {fileID: 1499070942}
   - {fileID: 1994849202}
@@ -6910,7 +6919,6 @@ MonoBehaviour:
   - {fileID: 1999796139}
   - {fileID: 583657054}
   - {fileID: 457056295}
-  - {fileID: 0}
   - {fileID: 2004758556}
   - {fileID: 1845242010}
   - {fileID: 107126662}
@@ -6933,10 +6941,6 @@ MonoBehaviour:
   - {fileID: 557530792}
   - {fileID: 1243829012}
   - {fileID: 622163483}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 551831872}
   - {fileID: 152746540}
   - {fileID: 46230146}
@@ -6975,21 +6979,12 @@ MonoBehaviour:
   - {fileID: 714170057}
   - {fileID: 678766619}
   - {fileID: 1147042696}
+  - {fileID: 1491659587}
   - {fileID: 1534273859}
   - {fileID: 1728888136}
   - {fileID: 1982028957}
-  - {fileID: 1491659587}
+  - {fileID: 1901053185}
   - {fileID: 1834623810}
-  - {fileID: 892637532}
-  - {fileID: 1730754960}
-  - {fileID: 781410952}
-  - {fileID: 1491077827}
-  - {fileID: 1536244700}
-  - {fileID: 693896681}
-  - {fileID: 1458839087}
-  - {fileID: 502517811}
-  - {fileID: 245339156}
-  - {fileID: 1432700484}
 --- !u!4 &1834623808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1663346206844127434, guid: 59dbb7e3a20a45c4a878cb5b9dd9f571, type: 3}
@@ -7298,6 +7293,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59dbb7e3a20a45c4a878cb5b9dd9f571, type: 3}
+--- !u!114 &1901053185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5968894430895479359, guid: 9ac2317b11a860740b8eb26e3130bf46, type: 3}
+  m_PrefabInstance: {fileID: 36283410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1907826039
 PrefabInstance:
   m_ObjectHideFlags: 0

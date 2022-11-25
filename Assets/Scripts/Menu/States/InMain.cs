@@ -24,6 +24,7 @@ namespace Menu.States
         {
             if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.KeypadEnter)) return;
             
+            AudioManager.Instance.Stop("Music 1");AudioManager.Instance.Stop("Music 2");
             //Transitions.Instance.ChooseeTransition(Random.Range(0,4));
             IMenuState newState = new Empty(menu);
             menu.SetState(newState);
