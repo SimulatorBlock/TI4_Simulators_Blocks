@@ -1920,17 +1920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &963292414 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1589488839884233366, guid: 0c40ca6de4931b34fb2c8788c3f7e9fc, type: 3}
-  m_PrefabInstance: {fileID: 1285925623}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885e708f689afa044b81c1fcf4de0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1014536393 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3324986252695431687, guid: bb4928869d9655041bf07e4511273fce, type: 3}
@@ -3041,7 +3030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5064471802053678110, guid: f3bd2246a0d441e45940624a1292f489, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5064471802053678110, guid: f3bd2246a0d441e45940624a1292f489, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4487,7 +4476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225605ee124c46c468920caecc95c859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleChanger: {fileID: 963292414}
   TypeOfTween: 0
   modelsTweenToStarts:
   - {fileID: 1884528902}

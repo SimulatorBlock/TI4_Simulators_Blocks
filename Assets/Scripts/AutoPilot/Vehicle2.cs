@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 using Block;
 
@@ -20,6 +21,8 @@ public class Vehicle2 : MonoBehaviour
         {
             Config();
         }
+        
+        AudioManager.Instance.Play("Motor", true);
     }
 
     public void Config()
