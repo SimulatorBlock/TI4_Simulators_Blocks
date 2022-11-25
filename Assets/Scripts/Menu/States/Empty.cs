@@ -7,7 +7,7 @@ namespace Menu.States
         private readonly Menu menu;
         private readonly float maxTime;
         
-        public Empty(Menu menu, float delayTime = 2.5f)
+        public Empty(Menu menu, float delayTime = 2.6f)
         {
             this.menu = menu;
             maxTime = Time.time + delayTime;
