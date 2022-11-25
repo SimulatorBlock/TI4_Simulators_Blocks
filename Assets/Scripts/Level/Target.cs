@@ -50,6 +50,8 @@ namespace Level
       
         private void OnTriggerEnter(Collider other)
         {
+            if(!other.CompareTag("Block"))return;
+            
             if(trigger) return;
             trigger = true;
             Status.Instance.UnlockLevel(levelToUnlock);
