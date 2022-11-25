@@ -12,6 +12,15 @@ public class Vehicle2 : MonoBehaviour
     [SerializeField] private List<BlockScrObj> blocks = new();
     [SerializeField] private List<EngineScrObj> engines = new();
     [SerializeField] private List<WheelCollider> wheels = new();
+    [SerializeField] private List<GameObject> pieces = new();
+    [SerializeField] public List<GameObject> Pieces {get{return pieces;} set{pieces = value;}}
+
+    private void Start() {
+        if (this.gameObject.name != "Vehicle")
+        {
+            Config();
+        }
+    }
 
     public void Config()
     {
