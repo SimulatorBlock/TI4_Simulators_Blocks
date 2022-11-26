@@ -1,5 +1,6 @@
 using System.Collections;
 using Audio;
+using AutoPilot;
 using Menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -82,7 +83,10 @@ namespace Level
         IEnumerator Explosion(bool next, float time)
         {
             yield return new WaitForSeconds(time);
-            GameObject obj = FindObjectOfType<Vehicle2>().gameObject;       
+            GameObject obj = FindObjectOfType<Vehicle2>().gameObject;
+            if (!obj)
+                obj = FindObjectOfType<Vehicle>().gameObject;
+            
             vfxManager.ChangePos(obj.transform.position, "Explosion");
             vfxManager.EnableVFX("Explosion");
             AudioManager.Instance.Play("Explosion", false);

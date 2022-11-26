@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 public class SkyBoxNames
@@ -29,6 +30,19 @@ public class SkyBoxNames
         SkyBox19,
     }
 }
+
+public class AmbienceSounds
+{
+    public enum ambienceSounds
+    {
+        AmbienceMorningFlorest,
+        AmbienceNightFlorest,
+        AmbienceMorningCity,
+        AmbienceNightCity,
+        MusicInitialScreen,
+        MusicGarage
+    }
+}
 public class SkyboxScene : MonoBehaviour
 {
     public static SkyboxScene Instance;
@@ -42,8 +56,16 @@ public class SkyboxScene : MonoBehaviour
         RenderSettings.skybox = skyboxMaterial[(int)name];
     }
     
+
     [SerializeField] private Material[] skyboxMaterial;
     [SerializeField] private SkyBoxNames.skyboxName name;
+
+    [SerializeField] private AmbienceSounds.ambienceSounds ambienceSound;
+    private void Start()
+    {
+        AudioManager.Instance.Play(ambienceSound.ToString(), true);
+    }
+    
     public void SetSkyBox(SkyBoxNames.skyboxName nameOf)
     {
         RenderSettings.skybox = skyboxMaterial[(int)nameOf];

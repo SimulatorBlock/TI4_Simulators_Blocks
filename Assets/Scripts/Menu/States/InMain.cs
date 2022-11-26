@@ -14,9 +14,8 @@ namespace Menu.States
 
         public void Enter()
         {
-            AudioManager.Instance.Play("Music 2", true);
-
-            AudioManager.Instance.Stop("Motor");
+            //AudioManager.Instance.Play("Music 2", true);
+            
             menu.inMain.SetActive(true);
         }
 
