@@ -11,6 +11,7 @@ namespace Menu.States
         public InGarage(Menu menu)
         {
             this.menu = menu;
+            AudioManager.Instance.Stop("Motor");
             // AudioManager.Instance.StopAll();
         }
         

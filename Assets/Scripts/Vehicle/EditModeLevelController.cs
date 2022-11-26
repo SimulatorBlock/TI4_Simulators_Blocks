@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using AutoPilot;
@@ -43,6 +44,7 @@ public class EditModeLevelController : MonoBehaviour
     public static void BackToEditScene(){
         if (GameManager.instance)
         {
+            AudioManager.Instance.StopAll();
             GameManager.instance.GetVehicle.transform.position = new Vector3(0,0,0);
             Vehicle2 vehicleScript;
             if (GameManager.instance.GetVehicle.TryGetComponent<Vehicle2>(out vehicleScript)){
@@ -54,6 +56,7 @@ public class EditModeLevelController : MonoBehaviour
     public static void GoToGameScene(){
         if (GameManager.instance)
         {
+            AudioManager.Instance.StopAll();
             GameManager.instance.SetIsEditing(false);
             GameManager.instance.SetCanCreate(false);
             GameManager.instance.SetCanDestroy(false);
