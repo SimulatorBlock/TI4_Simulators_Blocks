@@ -32,7 +32,7 @@ public class VehicleChanger : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);
+       /* if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) InstantiateVehicle(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) InstantiateVehicle(2);
         if (Input.GetKeyDown(KeyCode.Alpha4)) InstantiateVehicle(3);
@@ -52,7 +52,7 @@ public class VehicleChanger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O)) InstantiateVehicle(17);
         if (Input.GetKeyDown(KeyCode.P)) InstantiateVehicle(18);
         if (Input.GetKeyDown(KeyCode.A)) InstantiateVehicle(19);
-        if (Input.GetKeyDown(KeyCode.S)) InstantiateVehicle(20);
+        if (Input.GetKeyDown(KeyCode.S)) InstantiateVehicle(20);*/
     }
 
     private void InstantiateVehicle(int vehicleId)
