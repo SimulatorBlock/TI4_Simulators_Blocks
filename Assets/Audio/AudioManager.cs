@@ -34,7 +34,7 @@ namespace Audio
         public void Stop(string n)
         {
             Sound s = Array.Find(sounds, sound => sound.name == n);
-            s.source.Stop();
+            s?.source?.Stop();
         }
 
         public void Pause(string n)
