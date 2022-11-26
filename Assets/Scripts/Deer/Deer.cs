@@ -16,7 +16,7 @@ public class Deer : MonoBehaviour
     [SerializeField] private GameObject player;
 
     private void Start() {
-        Invoke("SetEnemy", 1.8f);
+        Invoke("SetEnemy", 2.0f);
     }
     private void SetEnemy(){
         player = GameObject.Find("Vehicle(Clone)");
