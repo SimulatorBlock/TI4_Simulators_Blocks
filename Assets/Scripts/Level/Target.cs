@@ -83,7 +83,13 @@ namespace Level
         IEnumerator Explosion(bool next, float time)
         {
             yield return new WaitForSeconds(time);
-            GameObject obj = FindObjectOfType<Vehicle2>().gameObject;
+            GameObject obj = null;
+            try
+            {
+                obj = FindObjectOfType<Vehicle2>().gameObject;
+            }
+            catch { }
+            
             if (!obj)
                 obj = FindObjectOfType<Vehicle>().gameObject;
             
