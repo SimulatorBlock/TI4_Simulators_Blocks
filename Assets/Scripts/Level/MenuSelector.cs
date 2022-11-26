@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,7 @@ namespace Level
 
         private void OnMouseDown()
         {
+            AudioManager.Instance.StopAll();
             if (isAvailableLevel) SceneManager.LoadScene(level.ToString());
             if (!isAvailableLevel) isAvailableLevel = true;
         }

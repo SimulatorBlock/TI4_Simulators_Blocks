@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ namespace Menu
         // Update is called once per frame
         private void HandleClick()
         {
+            AudioManager.Instance.StopAll();
             SceneManager.LoadScene(goToLevel.ToString());
         }
     }

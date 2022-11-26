@@ -93,7 +93,7 @@ namespace Level
             if (!obj)
                 obj = FindObjectOfType<Vehicle>().gameObject;
             
-            vfxManager.ChangePos(obj.transform.position, "Explosion");
+            vfxManager.ChangePos(obj.transform.localPosition, "Explosion");
             vfxManager.EnableVFX("Explosion");
             AudioManager.Instance.Play("Explosion", false);
             Destroy(obj);
@@ -107,6 +107,7 @@ namespace Level
 
         void NextLevel()
         {
+            AudioManager.Instance.StopAll();
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameStateWithDelay();
         }

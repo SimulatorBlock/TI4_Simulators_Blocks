@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -192,6 +193,7 @@ public class CanvasManagarEdit : MonoBehaviour
     }
 
     public static void ClickPlayButton(){
+        AudioManager.Instance.StopAll();
         SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
         EditModeLevelController.GoToGameScene();
         // GameManager.instance.SetIsEditing(false);

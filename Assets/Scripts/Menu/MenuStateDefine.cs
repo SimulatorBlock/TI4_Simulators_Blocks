@@ -102,8 +102,8 @@ namespace Menu
         public static void ReloadLevel()
         {
             SetInGameStateWithDelay();
+            AudioManager.Instance.StopAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            AudioManager.Instance.Stop("Motor");
         }
     }
 }

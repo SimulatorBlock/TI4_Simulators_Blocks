@@ -41,7 +41,8 @@ public class AmbienceSounds
         AmbienceMorningCity,
         AmbienceNightCity,
         MusicInitialScreen,
-        MusicGarage,
+        MusicGarage1,
+        MusicGarage2,
         InitialRandom
     }
 }
@@ -53,7 +54,7 @@ public class SkyboxScene : MonoBehaviour
         if(Instance) {Destroy(gameObject); return;}
         
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         RenderSettings.skybox = skyboxMaterial[(int)name];
     }
@@ -69,13 +70,19 @@ public class SkyboxScene : MonoBehaviour
         {
             int music = Random.Range(0, 2);
             if (music == 0)
-                ambienceSound = AmbienceSounds.ambienceSounds.MusicInitialScreen;
+                ambienceSound = AmbienceSounds.ambienceSounds.MusicGarage1;
             else
-                ambienceSound = AmbienceSounds.ambienceSounds.MusicGarage;
+                ambienceSound = AmbienceSounds.ambienceSounds.MusicGarage2;
         }
+
+        StartCoroutine(WaitStartAudioManager());
+    }
+
+    IEnumerator WaitStartAudioManager()
+    {
+        yield return new WaitForSeconds(0.5f);
         AudioManager.Instance.Play(ambienceSound.ToString(), true);
     }
-    
     public void SetSkyBox(SkyBoxNames.skyboxName nameOf)
     {
         RenderSettings.skybox = skyboxMaterial[(int)nameOf];

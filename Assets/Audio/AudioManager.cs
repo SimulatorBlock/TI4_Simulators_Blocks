@@ -24,6 +24,13 @@ namespace Audio
                 s.source.Stop();
             }
         }
+
+        public  void StopAll()
+        {
+            foreach (Sound s in sounds)
+                s.source.Stop();
+        }
+
         public void Play(string n, bool looping)
         {
             Sound s = Array.Find(sounds, sound => sound.name == n);
