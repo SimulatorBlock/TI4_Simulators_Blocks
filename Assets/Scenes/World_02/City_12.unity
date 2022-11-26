@@ -7057,6 +7057,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1985619183}
+        m_TargetAssemblyTypeName: Menu.MenuStateDefine, Assembly-CSharp
+        m_MethodName: SetInMainState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1729198647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8476,6 +8488,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4dfaf3d0937d448a109ed570e739fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1985619183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4413873599326291799, guid: 1f78bc65b6278f544a0a5639206d0d46, type: 3}
+  m_PrefabInstance: {fileID: 841055595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd741e5fb75248f49ef3cfa5fb428e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1994849200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8955,7 +8978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cidade
+  m_text: Tela Inicial
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
