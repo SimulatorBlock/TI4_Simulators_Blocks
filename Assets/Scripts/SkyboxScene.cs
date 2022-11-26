@@ -82,6 +82,7 @@ public class SkyboxScene : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         AudioManager.Instance.StopAll();
+        yield return new WaitForSeconds(0.5f);
         AudioManager.Instance.Play(ambienceSound.ToString(), true);
     }
     public void SetSkyBox(SkyBoxNames.skyboxName nameOf)
