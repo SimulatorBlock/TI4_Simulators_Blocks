@@ -13,7 +13,8 @@ public class PieceMaterial : MonoBehaviour
     [SerializeField] private List<Renderer> renderers = new();
 
     [SerializeField] private bool mouseOver = false;
-    public bool MouseOver{
+    public bool MouseOver
+    {
         get { return mouseOver; }
         set { mouseOver = value; }
     }
@@ -23,32 +24,38 @@ public class PieceMaterial : MonoBehaviour
     // [Tooltip("The MainBlock, Gets on start by the GameManager.cs")]
     // [SerializeField] private GameObject mainBlock;
 
-    [Header("Data")]    
+    [Header("Data")]
     [Space(10)]
     [SerializeField] private PieceMaterialData pieceData;
 
-    private void Start() {
+    private void Start()
+    {
         // mainBlock = GameManager.instance.GetMainBlock;
+        // Debug.Log(this.gameObject.name);
+        // Debug.Log(renderers.Count);
+        // Debug.Log(defaultMaterials.Count);
         foreach (var item in GetComponentsInChildren<Renderer>())
         {
-            renderers.Add(item);
+            if (!renderers.Contains(item))
+            {
+                renderers.Add(item);
+            }
             List<Material> _materials = new();
             foreach (var i in item.materials)
             {
                 _materials.Add(i);
             }
-            defaultMaterials.Add(_materials);
-            // foreach (var i in item.materials)
-            // {
-            //     defaultMaterials.Add(i);
-            // }
+            if (!defaultMaterials.Contains(_materials))
+            {
+                defaultMaterials.Add(_materials);
+            }
         }
-
         // defaultMaterial = GetComponentsInChildren<Renderer>().material;
         // destroyMaterial = pieceData.GetDestroyMaterial;
     }
 
-    private void Update(){
+    private void Update()
+    {
         // if (this.gameObject.transform.parent != null)
         // {
         //     if (this.gameObject.transform.parent.parent.name == "Vehicle")
@@ -95,7 +102,7 @@ public class PieceMaterial : MonoBehaviour
         //         renderer.materials[i] = pieceData.GetDestroyMaterial;
         //     }
         // }
-        Material[] _DestroyMaterial = {pieceData.GetDestroyMaterial};
+        Material[] _DestroyMaterial = { pieceData.GetDestroyMaterial };
         for (int i = 0; i < renderers.Count; i++)
         {
             renderers[i].materials = _DestroyMaterial;
@@ -108,6 +115,7 @@ public class PieceMaterial : MonoBehaviour
     public void SetToDefaultMaterial()
     {
         // this.gameObject.GetComponentInChildren<Renderer>().material = defaultMaterial;
+
         for (int i = 0; i < renderers.Count; i++)
         {
             renderers[i].materials = defaultMaterials[i].ToArray();

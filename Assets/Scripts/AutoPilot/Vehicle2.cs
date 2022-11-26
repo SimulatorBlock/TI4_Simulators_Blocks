@@ -72,6 +72,12 @@ public class Vehicle2 : MonoBehaviour
             }
         }
     }
+    public void ResetMaterial()
+    {
+        PieceMaterial[] pieceMaterials = GetComponentsInChildren<PieceMaterial>();
+        foreach (var block in pieceMaterials)
+            block.SendMessage("ResetMaterial");
+    }
 
     private void ConfigWheelCollider()
     {

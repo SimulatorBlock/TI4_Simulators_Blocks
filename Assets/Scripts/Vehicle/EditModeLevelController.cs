@@ -49,6 +49,7 @@ public class EditModeLevelController : MonoBehaviour
             Vehicle2 vehicleScript;
             if (GameManager.instance.GetVehicle.TryGetComponent<Vehicle2>(out vehicleScript)){
                 vehicleScript.ClearLists();
+                vehicleScript.ResetMaterial();
             }
             GameManager.instance.SetIsEditing(true);
         }
@@ -61,6 +62,10 @@ public class EditModeLevelController : MonoBehaviour
             GameManager.instance.SetCanCreate(false);
             GameManager.instance.SetCanDestroy(false);
             // GameManager.instance.GetVehicle.GetComponent<Vehicle2>().Config();
+            Vehicle2 vehicleScript;
+            if (GameManager.instance.GetVehicle.TryGetComponent<Vehicle2>(out vehicleScript)){
+                vehicleScript.ResetMaterial();
+            }
             GameManager.instance.GetVehicle.transform.position = new Vector3(1000,1000,1000);
         }
     }
