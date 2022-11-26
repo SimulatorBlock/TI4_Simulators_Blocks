@@ -1,6 +1,7 @@
 using Audio;
 using Menu.States;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Menu
 {
@@ -31,6 +32,9 @@ namespace Menu
         [SerializeField] public GameObject garageEngines;
         [SerializeField] public GameObject garageWheels;
 
+        [SerializeField] private Image musicButtonimage;
+            //0 = On / 1 = = Off
+        [SerializeField] private Sprite[] musicSprites;
         private void Awake()
         {
             if (Instance) Destroy(gameObject);
@@ -96,6 +100,15 @@ namespace Menu
             garageBlocks.SetActive(false);
             garageEngines.SetActive(false);
             garageWheels.SetActive(false);
+        }
+
+        private bool musicIsPlaying = true;
+        public void Audio()
+        {
+            musicIsPlaying = !musicIsPlaying;
+            AudioManager.Instance.MuteMusic(!musicIsPlaying);
+
+            musicButtonimage.sprite = musicSprites[musicIsPlaying ? 0 : 1];
         }
     }
 }

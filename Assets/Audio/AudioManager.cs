@@ -25,6 +25,11 @@ namespace Audio
             }
         }
 
+        public void MuteMusic(bool state)
+        {
+            foreach (Sound s in sounds)
+                s.source.mute = state;
+        }
         public  void StopAll()
         {
             foreach (Sound s in sounds)
