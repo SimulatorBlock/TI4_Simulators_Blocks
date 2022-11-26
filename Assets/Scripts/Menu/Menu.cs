@@ -18,6 +18,11 @@ namespace Menu
         [Header("Settings Panels")]
         [SerializeField] public GameObject openSettings;
         [SerializeField] public GameObject tooltipCredits;
+<<<<<<< Updated upstream
+=======
+        [SerializeField] public GameObject tooltipCarList;
+        [SerializeField] public GameObject tooltipCarListSave;
+>>>>>>> Stashed changes
         [SerializeField] public GameObject tooltipLevelList;
         
         [Header("Modals Panels")]
@@ -84,6 +89,11 @@ namespace Menu
             
             openSettings.SetActive(false);
             tooltipCredits.SetActive(false);
+<<<<<<< Updated upstream
+=======
+            tooltipCarList.SetActive(false);
+            tooltipCarListSave.SetActive(false);
+>>>>>>> Stashed changes
             tooltipLevelList.SetActive(false);
             
             modalExistGame.SetActive(false);

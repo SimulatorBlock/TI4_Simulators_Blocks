@@ -10,8 +10,11 @@ namespace Menu.States
         public InGarage(Menu menu)
         {
             this.menu = menu;
-            SceneManager.LoadScene("SampleCarCreation");
-            EditModeLevelController.BackToEditScene();
+            if (SceneManager.GetActiveScene().name != "SampleCarCreation")
+            {
+                SceneManager.LoadScene("SampleCarCreation");
+                EditModeLevelController.BackToEditScene();
+            }
         }
         
         public void Enter()
