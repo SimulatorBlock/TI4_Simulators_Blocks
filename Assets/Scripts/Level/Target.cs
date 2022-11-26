@@ -12,6 +12,8 @@ namespace Level
         [SerializeField] private Constants.Levels levelToUnlock;
         [SerializeField] private Transform model;
 
+        [SerializeField] GameObject cityPanel;
+
         private const float RotateSpeed = 90f;
         private const float Displacement = 1f;
 
@@ -107,10 +109,17 @@ namespace Level
 
         void NextLevel()
         {
+            if (SceneManager.GetActiveScene().name != "Forest_17" ||SceneManager.GetActiveScene().name != "City_12")
+                cityPanel.SetActive(true);
+            else
+                LoadScene();
+        }
+
+        public void LoadScene()
+        {
             AudioManager.Instance.StopAll();
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameStateWithDelay();
         }
-        
     }
 }
