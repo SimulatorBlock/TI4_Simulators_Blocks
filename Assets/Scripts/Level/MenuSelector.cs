@@ -29,7 +29,7 @@ namespace Level
 
         private void OnMouseDown()
         {
-            AudioManager.Instance.StopAll();
+            //AudioManager.Instance.StopAll();
             if (isAvailableLevel) SceneManager.LoadScene(level.ToString());
             if (!isAvailableLevel) isAvailableLevel = true;
         }

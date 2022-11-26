@@ -110,7 +110,7 @@ namespace Menu
         public static void ReloadLevel()
         {
             SetInGameStateWithDelay();
-            AudioManager.Instance.StopAll();
+            //AudioManager.Instance.StopAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

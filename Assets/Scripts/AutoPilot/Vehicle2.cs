@@ -24,8 +24,16 @@ public class Vehicle2 : MonoBehaviour
         }
         if(SceneManager.GetActiveScene().name != "SampleCarCreation")
             AudioManager.Instance.Play("Motor", true);
+        StartCoroutine(CheckSceneAudioAgain());
     }
 
+    IEnumerator CheckSceneAudioAgain()
+    {
+        yield return new WaitForSeconds(1.1f);
+        if(SceneManager.GetActiveScene().name != "SampleCarCreation")
+            AudioManager.Instance.Play("Motor", true);
+        
+    }
     public void Config()
     {
         GetAllBlockBehavior();

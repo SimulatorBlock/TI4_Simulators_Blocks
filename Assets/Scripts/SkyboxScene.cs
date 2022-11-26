@@ -80,9 +80,8 @@ public class SkyboxScene : MonoBehaviour
 
     IEnumerator WaitStartAudioManager()
     {
-        yield return new WaitForSeconds(1f);
         AudioManager.Instance.StopAll();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.1f);
         AudioManager.Instance.Play(ambienceSound.ToString(), true);
     }
     public void SetSkyBox(SkyBoxNames.skyboxName nameOf)

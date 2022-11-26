@@ -22,6 +22,11 @@ public class Tutorial : MonoBehaviour
         tutorial.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        tutorial.SetActive(false);
+    }
+
     public void EnableTutorial(bool state)
     {
         tutorial.SetActive(state);

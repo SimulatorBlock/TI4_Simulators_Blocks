@@ -120,7 +120,7 @@ namespace Level
 
         public void LoadScene()
         {
-            AudioManager.Instance.StopAll();
+            //AudioManager.Instance.StopAll();
             SceneManager.LoadScene(levelToUnlock.ToString());
             MenuStateDefine.SetInGameStateWithDelay();
         }

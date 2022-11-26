@@ -11,7 +11,7 @@ namespace Menu.States
         public InGarage(Menu menu)
         {
             this.menu = menu;
-            AudioManager.Instance.Stop("Motor");
+            //AudioManager.Instance.Stop("Motor");
             // AudioManager.Instance.StopAll();
         }
         
@@ -29,7 +29,7 @@ namespace Menu.States
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.C)) return;
-            AudioManager.Instance.StopAll();
+            //AudioManager.Instance.StopAll();
             SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
             IMenuState newState = new InGame(menu);
             menu.SetState(newState);

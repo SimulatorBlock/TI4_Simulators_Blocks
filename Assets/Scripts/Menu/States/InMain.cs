@@ -23,7 +23,7 @@ namespace Menu.States
         {
             if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.KeypadEnter) && !Input.GetMouseButtonDown(0)) return;
             
-            AudioManager.Instance.StopAll();
+            //AudioManager.Instance.StopAll();
             //Transitions.Instance.ChooseeTransition(Random.Range(0,4));
             IMenuState newState = new Empty(menu);
             menu.SetState(newState);

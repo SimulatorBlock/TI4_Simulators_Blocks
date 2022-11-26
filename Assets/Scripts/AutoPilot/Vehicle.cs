@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
@@ -23,6 +24,16 @@ namespace AutoPilot
             ConfigRigidbody();
             if(SceneManager.GetActiveScene().name != "SampleCarCreation")
                 AudioManager.Instance.Play("Motor", true);
+
+            StartCoroutine(CheckSceneAudioAgain());
+        }
+
+        IEnumerator CheckSceneAudioAgain()
+        {
+            yield return new WaitForSeconds(1.1f);
+            if(SceneManager.GetActiveScene().name != "SampleCarCreation")
+                AudioManager.Instance.Play("Motor", true);
+        
         }
 
         private void FixedUpdate()

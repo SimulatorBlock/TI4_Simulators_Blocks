@@ -16,7 +16,7 @@ public class VehicleChanger : MonoBehaviour
     private void Start()
     {
         Tutorial.Instance.EnableTutorial(false);
-        AudioManager.Instance.Stop("Motor");
+        //AudioManager.Instance.Stop("Motor");
         vfxManager = GetComponent<VFXManager>();
         if(GameManager.instance)
             vehicles[0] = GameManager.instance.GetVehicle;
