@@ -1,4 +1,3 @@
-using Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +10,11 @@ namespace Menu.States
         public InGarage(Menu menu)
         {
             this.menu = menu;
-            AudioManager.Instance.StopAll();
-            SceneManager.LoadScene("SampleCarCreation");
-            EditModeLevelController.BackToEditScene();
+            if (SceneManager.GetActiveScene().name != "SampleCarCreation")
+            {
+                SceneManager.LoadScene("SampleCarCreation");
+                EditModeLevelController.BackToEditScene();
+            }
         }
         
         public void Enter()
@@ -25,7 +26,8 @@ namespace Menu.States
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.C)) return;
-            AudioManager.Instance.StopAll();
+
+
             SceneManager.LoadScene(EditModeLevelController.instance.currentScene);
             IMenuState newState = new InGame(menu);
             menu.SetState(newState);

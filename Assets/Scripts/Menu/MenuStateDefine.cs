@@ -1,4 +1,3 @@
-using Audio;
 using Menu.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,16 +11,9 @@ namespace Menu
             IMenuState newState = new InMain(Menu.Instance);
             Menu.Instance.SetState(newState);
         }
-        
         public static void SetInGameState()
         {
             IMenuState newState = new InGame(Menu.Instance);
-            Menu.Instance.SetState(newState);
-        }
-        
-        public static void SetInGameStateWithDelay()
-        {
-            IMenuState newState = new Empty(Menu.Instance);
             Menu.Instance.SetState(newState);
         }
         
@@ -73,6 +65,8 @@ namespace Menu
             Menu.Instance.SetState(newState);
         }
         
+<<<<<<< Updated upstream
+=======
         public static void SetTooltipCarListState()
         {
             IMenuState newState = Menu.Instance.tooltipCarList.activeInHierarchy
@@ -81,7 +75,17 @@ namespace Menu
             
             Menu.Instance.SetState(newState);
         }
+        public static void SetTooltipCarListSaveState()
+        {
+            // IMenuState newState = new TooltipCarListSave(Menu.Instance);
+            IMenuState newState = Menu.Instance.tooltipCarListSave.activeInHierarchy
+                ? null
+                : new TooltipCarListSave(Menu.Instance);
+            
+            Menu.Instance.SetState(newState);
+        }
         
+>>>>>>> Stashed changes
         public static void SetModalExitGameState()
         {
             Application.Quit();
@@ -93,16 +97,9 @@ namespace Menu
             // SetInGameState();
         }
         
-        public static void SetEmptyState()
-        {
-            IMenuState newState = new Empty(Menu.Instance);
-            Menu.Instance.SetState(newState);
-        }
-        
         public static void ReloadLevel()
         {
-            SetInGameStateWithDelay();
-            AudioManager.Instance.StopAll();
+            SetInGameState();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
