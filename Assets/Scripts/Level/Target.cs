@@ -15,7 +15,7 @@ namespace Level
         private const float RotateSpeed = 90f;
         private const float Displacement = 1f;
 
-        private const float SecondsToNextLevel = 1.5f;
+        private const float SecondsToNextLevel = 2.5f;
         private const float TimeToCompleteLevel = 20f;
 
         private Vector3 positionOrigin;
