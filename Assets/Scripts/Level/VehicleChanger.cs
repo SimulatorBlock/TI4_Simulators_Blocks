@@ -15,6 +15,7 @@ public class VehicleChanger : MonoBehaviour
 
     private void Start()
     {
+        Tutorial.Instance.EnableTutorial(false);
         AudioManager.Instance.Stop("Motor");
         vfxManager = GetComponent<VFXManager>();
         if(GameManager.instance)
@@ -68,6 +69,6 @@ public class VehicleChanger : MonoBehaviour
     void TutorialEnable(int id)
     {
         if(vehicles[id].name != "Vehicle_16") return;
-        Tutorial.Instance.EnableTutorial();
+        Tutorial.Instance.EnableTutorial(true);
     }
 }
