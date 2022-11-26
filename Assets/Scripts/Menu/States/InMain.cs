@@ -7,6 +7,7 @@ namespace Menu.States
     public class InMain : IMenuState
     {
         private readonly Menu menu;
+        
         public InMain(Menu menu)
         {
             this.menu = menu;

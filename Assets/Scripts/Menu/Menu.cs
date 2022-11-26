@@ -11,6 +11,7 @@ namespace Menu
         public static Menu Instance;
 
         public MenuDefaultState defaultState = MenuDefaultState.InGame; 
+        private bool musicIsPlaying = true;
         
         [Header("Menu Panels")]
         [SerializeField] public GameObject inMain;
@@ -25,7 +26,8 @@ namespace Menu
         [SerializeField] public GameObject tooltipLevelList;
         
         [Header("Modals Panels")]
-        [SerializeField] public GameObject modalExistGame;
+        [SerializeField] public GameObject modalCloseGame;
+        [SerializeField] public GameObject modalDeleteCar;
         
         [Header("Garage Panels")]
         [SerializeField] public GameObject garageBlocks;
@@ -35,6 +37,7 @@ namespace Menu
         [SerializeField] private Image musicButtonimage;
             //0 = On / 1 = = Off
         [SerializeField] private Sprite[] musicSprites;
+
         private void Awake()
         {
             if (Instance) Destroy(gameObject);
@@ -109,14 +112,14 @@ namespace Menu
             tooltipCarListSave.SetActive(false);
             tooltipLevelList.SetActive(false);
             
-            modalExistGame.SetActive(false);
+            modalCloseGame.SetActive(false);
+            modalDeleteCar.SetActive(false);
             
             garageBlocks.SetActive(false);
             garageEngines.SetActive(false);
             garageWheels.SetActive(false);
         }
 
-        private bool musicIsPlaying = true;
         public void Audio()
         {
             musicIsPlaying = !musicIsPlaying;

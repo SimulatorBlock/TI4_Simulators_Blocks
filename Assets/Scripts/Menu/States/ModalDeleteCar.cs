@@ -2,25 +2,25 @@ using UnityEngine;
 
 namespace Menu.States
 {
-    public class ModalExitGame : IMenuState
+    public class ModalDeleteCar : IMenuState
     {
         private readonly Menu menu;
-
-        public ModalExitGame(Menu menu)
+        
+        public ModalDeleteCar(Menu menu)
         {
             this.menu = menu;
         }
 
         public void Enter()
         {
-            menu.modalCloseGame.SetActive(true);
+            menu.modalDeleteCar.SetActive(true);
         }
 
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             
-            IMenuState newState = new InGame(menu);
+            IMenuState newState = new InGarage(menu);
             menu.SetState(newState);
         }
 

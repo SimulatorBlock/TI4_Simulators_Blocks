@@ -92,13 +92,14 @@ namespace Menu
         
         public static void SetModalExitGameState()
         {
-            Application.Quit();
-            
-            // TODO: Remover cena de selecionar level
-            // IMenuState newState = new ModalExitGame(Menu.instance);
-            // Menu.instance.SetState(newState);
-
-            // SetInGameState();
+            IMenuState newState = new ModalExitGame(Menu.Instance);
+            Menu.Instance.SetState(newState);
+        }
+        
+        public static void SetModalDeleteCarState()
+        {
+            IMenuState newState = new ModalDeleteCar(Menu.Instance);
+            Menu.Instance.SetState(newState);
         }
         
         public static void SetEmptyState()
@@ -112,6 +113,11 @@ namespace Menu
             SetInGameStateWithDelay();
             //AudioManager.Instance.StopAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
+        public static void QuitGame()
+        {
+            Application.Quit();
         }
     }
 }

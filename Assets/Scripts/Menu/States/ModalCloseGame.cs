@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Menu.States
 {
-    public class ModalExitGame : IMenuState
+    public class ModalCloseGame : IMenuState
     {
         private readonly Menu menu;
-
-        public ModalExitGame(Menu menu)
+        
+        public ModalCloseGame(Menu menu)
         {
             this.menu = menu;
         }
