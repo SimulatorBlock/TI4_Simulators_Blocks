@@ -62,8 +62,12 @@ public class VehicleChanger : MonoBehaviour
         vfxManager.EnableVFX("CFX3_Hit_SmokePuff");
         vehicleObject = Instantiate(vehicles[vehicleId], position, Quaternion.identity);
         VehicleHelper.Vehicle = vehicleId;
-       
-       
+        TutorialEnable(vehicleId);
     }
-  
+
+    void TutorialEnable(int id)
+    {
+        if(id != 0) return;
+        Tutorial.Instance.EnableTutorial();
+    }
 }
