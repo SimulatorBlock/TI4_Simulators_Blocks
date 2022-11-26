@@ -25,6 +25,9 @@ namespace Menu.States
             menu.SetState(newState);
         }
 
-        public void Exit() { Time.timeScale = 1;}
+        public void Exit()
+        {
+            Time.timeScale = 1;
+        }
     }
 }

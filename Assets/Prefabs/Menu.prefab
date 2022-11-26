@@ -7233,7 +7233,7 @@ RectTransform:
   - {fileID: 3142695460406386525}
   - {fileID: 4508864818875330184}
   m_Father: {fileID: 4413873599923284131}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11528,7 +11528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4413873598983115672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12046,7 +12046,7 @@ MonoBehaviour:
   tooltipCarList: {fileID: 3963258577190247623}
   tooltipCarListSave: {fileID: 8985319522068090216}
   tooltipLevelList: {fileID: 4413873599555282957}
-  modalCloseGame: {fileID: 4413873600070107206}
+  modalExitGame: {fileID: 4413873600070107206}
   modalDeleteCar: {fileID: 2947294196800511145}
   garageBlocks: {fileID: 1148472760897154557}
   garageEngines: {fileID: 4148512830744970124}
@@ -12246,8 +12246,8 @@ RectTransform:
   - {fileID: 1162057286982946866}
   - {fileID: 1604939702987432066}
   - {fileID: 4413873599555282956}
-  - {fileID: 4413873600070107201}
   - {fileID: 6862767520967136822}
+  - {fileID: 4413873600070107201}
   - {fileID: 5901363714535929861}
   - {fileID: 533312701225084334}
   - {fileID: 1644003373493712162}
@@ -12500,7 +12500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4413873600070107201}
   m_Layer: 5
-  m_Name: ModalCloseGame
+  m_Name: ModalExitGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12521,7 +12521,7 @@ RectTransform:
   - {fileID: 4059577367940102330}
   - {fileID: 2911589587372885147}
   m_Father: {fileID: 4413873599923284131}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15195,7 +15195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1644003373493712162
 RectTransform:
   m_ObjectHideFlags: 0

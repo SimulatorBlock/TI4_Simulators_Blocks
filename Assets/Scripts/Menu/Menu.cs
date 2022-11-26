@@ -26,7 +26,7 @@ namespace Menu
         [SerializeField] public GameObject tooltipLevelList;
         
         [Header("Modals Panels")]
-        [SerializeField] public GameObject modalCloseGame;
+        [SerializeField] public GameObject modalExitGame;
         [SerializeField] public GameObject modalDeleteCar;
         
         [Header("Garage Panels")]
@@ -112,7 +112,7 @@ namespace Menu
             tooltipCarListSave.SetActive(false);
             tooltipLevelList.SetActive(false);
             
-            modalCloseGame.SetActive(false);
+            modalExitGame.SetActive(false);
             modalDeleteCar.SetActive(false);
             
             garageBlocks.SetActive(false);

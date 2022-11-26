@@ -14,6 +14,7 @@ namespace Menu.States
         public void Enter()
         {
             menu.modalDeleteCar.SetActive(true);
+            Time.timeScale = 0;
         }
 
         public void Update()
@@ -24,6 +25,9 @@ namespace Menu.States
             menu.SetState(newState);
         }
 
-        public void Exit() {}
+        public void Exit()
+        {
+            Time.timeScale = 1;
+        }
     }
 }
