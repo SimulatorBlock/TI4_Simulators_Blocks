@@ -12,11 +12,8 @@ namespace Menu.States
         {
             this.menu = menu;
         }
-        
         public void Enter()
         {
-            AudioManager.Instance.Stop("Music 1");AudioManager.Instance.Stop("Music 2");
-            AudioManager.Instance.Stop("Motor");
             menu.inGame.SetActive(true);
             EditModeLevelController.GoToGameScene();
         }

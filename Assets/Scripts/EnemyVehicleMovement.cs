@@ -4,20 +4,21 @@ public class EnemyVehicleMovement : MonoBehaviour
 {
     public float speed = 10f;
     private Vector3 direction = Vector3.right;
-    private Transform rotation;
 
     private void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
 
-        if (transform.position.x > 20)
+        if (transform.position.x >= 20)
         {
-            direction = Vector3.left;           
+            direction = Vector3.left;
+            transform.Rotate(0, 180, 0);
         }
 
-        if (transform.position.x < -20)
+        if (transform.position.x <= -20)
         {
             direction = Vector3.right;
+            transform.Rotate(0, 180, 0);
         }
     }
 

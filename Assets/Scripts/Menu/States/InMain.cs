@@ -14,9 +14,8 @@ namespace Menu.States
 
         public void Enter()
         {
-            AudioManager.Instance.Play("Music 2", true);
-
-            AudioManager.Instance.Stop("Motor");
+            //AudioManager.Instance.Play("Music 2", true);
+            
             menu.inMain.SetActive(true);
         }
 
@@ -24,6 +23,7 @@ namespace Menu.States
         {
             if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.KeypadEnter)) return;
             
+            AudioManager.Instance.Stop("Music 1");AudioManager.Instance.Stop("Music 2");
             //Transitions.Instance.ChooseeTransition(Random.Range(0,4));
             IMenuState newState = new Empty(menu);
             menu.SetState(newState);

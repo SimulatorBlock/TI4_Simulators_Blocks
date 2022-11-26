@@ -21,8 +21,7 @@ public class TweenToStart : MonoBehaviour
         random,
         objectsScaleBlocksFall,
     }
-
-    [SerializeField] public VehicleChanger vehicleChanger;
+    
     [SerializeField] private TweenToStart.typeOfTween TypeOfTween;
     [SerializeField] private List<ModelsTweenToStart> modelsTweenToStarts;
     private int randomStart;

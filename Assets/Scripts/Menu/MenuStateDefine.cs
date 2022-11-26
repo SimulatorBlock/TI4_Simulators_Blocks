@@ -73,6 +73,15 @@ namespace Menu
             Menu.Instance.SetState(newState);
         }
         
+        public static void SetTooltipCarListState()
+        {
+            IMenuState newState = Menu.Instance.tooltipCarList.activeInHierarchy
+                ? new InGame(Menu.Instance)
+                : new TooltipCarList(Menu.Instance);
+            
+            Menu.Instance.SetState(newState);
+        }
+        
         public static void SetModalExitGameState()
         {
             Application.Quit();
