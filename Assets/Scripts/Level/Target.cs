@@ -109,7 +109,7 @@ namespace Level
 
         void NextLevel()
         {
-            if (SceneManager.GetActiveScene().name != "Forest_17" ||SceneManager.GetActiveScene().name != "City_12")
+            if (SceneManager.GetActiveScene().name == "Forest_17" ||SceneManager.GetActiveScene().name == "City_12")
                 cityPanel.SetActive(true);
             else
                 LoadScene();
