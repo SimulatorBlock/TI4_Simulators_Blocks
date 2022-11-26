@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Audio
@@ -23,14 +24,13 @@ namespace Audio
                 s.source.Stop();
             }
         }
-        
-
         public void Play(string n, bool looping)
         {
             Sound s = Array.Find(sounds, sound => sound.name == n);
             s.source.Play();
             s.source.loop = looping;
         }
+        
         public void Stop(string n)
         {
             Sound s = Array.Find(sounds, sound => sound.name == n);

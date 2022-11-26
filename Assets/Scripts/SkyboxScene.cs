@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Audio;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SkyBoxNames
 {
@@ -40,7 +41,8 @@ public class AmbienceSounds
         AmbienceMorningCity,
         AmbienceNightCity,
         MusicInitialScreen,
-        MusicGarage
+        MusicGarage,
+        InitialRandom
     }
 }
 public class SkyboxScene : MonoBehaviour
@@ -63,6 +65,14 @@ public class SkyboxScene : MonoBehaviour
     [SerializeField] private AmbienceSounds.ambienceSounds ambienceSound;
     private void Start()
     {
+        if (ambienceSound == AmbienceSounds.ambienceSounds.InitialRandom)
+        {
+            int music = Random.Range(0, 2);
+            if (music == 0)
+                ambienceSound = AmbienceSounds.ambienceSounds.MusicInitialScreen;
+            else
+                ambienceSound = AmbienceSounds.ambienceSounds.MusicGarage;
+        }
         AudioManager.Instance.Play(ambienceSound.ToString(), true);
     }
     
