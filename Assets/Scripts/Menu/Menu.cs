@@ -74,6 +74,15 @@ namespace Menu
             state?.Update();
         }
 
+        [SerializeField] Texture2D[] cursorTexture;
+        CursorMode cursorMode = CursorMode.Auto;
+        Vector2 hotSpot = Vector2.zero;
+        
+        public void SetCursor(int i)
+        {
+            Cursor.SetCursor(cursorTexture[i], hotSpot, cursorMode);
+        }
+
         public void SetState(IMenuState newState)
         {
             state?.Exit();
@@ -81,6 +90,8 @@ namespace Menu
             
             state = newState;
             state?.Enter();
+
+            SetCursor(0);
         }
 
         private void HiddenAllPanels()

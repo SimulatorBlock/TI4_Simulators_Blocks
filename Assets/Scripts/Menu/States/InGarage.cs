@@ -25,7 +25,7 @@ namespace Menu.States
                 EditModeLevelController.BackToEditScene();
             }
         }
-
+        
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.C)) return;

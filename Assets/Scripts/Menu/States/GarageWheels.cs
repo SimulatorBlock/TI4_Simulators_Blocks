@@ -17,6 +17,17 @@ namespace Menu.States
             //AudioManager.Instance.Stop("Motor");
             menu.inGarage.SetActive(true);
             menu.garageWheels.SetActive(true);
+            
+            OnMouseEnter();
+        }
+
+        [SerializeField] Texture2D cursorTexture;
+        CursorMode cursorMode = CursorMode.Auto;
+        Vector2 hotSpot = Vector2.zero;
+        
+        void OnMouseEnter()
+        {
+            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         }
 
         public void Update()
