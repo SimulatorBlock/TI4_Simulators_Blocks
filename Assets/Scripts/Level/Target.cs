@@ -16,7 +16,7 @@ namespace Level
         private const float Displacement = 1f;
 
         private const float SecondsToNextLevel = 1.5f;
-        private const float TimeToCompleteLevel = 10f;
+        private const float TimeToCompleteLevel = 20f;
 
         private Vector3 positionOrigin;
         private Vector3 positionDisplacement;
