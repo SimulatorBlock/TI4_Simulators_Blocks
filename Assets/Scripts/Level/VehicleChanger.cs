@@ -15,6 +15,7 @@ public class VehicleChanger : MonoBehaviour
 
     private void Start()
     {
+        Tutorial.Instance.EnableTutorial(false);
         AudioManager.Instance.Stop("Motor");
         vfxManager = GetComponent<VFXManager>();
         if(GameManager.instance)
@@ -31,7 +32,7 @@ public class VehicleChanger : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);
+       /* if (Input.GetKeyDown(KeyCode.Alpha1)) InstantiateVehicle(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) InstantiateVehicle(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) InstantiateVehicle(2);
         if (Input.GetKeyDown(KeyCode.Alpha4)) InstantiateVehicle(3);
@@ -51,7 +52,7 @@ public class VehicleChanger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O)) InstantiateVehicle(17);
         if (Input.GetKeyDown(KeyCode.P)) InstantiateVehicle(18);
         if (Input.GetKeyDown(KeyCode.A)) InstantiateVehicle(19);
-        if (Input.GetKeyDown(KeyCode.S)) InstantiateVehicle(20);
+        if (Input.GetKeyDown(KeyCode.S)) InstantiateVehicle(20);*/
     }
 
     private void InstantiateVehicle(int vehicleId)
@@ -68,6 +69,6 @@ public class VehicleChanger : MonoBehaviour
     void TutorialEnable(int id)
     {
         if(vehicles[id].name != "Vehicle_16") return;
-        Tutorial.Instance.EnableTutorial();
+        Tutorial.Instance.EnableTutorial(true);
     }
 }
