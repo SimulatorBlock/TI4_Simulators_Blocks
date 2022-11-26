@@ -94,17 +94,20 @@ namespace Level
             
             if (!obj)
                 obj = FindObjectOfType<Vehicle>().gameObject;
+
+            if (obj.name != "Vehicle")
+            {
+                vfxManager.ChangePos(obj.transform.localPosition, "Explosion");
+                vfxManager.EnableVFX("Explosion");
+                AudioManager.Instance.Play("Explosion", false);
+                Destroy(obj);
+                yield return new WaitForSeconds(SecondsToNextLevel);
             
-            vfxManager.ChangePos(obj.transform.localPosition, "Explosion");
-            vfxManager.EnableVFX("Explosion");
-            AudioManager.Instance.Play("Explosion", false);
-            Destroy(obj);
-            yield return new WaitForSeconds(SecondsToNextLevel);
-            
-            if(next)
-                NextLevel();
-            else
-                MenuStateDefine.ReloadLevel();
+                if(next)
+                    NextLevel();
+                else
+                    MenuStateDefine.ReloadLevel();
+            }
         }
 
         void NextLevel()
