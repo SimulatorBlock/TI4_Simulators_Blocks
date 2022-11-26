@@ -67,7 +67,7 @@ public class VehicleChanger : MonoBehaviour
 
     void TutorialEnable(int id)
     {
-        if(id != 0) return;
+        if(vehicles[id].name != "Vehicle_16") return;
         Tutorial.Instance.EnableTutorial();
     }
 }
