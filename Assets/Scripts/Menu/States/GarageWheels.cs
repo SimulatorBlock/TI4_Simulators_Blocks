@@ -14,7 +14,6 @@ namespace Menu.States
         
         public void Enter()
         {
-            AudioManager.Instance.Stop("Motor");
             menu.inGarage.SetActive(true);
             menu.garageWheels.SetActive(true);
         }

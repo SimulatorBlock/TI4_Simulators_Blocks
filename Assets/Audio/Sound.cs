@@ -16,7 +16,5 @@ namespace Audio
 
         [HideInInspector]
         public AudioSource source;
-        
-        
     }
 }

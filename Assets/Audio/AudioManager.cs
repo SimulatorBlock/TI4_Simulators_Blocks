@@ -12,18 +12,18 @@ namespace Audio
         {
             if (Instance) Destroy(gameObject);
             else Instance = this;
-        }
-
-        private void Start()
-        {
+            
             foreach (Sound s in sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
                 s.source.volume = s.volume;
                 s.source.pitch = s.pitch;
+                
+                s.source.Stop();
             }
         }
+        
 
         public void Play(string n, bool looping)
         {
