@@ -72,6 +72,9 @@ namespace Menu
         private void Update()
         {
             state?.Update();
+            
+            if(!Input.GetMouseButtonDown(1)) return;
+            SetCursor(0);
         }
 
         [SerializeField] Texture2D[] cursorTexture;
