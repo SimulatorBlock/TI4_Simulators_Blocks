@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Menu
 {
-    public class ButtonLevelHighlight : MonoBehaviour
+    public class ButtonHighlight : MonoBehaviour
     {
         private Image buttonImage;
         private readonly Color buttonDefaultColor = new (0f, 0f, 0f, 230f);
