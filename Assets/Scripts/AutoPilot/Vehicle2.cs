@@ -4,6 +4,7 @@ using System.Linq;
 using Audio;
 using UnityEngine;
 using Block;
+using UnityEngine.SceneManagement;
 
 public class Vehicle2 : MonoBehaviour
 {
@@ -21,8 +22,8 @@ public class Vehicle2 : MonoBehaviour
         {
             Config();
         }
-        
-        AudioManager.Instance.Play("Motor", true);
+        if(SceneManager.GetActiveScene().name != "SampleCarCreation")
+            AudioManager.Instance.Play("Motor", true);
     }
 
     public void Config()

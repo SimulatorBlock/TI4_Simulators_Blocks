@@ -3,6 +3,7 @@ using System.Linq;
 using Audio;
 using Block;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace AutoPilot
 {
@@ -20,7 +21,8 @@ namespace AutoPilot
         {
             GetAllBlockBehavior();
             ConfigRigidbody();
-            AudioManager.Instance.Play("Motor", true);
+            if(SceneManager.GetActiveScene().name != "SampleCarCreation")
+                AudioManager.Instance.Play("Motor", true);
         }
 
         private void FixedUpdate()
