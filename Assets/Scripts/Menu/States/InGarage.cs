@@ -12,14 +12,17 @@ namespace Menu.States
         {
             this.menu = menu;
             AudioManager.Instance.StopAll();
-            SceneManager.LoadScene("SampleCarCreation");
-            EditModeLevelController.BackToEditScene();
         }
         
         public void Enter()
         {
             menu.inGarage.SetActive(true);
             menu.garageBlocks.SetActive(true);
+            if (SceneManager.GetActiveScene().name != "SampleCarCreation")
+            {
+                SceneManager.LoadScene("SampleCarCreation");
+                EditModeLevelController.BackToEditScene();
+            }
         }
 
         public void Update()
