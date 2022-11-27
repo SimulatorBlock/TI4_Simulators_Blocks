@@ -47,10 +47,12 @@ public class PieceConfigure : MonoBehaviour
             if (this.transform.parent.name != "Vehicle")
             {
                 DiscoverAllBlocksConnected(this.gameObject,this.gameObject, new List<GameObject>());
-                this.transform.parent.GetComponent<Vehicle2>().BroadcastMessage("AddToPiecesList");
+                // this.transform.parent.GetComponent<Vehicle2>().BroadcastMessage("AddToPiecesList");
                 DisconnectBlockUnlinked();
                 CreateOutline();
             }
+            // else
+            //     AddToPiecesList();
         }
         else if (this.transform.parent.parent.name != "Vehicle")
         {
@@ -121,14 +123,14 @@ public class PieceConfigure : MonoBehaviour
     private void AddToPiecesList(){
         if (this.gameObject.name != "BlockMain")
         {
-            if (this.gameObject.tag == "Wheel")
-            {
-                this.transform.parent.parent.GetComponent<Vehicle2>().Pieces.Add(this.gameObject);
-            }
-            else
-            {
-                this.transform.parent.parent.gameObject.GetComponent<Vehicle2>().Pieces.Add(this.gameObject);
-            }
+            this.transform.parent.parent.gameObject.GetComponent<Vehicle2>().Pieces.Add(this.gameObject);
+            // if (this.gameObject.tag == "Wheel")
+            // {
+            //     this.transform.parent.parent.gameObject.GetComponent<Vehicle2>().Pieces.Add(this.gameObject);
+            // }
+            // else
+            // {
+            // }
         }
     }
     public void DisconnectBlockUnlinked()

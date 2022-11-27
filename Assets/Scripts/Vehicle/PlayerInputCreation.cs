@@ -194,6 +194,7 @@ public class PlayerInputCreation : MonoBehaviour
                         break;
                 }
                 AudioManager.Instance.Play("Pull Block", false);
+                GameManager.instance.GetVehicle.GetComponent<Vehicle2>().Pieces.Add(myBlock);
                 // obj.GetComponent<PieceConfigure>().GetNonColliderDirs().Remove(dir);
             }
         }
@@ -210,6 +211,7 @@ public class PlayerInputCreation : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                GameManager.instance.GetVehicle.GetComponent<Vehicle2>().Pieces.Remove(obj);
                 Destroy(obj);
                 AudioManager.Instance.Play("Delete Blocks", false);
             }
