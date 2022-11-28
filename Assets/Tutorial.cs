@@ -12,23 +12,18 @@ public class Tutorial : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
-            Destroy(gameObject);
+            Destroy(this.gameObject);
     }
 
     [SerializeField] private GameObject tutorial;
 
-    private void Start()
+    public void EnableTutorial(bool state)
     {
-        tutorial.SetActive(false);
+        tutorial.SetActive(state);
     }
 
     private void OnDisable()
     {
         tutorial.SetActive(false);
-    }
-
-    public void EnableTutorial(bool state)
-    {
-        tutorial.SetActive(state);
     }
 }

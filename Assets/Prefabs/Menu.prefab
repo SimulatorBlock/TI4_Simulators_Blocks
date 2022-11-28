@@ -12749,6 +12749,7 @@ GameObject:
   - component: {fileID: 4413873599326291797}
   - component: {fileID: 4413873599326291799}
   - component: {fileID: 4349289912030155843}
+  - component: {fileID: 3313212489610762716}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -12852,6 +12853,20 @@ MonoBehaviour:
   wheelTopButton: {fileID: 3678559801773436148}
   wheelTopBackButton: {fileID: 8816873945467135511}
   wheelTopFrontButton: {fileID: 1174997989306153182}
+--- !u!114 &3313212489610762716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4413873599326291819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1327ecee01378c45807e9ca84d74bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial: {fileID: 3622497485578835871}
+  CanShowtutorial: 0
 --- !u!1 &4413873599555282957
 GameObject:
   m_ObjectHideFlags: 0
@@ -13079,7 +13094,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4413873599949363690}
-  - component: {fileID: 71885707504198137}
   m_Layer: 5
   m_Name: InGame
   m_TagString: Untagged
@@ -13110,19 +13124,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -40, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &71885707504198137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4413873599949363691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1327ecee01378c45807e9ca84d74bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorial: {fileID: 3622497485578835871}
 --- !u!1 &4413873599958097209
 GameObject:
   m_ObjectHideFlags: 0
