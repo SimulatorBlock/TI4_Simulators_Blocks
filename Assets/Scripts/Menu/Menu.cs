@@ -46,6 +46,7 @@ namespace Menu
                 Instance = this;
                 DontDestroyOnLoad(this);
             }
+            SaveCar.SaveManager.LoadJSON();
         }
 
         private void Start()

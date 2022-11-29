@@ -4,12 +4,15 @@ namespace SaveCar{
     public class PieceDataAdapter : PieceSaveData
     {
         public PieceDataAdapter(GameObject piece){
-            string _name = ""; 
-            for (var i = 0; i < piece.name.Length-7; i++)
-            {
-                _name += piece.name[i];
-            }
-            name = _name;
+            Block.BlockBehavior block;
+            if(piece.TryGetComponent<Block.BlockBehavior>(out block))
+                name = block.settings.label;
+            else
+                name = "";
+            // for (var i = 0; i < piece.name.Length-7; i++)
+            // {
+            //     _name += piece.name[i];
+            // }
             position = piece.transform.position;
             rotation = piece.transform.eulerAngles;
         }

@@ -64,6 +64,7 @@ public class Vehicle2 : MonoBehaviour
         wheels = new();
     }
     public void ClearVehicle(){
+        pieces = new();
         foreach (var item in transform.GetComponentsInChildren<BlockBehavior>())
         {
             if (item.gameObject.name != "BlockMain")

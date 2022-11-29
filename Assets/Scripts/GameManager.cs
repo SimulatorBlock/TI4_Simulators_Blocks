@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<WheelCollider> wheelColliders;
     #endregion
 
-    [SerializeField] private PieceData pieceData;    
+    [SerializeField] private PieceData pieceData;
     // [SerializeField] private PlaceHoldersData placeHoldersData;
 
     void Awake(){

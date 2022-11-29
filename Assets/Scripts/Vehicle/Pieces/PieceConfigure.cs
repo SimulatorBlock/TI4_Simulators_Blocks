@@ -20,7 +20,7 @@ public class PieceConfigure : MonoBehaviour
     [Header("Floats")]
     [Space(10)]
     [SerializeField] private float rayDistance = 0.75f;
-    [SerializeField] private Transform rayOrigin;
+    public Transform rayOrigin;
     private readonly RaycastHit[] _hit = new RaycastHit[6];
     private readonly Vector3[] _directions = {
         Vector3.forward,
@@ -79,14 +79,25 @@ public class PieceConfigure : MonoBehaviour
             if (colliding && (_hit[i].collider.gameObject.tag == "Block" || _hit[i].collider.gameObject.tag == "Wheel"))
             {
                 blocksAround.Add(_hit[i].collider.gameObject);//Here we add to the blocksAround list all blocks linked to the block created
-                _hit[i].collider.gameObject.GetComponent<PieceConfigure>().IdentityBlocks();
-                if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround.Contains(this.gameObject)) /* && _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Count > 0 */)
-                {
-                    _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround.Add(this.gameObject);
-                    // List<GameObject> _blocksAround = _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround;
-                    // _blocksAround.Add(this.gameObject);
-                    // _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround = _blocksAround;
+                PieceConfigure hitObject;
+                if(_hit[i].collider.gameObject.TryGetComponent<PieceConfigure>(out hitObject)){
+                    if(hitObject.rayOrigin == null){
+                        hitObject.rayOrigin = hitObject.transform;
+                    }
+                    hitObject.IdentityBlocks();
+                    if (!hitObject.BlocksAround.Contains(this.gameObject))
+                    {
+                        hitObject.BlocksAround.Add(this.gameObject);
+                    }
                 }
+                // _hit[i].collider.gameObject.GetComponent<PieceConfigure>().IdentityBlocks();
+                // if ((!_hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround.Contains(this.gameObject)) /* && _hit[i].collider.gameObject.GetComponent<PieceConfigure>().GetBlocksAround().Count > 0 */)
+                // {
+                //     _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround.Add(this.gameObject);
+                //    // List<GameObject> _blocksAround = _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround;
+                //    // _blocksAround.Add(this.gameObject);
+                //    // _hit[i].collider.gameObject.GetComponent<PieceConfigure>().BlocksAround = _blocksAround;
+                // }
             }
         }
         // }

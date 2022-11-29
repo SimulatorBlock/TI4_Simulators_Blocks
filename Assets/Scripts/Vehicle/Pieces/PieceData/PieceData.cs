@@ -10,7 +10,6 @@ public class PieceData : ScriptableObject
 
     public GameObject FindPiece(string pieceName){
         GameObject obj = null;
-        // Debug.Log(pieceName);
         foreach (GameObject piece in pieces)
         {
             BlockBehavior block;
