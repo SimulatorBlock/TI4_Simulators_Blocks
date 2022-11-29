@@ -60,7 +60,7 @@ namespace Level
       
         private void OnTriggerEnter(Collider other)
         {
-            if(!other.CompareTag("Block"))return;
+            if(other.gameObject.layer != LayerMask.NameToLayer("Block"))return;
             
             if(trigger) return;
             trigger = true;
