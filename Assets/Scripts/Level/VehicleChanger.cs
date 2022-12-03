@@ -22,6 +22,7 @@ public class VehicleChanger : MonoBehaviour
             vehicles[0] = GameManager.instance.GetVehicle;
         
         int vehicleId = VehicleHelper.Vehicle;
+        TutorialEnable(vehicleId);
         StartCoroutine(WaitToBlocksAnimationsOver(vehicleId));
     }
     
@@ -63,7 +64,7 @@ public class VehicleChanger : MonoBehaviour
         vfxManager.EnableVFX("CFX3_Hit_SmokePuff");
         vehicleObject = Instantiate(vehicles[vehicleId], position, Quaternion.identity);
         VehicleHelper.Vehicle = vehicleId;
-        TutorialEnable(vehicleId);
+        //TutorialEnable(vehicleId);
     }
 
     void TutorialEnable(int id)
