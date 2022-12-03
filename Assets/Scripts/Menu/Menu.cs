@@ -33,10 +33,8 @@ namespace Menu
         [SerializeField] public GameObject garageBlocks;
         [SerializeField] public GameObject garageEngines;
         [SerializeField] public GameObject garageWheels;
-
-        [SerializeField] private Image musicButtonimage;
-            //0 = On / 1 = = Off
-        [SerializeField] private Sprite[] musicSprites;
+        
+        [SerializeField] private GameObject[] musicButtons;
 
         private void Awake()
         {
@@ -126,7 +124,8 @@ namespace Menu
             musicIsPlaying = !musicIsPlaying;
             AudioManager.Instance.MuteMusic(!musicIsPlaying);
 
-            musicButtonimage.sprite = musicSprites[musicIsPlaying ? 0 : 1];
+            musicButtons[musicIsPlaying ? 1 : 0].SetActive(false);
+            musicButtons[musicIsPlaying ? 0 : 1].SetActive(true);
         }
     }
 }
