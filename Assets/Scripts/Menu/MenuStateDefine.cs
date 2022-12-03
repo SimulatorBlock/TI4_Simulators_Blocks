@@ -107,6 +107,18 @@ namespace Menu
             IMenuState newState = new Empty(Menu.Instance);
             Menu.Instance.SetState(newState);
         }
+
+        public static void CloseTooltip()
+        {
+            IMenuState newState;
+            
+            if (Menu.Instance.settingsPanelIn == Menu.SettingsPanelIn.InGame)
+                newState = new InGame(Menu.Instance);
+            else
+                newState = new InGarage(Menu.Instance);
+            
+            Menu.Instance.SetState(newState);
+        }
         
         public static void ReloadLevel()
         {

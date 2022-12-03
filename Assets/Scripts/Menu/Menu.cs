@@ -13,12 +13,20 @@ namespace Menu
         public MenuDefaultState defaultState = MenuDefaultState.InGame; 
         private bool musicIsPlaying = true;
         
+        public SettingsPanelIn settingsPanelIn = SettingsPanelIn.InGame;
+        public enum SettingsPanelIn
+        {
+            InGame,
+            InGarage
+        }
+        
         [Header("Menu Panels")]
         [SerializeField] public GameObject inMain;
         [SerializeField] public GameObject inGame;
         [SerializeField] public GameObject inGarage;
         
         [Header("Settings Panels")]
+        [SerializeField] public GameObject buttonSettings;
         [SerializeField] public GameObject openSettings;
         [SerializeField] public GameObject tooltipCredits;
         [SerializeField] public GameObject tooltipCarList;
@@ -74,7 +82,7 @@ namespace Menu
         private void Update()
         {
             state?.Update();
-            
+
             if(!Input.GetMouseButtonDown(1)) return;
             SetCursor(0);
         }
@@ -82,7 +90,7 @@ namespace Menu
         [SerializeField] Texture2D[] cursorTexture;
         CursorMode cursorMode = CursorMode.Auto;
         Vector2 hotSpot = Vector2.zero;
-        
+
         public void SetCursor(int i)
         {
             Cursor.SetCursor(cursorTexture[i], hotSpot, cursorMode);
@@ -104,16 +112,17 @@ namespace Menu
             inMain.SetActive(false);
             inGame.SetActive(false);
             inGarage.SetActive(false);
-            
+
+            buttonSettings.SetActive(false);
             openSettings.SetActive(false);
             tooltipCredits.SetActive(false);
             tooltipCarList.SetActive(false);
             tooltipCarListSave.SetActive(false);
             tooltipLevelList.SetActive(false);
-            
+
             modalExitGame.SetActive(false);
             modalDeleteCar.SetActive(false);
-            
+
             garageBlocks.SetActive(false);
             garageEngines.SetActive(false);
             garageWheels.SetActive(false);
@@ -126,6 +135,16 @@ namespace Menu
 
             musicButtons[musicIsPlaying ? 1 : 0].SetActive(false);
             musicButtons[musicIsPlaying ? 0 : 1].SetActive(true);
+        }
+
+        public void SetSettingsPanelInGame()
+        {
+            settingsPanelIn = SettingsPanelIn.InGame;
+        }
+
+        public void SetSettingsPanelInGarage()
+        {
+            settingsPanelIn = SettingsPanelIn.InGarage;
         }
     }
 }

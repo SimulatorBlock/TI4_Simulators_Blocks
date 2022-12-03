@@ -10,7 +10,7 @@ namespace Menu.States
         {
             this.menu = menu;
         }
-        
+
         public void Enter()
         {
             menu.openSettings.SetActive(true);
@@ -20,8 +20,14 @@ namespace Menu.States
         public void Update()
         {
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
-            
-            IMenuState newState = new InGame(menu);
+
+            IMenuState newState;
+
+            if (Menu.Instance.settingsPanelIn == Menu.SettingsPanelIn.InGame)
+                newState = new InGame(menu);
+            else 
+                newState = new InGarage(menu);
+
             menu.SetState(newState);
         }
 
