@@ -1,6 +1,4 @@
-using Audio;
 using UnityEngine;
-// using UnityEngine.SceneManagement;
 
 namespace Menu.States
 {
@@ -15,13 +13,15 @@ namespace Menu.States
         public void Enter()
         {
             menu.inGame.SetActive(true);
+            menu.buttonSettings.SetActive(true);
             EditModeLevelController.GoToGameScene();
+            Menu.Instance.SetSettingsPanelInGame();
         }
 
         public void Update()
         {
             IMenuState newState = null;
-            
+
             if (Input.GetKeyDown(KeyCode.C)) newState = new InGarage(menu);
             else if (Input.GetKeyDown(KeyCode.R)) MenuStateDefine.ReloadLevel();
             else if (Input.GetKeyDown(KeyCode.L)) newState = new TooltipLevelList(menu);
